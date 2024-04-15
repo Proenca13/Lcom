@@ -77,7 +77,7 @@ int(kbd_test_poll)() {
 
 int(kbd_test_timed_scan)(uint8_t n) {
 int ipc_status,r;
-uint8_t irq_set,irq_set_timer;
+uint8_t irq_set ,irq_set_timer;
 message msg;
 int time  = 0;
 if(timer_subscribe_int(&irq_set_timer)!=0)return 1;
