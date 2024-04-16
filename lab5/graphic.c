@@ -15,3 +15,4 @@ int (set_graphic_mode)(uint16_t mode){
     }
     return 0;
 }
+
