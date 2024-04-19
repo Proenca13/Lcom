@@ -3,6 +3,8 @@
 //
 #include <lcom/lcf.h>
 #include "graphic.h"
+vbe_mode_info_t modeInfo;
+uint8_t* frame_buffer;
 int (set_graphic_mode)(uint16_t mode){
     reg86_t r;
     memset(&r ,0, sizeof(r));
@@ -15,4 +17,95 @@ int (set_graphic_mode)(uint16_t mode){
     }
     return 0;
 }
+int (set_frame_buffer)(uint16_t mode){
+    memset(&modeInfo ,0, sizeof(modeInfo));
+    if(vbe_get_mode_info(mode, &modeInfo)!=0)return 1;
 
+    unsigned int bytes_per_pixel = (modeInfo.BitsPerPixel+7)/8;
+    unsigned int vram_size = modeInfo.XResolution * modeInfo.YResolution * bytes_per_pixel;;
+
+    struct minix_mem_range mr;
+    mr.mr_base = modeInfo.PhysBasePtr;
+    mr.mr_limit = mr.mr_base + vram_size;
+
+    if(  sys_privctl(SELF, SYS_PRIV_ADD_MEM, &mr)!=0){
+        return 1;
+    }
+
+    frame_buffer = vm_map_phys(SELF, (void *)mr.mr_base, vram_size);
+    if(frame_buffer == NULL){
+        panic("couldn’t map video memory");
+        return 1;
+    }
+    return 0;
+}
+int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
+    if(x > modeInfo.XResolution || y > modeInfo.YResolution) return 1;
+    unsigned int bytes_per_pixel = (modeInfo.BitsPerPixel+7)/8;
+    unsigned int index = (modeInfo.XResolution * y +x)*bytes_per_pixel;
+    if (memcpy(&frame_buffer[index], &color, bytes_per_pixel) == NULL) return 1;
+    return 0;
+}
+int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
+    for (unsigned i = 0 ; i < len ; i++)
+        if (vg_draw_pixel(x+i, y, color) != 0) return 1;
+    return 0;
+}
+int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color){
+    for(unsigned i = 0; i < height ; i++)
+        if (vg_draw_hline(x, y+i, width, color) != 0) {
+            return 1;
+        }
+    return 0;
+}
+int (print_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y){
+    xpm_image_t img;
+    uint8_t *colormap = xpm_load(xpm,XPM_INDEXED,&img);
+    for(int h = 0;h <img.height;h++){
+        for(int w = 0; w < img.width;w++){
+            if(vg_draw_pixel(w+x,h+y,*colormap)!=0)return 1;
+            colormap++;
+        }
+    }
+
+    return 0;
+}
+int normalize_color(uint32_t color, uint32_t *new_color) {
+    if (modeInfo.BitsPerPixel == 32) {
+        *new_color = color;
+    } else {
+        *new_color = color & (BIT(modeInfo.BitsPerPixel) - 1);
+    }
+    return 0;
+}
+uint32_t (direct_mode)(uint32_t R, uint32_t G, uint32_t B) {
+    return (R << modeInfo.RedFieldPosition) | (G << modeInfo.GreenFieldPosition) | (B << modeInfo.BlueFieldPosition);
+}
+
+uint32_t (indexed_mode)(uint16_t col, uint16_t row, uint8_t step, uint32_t first, uint8_t n) {
+    return (first + (row * n + col) * step) % (1 << modeInfo.BitsPerPixel);
+}
+
+uint32_t (Red)(unsigned j, uint8_t step, uint32_t first) {
+    return (R(first) + j * step) % (1 << modeInfo.RedMaskSize);
+}
+
+uint32_t (Green)(unsigned i, uint8_t step, uint32_t first) {
+    return (G(first) + i * step) % (1 << modeInfo.GreenMaskSize);
+}
+
+uint32_t (Blue)(unsigned j, unsigned i, uint8_t step, uint32_t first) {
+    return (B(first) + (i + j) * step) % (1 << modeInfo.BlueMaskSize);
+}
+
+uint32_t (R)(uint32_t first){
+    return ((1 << modeInfo.RedMaskSize) - 1) & (first >> modeInfo.RedFieldPosition);
+}
+
+uint32_t (G)(uint32_t first){
+    return ((1 << modeInfo.GreenMaskSize) - 1) & (first >> modeInfo.GreenFieldPosition);
+}
+
+uint32_t (B)(uint32_t first){
+    return ((1 << modeInfo.BlueMaskSize) - 1) & (first >> modeInfo.BlueFieldPosition);
+}
