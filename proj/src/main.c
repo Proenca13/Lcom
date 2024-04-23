@@ -4,8 +4,11 @@
 #include "Controller/Video/graphic.h"
 #include "Controller/Keyboard/keyboard.h"
 #include "Controller/Mouse/mouse.h"
+#include "Model/model.h"
 #include "configs.h"
-extern uint8_t scancode;
+extern MenuState menuState;
+extern ProgramState programState;
+
 int main(int argc, char *argv[]) {
     // sets the language of LCF messages (can be either EN-US or PT-PT)
     lcf_set_language("EN-US");
@@ -51,7 +54,7 @@ int (proj_main_loop)(int argc, char *argv[]){
     if(init_game()!=0)return shut_down();
     int ipc_status,r;
     message msg;
-    while(scancode != BRK_ESC) {
+    while(programState != END) {
         if ((r = driver_receive(ANY, &msg, &ipc_status)) != 0) {
             printf("driver_receive failed with: %d", r);
             continue;
@@ -61,7 +64,7 @@ int (proj_main_loop)(int argc, char *argv[]){
                 case HARDWARE:
                     if (msg.m_notify.interrupts & TIMER_IRQ_SET);
                     if (msg.m_notify.interrupts & KEYBOARD_IRQ_SET){
-                        kbc_ih();
+                        keyboard_state();
                     };
                     if (msg.m_notify.interrupts & MOUSE_IRQ_SET);
                     break;
