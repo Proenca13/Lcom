@@ -47,7 +47,7 @@ int shut_down(){
     if(mouse_write(DISABLE_DATA_REPORTING)!=0)return 1;
     return 0;
 }
-int main_loop(){
+int (proj_main_loop)(int argc, char *argv[]){
     if(init_game()!=0)return shut_down();
     int ipc_status,r;
     message msg;
@@ -60,7 +60,9 @@ int main_loop(){
             switch (_ENDPOINT_P(msg.m_source)) {
                 case HARDWARE:
                     if (msg.m_notify.interrupts & TIMER_IRQ_SET);
-                    if (msg.m_notify.interrupts & KEYBOARD_IRQ_SET);
+                    if (msg.m_notify.interrupts & KEYBOARD_IRQ_SET){
+                        kbc_ih();
+                    };
                     if (msg.m_notify.interrupts & MOUSE_IRQ_SET);
                     break;
                 default:

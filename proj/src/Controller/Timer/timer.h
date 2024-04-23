@@ -1,8 +1,6 @@
 #ifndef _LCOM_TIMER_H_
 #define _LCOM_TIMER_H_
 
-#define TIMER_MASK BIT(0)
-
 #include <minix/sysutil.h>
 #include <lcom/lcf.h>
 #include "i8254.h"
