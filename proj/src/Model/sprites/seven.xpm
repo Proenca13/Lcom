@@ -1,0 +1,22 @@
+static char * seven[] = {
+"16 16 3 1 ",
+"  c black",
+". c #808080",
+"X c #C0C0C0",
+"................",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX",
+".XX          XXX",
+".XX          XXX",
+".XXXXXXXXX   XXX",
+".XXXXXXXXX   XXX",
+".XXXXXXXX   XXXX",
+".XXXXXXXX   XXXX",
+".XXXXXXX   XXXXX",
+".XXXXXXX   XXXXX",
+".XXXXXX   XXXXXX",
+".XXXXXX   XXXXXX",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX"
+};
