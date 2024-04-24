@@ -1,10 +1,18 @@
 #include "model.h"
 extern uint8_t scancode;
-extern uint8_t byte_counter;
 uint8_t entry = 0;
+extern uint8_t byte_counter;
+extern struct packet mouse_packet;
 MenuState menuState = STARTMENU;
 ProgramState programState = RUNNING;
 GameState gameState = STOP;
+extern Time_Irl timeIrl;
+int counter_timer = 0;
+extern uint16_t x;
+extern uint16_t y;
+void timer_state(){
+    counter_timer++;
+}
 void keyboard_state(){
     kbc_ih();
    if(menuState == STARTMENU){
@@ -35,5 +43,15 @@ void keyboard_state(){
                break;
        }
    }
-
+}
+void mouse_state() {
+    mouse_ih();
+    mouse_sync_bytes();
+    if (byte_counter == 3) {
+        mouse_bytes_to_packet();
+        byte_counter = 0;
+    }
+}
+void rtc_state(){
+    if(counter_timer%FREQUENCY==0)rtc_update_time();
 }

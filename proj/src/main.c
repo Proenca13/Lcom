@@ -4,7 +4,9 @@
 #include "Controller/Video/graphic.h"
 #include "Controller/Keyboard/keyboard.h"
 #include "Controller/Mouse/mouse.h"
+#include "Controller/RTC/rtc.h"
 #include "Model/model.h"
+#include "Viewer/view.h"
 #include "configs.h"
 extern MenuState menuState;
 extern ProgramState programState;
@@ -39,6 +41,7 @@ int init_game(){
     if(timer_subscribe_interrupts()!=0)return 1;
     if(keyboard_subscribe_interrupts()!=0)return 1;
     if(mouse_subscribe_int()!=0)return 1;
+    if(rtc_subscribe_int()!=0)return 1;
     if(mouse_write(ENABLE_DATA_REPORTING)!=0)return 1;
     return 0;
 }
@@ -47,6 +50,7 @@ int shut_down(){
     if(timer_unsubscribe_int()!=0)return 1;
     if(keyboard_unsubscribe_interrupts()!=0)return 1;
     if(mouse_unsubscribe_int()!=0)return 1;
+    if(rtc_unsubscribe_int()!=0)return 1;
     if(mouse_write(DISABLE_DATA_REPORTING)!=0)return 1;
     return 0;
 }
@@ -62,11 +66,20 @@ int (proj_main_loop)(int argc, char *argv[]){
         if (is_ipc_notify(ipc_status)) {
             switch (_ENDPOINT_P(msg.m_source)) {
                 case HARDWARE:
-                    if (msg.m_notify.interrupts & TIMER_IRQ_SET);
+                    if (msg.m_notify.interrupts & TIMER_IRQ_SET){
+                        timer_state();
+                    }
                     if (msg.m_notify.interrupts & KEYBOARD_IRQ_SET){
                         keyboard_state();
-                    };
-                    if (msg.m_notify.interrupts & MOUSE_IRQ_SET);
+                    }
+                    if (msg.m_notify.interrupts & MOUSE_IRQ_SET){
+                        mouse_state();
+                    }
+                    if (msg.m_notify.interrupts & RTC_IRQ_SET){
+                        rtc_state();
+                        display_time();
+
+                    }
                     break;
                 default:
                     break;

@@ -1,11 +1,11 @@
-//
-// Created by joao on 15-04-2024.
-//
+
 #include "mouse.h"
 int mouse_hook_id = 2;
 uint8_t byte_counter = 0;
 uint8_t packet_bytes[3];
 struct packet mouse_packet;
+uint16_t x = 0;
+uint16_t y = 0;
 uint8_t current_byte;
 int (mouse_subscribe_int)(){
     return sys_irqsetpolicy(IRQ_MOUSE,IRQ_REENABLE|IRQ_EXCLUSIVE,&mouse_hook_id);
@@ -35,8 +35,11 @@ void (mouse_bytes_to_packet)(){
     mouse_packet.mb = packet_bytes[0] & MOUSE_MIDDLE_BUTTON;
     mouse_packet.x_ov = packet_bytes[0] & MOUSE_X_OVERFLOW;
     mouse_packet.y_ov = packet_bytes[0] &MOUSE_Y_OVERFLOW;
+    if(mouse_packet.x_ov || mouse_packet.y_ov)return;
     mouse_packet.delta_x = (packet_bytes[0] & MOUSE_X_DISPLACEMENT) ? (0xFF00 | packet_bytes[1]) : packet_bytes[1];
     mouse_packet.delta_y = (packet_bytes[0] & MOUSE_Y_DISPLACEMENT) ? (0xFF00 | packet_bytes[2]) : packet_bytes[2];
+    x = x + mouse_packet.delta_x;
+    y = y + mouse_packet.delta_y;
 }
 int (mouse_write)(uint8_t command){
     uint8_t attemps = 10;

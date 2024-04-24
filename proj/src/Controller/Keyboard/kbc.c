@@ -12,6 +12,7 @@ int (read_KBC_output)(uint8_t port, uint8_t *output, uint8_t mouse){
       if(util_sys_inb(KBC_OUT_BUF,output)!=0)return 1;
       if(status & PARITY_ERROR)return 1;
       if(status & TIMEOUT_ERROR)return 1;
+      if(!mouse & MOUSE)return 1;
       return 0;
     }
     attemps--;

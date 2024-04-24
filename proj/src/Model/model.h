@@ -8,6 +8,7 @@
 #include "Controller/Video/graphic.h"
 #include "Controller/Keyboard/keyboard.h"
 #include "Controller/Mouse/mouse.h"
+#include "Controller/RTC//rtc.h"
 #include "configs.h"
 #ifndef SHARED_MODEL_H
 #define SHARED_MODEL_H
@@ -25,5 +26,9 @@ typedef enum {
     GAMEMENU,
     ENDMENU
 } MenuState;
+
+void timer_state();
 void keyboard_state();
+void mouse_state();
+void rtc_state();
 #endif //SHARED_MODEL_H
