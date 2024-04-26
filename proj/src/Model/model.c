@@ -7,9 +7,21 @@ MenuState menuState = STARTMENU;
 ProgramState programState = RUNNING;
 GameState gameState = STOP;
 extern Time_Irl timeIrl;
+extern vbe_mode_info_t modeInfo;
 int counter_timer = 0;
 extern uint16_t x;
 extern uint16_t y;
+
+Sprite *start_button_sprite;
+Sprite *cursor_mouse;
+void create_sprites(){
+    start_button_sprite = create_sprite((xpm_map_t)startgame_xpm);
+    cursor_mouse = create_sprite((xpm_map_t)cursor_xpm);
+}
+void destroy_sprites(){
+    destroy_sprite(start_button_sprite);
+    destroy_sprite(cursor_mouse);
+}
 void timer_state(){
     counter_timer++;
 }
@@ -43,6 +55,7 @@ void keyboard_state(){
                break;
        }
    }
+   draw_state();
 }
 void mouse_state() {
     mouse_ih();
@@ -51,6 +64,7 @@ void mouse_state() {
         mouse_bytes_to_packet();
         byte_counter = 0;
     }
+    draw_state();
 }
 void rtc_state(){
     if(counter_timer%FREQUENCY==0)rtc_update_time();

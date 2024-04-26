@@ -12,6 +12,14 @@
 #include "Controller/Keyboard/keyboard.h"
 #include "Controller/Mouse/mouse.h"
 #include "Controller/RTC//rtc.h"
+#include "Model/model.h"
 #include "configs.h"
+#include "Model/xpm/startgame.xpm"
+#include "Model/xpm/curse.xpm"
 void display_time();
+void draw_state();
+void draw_main_menu();
+void draw_mouse();
+int draw_sprite(Sprite *sprite, int x, int y);
+
 #endif //SHARED_VIEW_H

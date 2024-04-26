@@ -4,8 +4,8 @@ int mouse_hook_id = 2;
 uint8_t byte_counter = 0;
 uint8_t packet_bytes[3];
 struct packet mouse_packet;
-uint16_t x = 0;
-uint16_t y = 0;
+uint16_t x = 10;
+uint16_t y = 10;
 uint8_t current_byte;
 int (mouse_subscribe_int)(){
     return sys_irqsetpolicy(IRQ_MOUSE,IRQ_REENABLE|IRQ_EXCLUSIVE,&mouse_hook_id);

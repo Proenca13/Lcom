@@ -8,6 +8,7 @@
 #include "Model/model.h"
 #include "Viewer/view.h"
 #include "configs.h"
+
 extern MenuState menuState;
 extern ProgramState programState;
 
@@ -43,6 +44,7 @@ int init_game(){
     if(mouse_subscribe_int()!=0)return 1;
     if(rtc_subscribe_int()!=0)return 1;
     if(mouse_write(ENABLE_DATA_REPORTING)!=0)return 1;
+    create_sprites();
     return 0;
 }
 int shut_down(){
@@ -52,10 +54,12 @@ int shut_down(){
     if(mouse_unsubscribe_int()!=0)return 1;
     if(rtc_unsubscribe_int()!=0)return 1;
     if(mouse_write(DISABLE_DATA_REPORTING)!=0)return 1;
+    destroy_sprites();
     return 0;
 }
 int (proj_main_loop)(int argc, char *argv[]){
     if(init_game()!=0)return shut_down();
+    draw_state();
     int ipc_status,r;
     message msg;
     while(programState != END) {

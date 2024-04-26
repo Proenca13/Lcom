@@ -10,6 +10,8 @@
 #include "Controller/Mouse/mouse.h"
 #include "Controller/RTC//rtc.h"
 #include "configs.h"
+#include "sprite.h"
+#include "Viewer/view.h"
 #ifndef SHARED_MODEL_H
 #define SHARED_MODEL_H
 typedef enum {
@@ -26,7 +28,8 @@ typedef enum {
     GAMEMENU,
     ENDMENU
 } MenuState;
-
+void create_sprites();
+void destroy_sprites();
 void timer_state();
 void keyboard_state();
 void mouse_state();

@@ -1,0 +1,22 @@
+static char * two[] = {
+"16 16 3 1 ",
+"  c #008000",
+". c #808080",
+"X c #C0C0C0",
+"................",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX",
+".XXX        XXXX",
+".XX          XXX",
+".XX   XXXX   XXX",
+".XXXXXXXXX   XXX",
+".XXXXXXX    XXXX",
+".XXXXX     XXXXX",
+".XXX     XXXXXXX",
+".XX    XXXXXXXXX",
+".XX          XXX",
+".XX          XXX",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX"
+};

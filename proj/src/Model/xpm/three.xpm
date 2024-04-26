@@ -1,0 +1,22 @@
+static char * three[] = {
+"16 16 3 1 ",
+"  c red",
+". c #808080",
+"X c #C0C0C0",
+"................",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX",
+".XX         XXXX",
+".XX          XXX",
+".XXXXXXXXX   XXX",
+".XXXXXXXXX   XXX",
+".XXXXX      XXXX",
+".XXXXX      XXXX",
+".XXXXXXXXX   XXX",
+".XXXXXXXXX   XXX",
+".XX          XXX",
+".XX         XXXX",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX",
+".XXXXXXXXXXXXXXX"
+};
