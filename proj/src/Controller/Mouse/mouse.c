@@ -39,7 +39,7 @@ void (mouse_bytes_to_packet)(){
     mouse_packet.delta_x = (packet_bytes[0] & MOUSE_X_DISPLACEMENT) ? (0xFF00 | packet_bytes[1]) : packet_bytes[1];
     mouse_packet.delta_y = (packet_bytes[0] & MOUSE_Y_DISPLACEMENT) ? (0xFF00 | packet_bytes[2]) : packet_bytes[2];
     x = x + mouse_packet.delta_x;
-    y = y + mouse_packet.delta_y;
+    y = y - mouse_packet.delta_y;
 }
 int (mouse_write)(uint8_t command){
     uint8_t attemps = 10;

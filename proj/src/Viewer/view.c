@@ -13,7 +13,7 @@ void display_time(){
     printf("%d/%d/%d %d @%d:%d:%d\n", 2000 + timeIrl.year, timeIrl.month, timeIrl.day, timeIrl.day_week ,timeIrl.hours, timeIrl.minutes, timeIrl.seconds);
 }
 void draw_state(){
-    if(menuState == STARTMENU)draw_main_menu();
+   // if(menuState == STARTMENU)draw_main_menu();
     draw_mouse();
 }
 void draw_main_menu(){
@@ -29,6 +29,7 @@ int draw_sprite(Sprite *sprite, int x, int y) {
     for (int h = 0 ; h < height ; h++) {
         for (int w = 0 ; w < width ; w++) {
             current_color = sprite->map[w + h*width];
+            if(current_color == TRANSPARENT)continue;
             if (vg_draw_pixel(x + w, y + h, current_color) != 0) return 1;
         }
     }

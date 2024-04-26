@@ -7,5 +7,5 @@
 
 #define DIRECT_COLOR 0x06
 #define VBE 0x10
-
+#define TRANSPARENT 0xFFFFFE
 #endif //SHARED_VBE_H

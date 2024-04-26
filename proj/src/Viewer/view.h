@@ -15,7 +15,7 @@
 #include "Model/model.h"
 #include "configs.h"
 #include "Model/xpm/startgame.xpm"
-#include "Model/xpm/curse.xpm"
+#include "Model/xpm/mouse.xpm"
 void display_time();
 void draw_state();
 void draw_main_menu();

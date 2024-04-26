@@ -15,11 +15,11 @@ extern uint16_t y;
 Sprite *start_button_sprite;
 Sprite *cursor_mouse;
 void create_sprites(){
-    start_button_sprite = create_sprite((xpm_map_t)startgame_xpm);
+    //start_button_sprite = create_sprite((xpm_map_t)startgame_xpm);
     cursor_mouse = create_sprite((xpm_map_t)cursor_xpm);
 }
 void destroy_sprites(){
-    destroy_sprite(start_button_sprite);
+   // destroy_sprite(start_button_sprite);
     destroy_sprite(cursor_mouse);
 }
 void timer_state(){
@@ -55,7 +55,7 @@ void keyboard_state(){
                break;
        }
    }
-   draw_state();
+   //draw_state();
 }
 void mouse_state() {
     mouse_ih();
