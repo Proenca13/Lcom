@@ -17,6 +17,8 @@ extern Sprite *controls_button2_sprite;
 extern Sprite *exit_button_sprite;
 extern Sprite *title_sprite;
 extern Sprite *exit_button2_sprite;
+extern Sprite *dirt_block;
+
 
 
 void display_time(){
@@ -27,6 +29,7 @@ void draw_state(){
     draw_mouse();
 }
 void draw_main_menu(){
+    draw_sprite(dirt_block,0,0);
     draw_sprite(title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(entry == 0 ? start_button2_sprite:start_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(entry == 1? controls_button2_sprite:controls_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);

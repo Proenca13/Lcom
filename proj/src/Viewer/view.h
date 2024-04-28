@@ -22,7 +22,7 @@
 #include "Model/xpm/Exit.xpm"
 #include "Model/xpm/Exit2.xpm"
 #include "Model/xpm/Title.xpm"
-#include "Model/xpm/dirt_block.xpm"
+#include "Model/xpm/dirt.xpm"
 void display_time();
 void draw_state();
 void draw_main_menu();
