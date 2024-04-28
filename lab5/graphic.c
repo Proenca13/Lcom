@@ -18,7 +18,6 @@ int (set_graphic_mode)(uint16_t mode){
     return 0;
 }
 int (set_frame_buffer)(uint16_t mode){
-    memset(&modeInfo ,0, sizeof(modeInfo));
     if(vbe_get_mode_info(mode, &modeInfo)!=0)return 1;
 
     unsigned int bytes_per_pixel = (modeInfo.BitsPerPixel+7)/8;
@@ -48,12 +47,12 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
 }
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
     for (unsigned i = 0 ; i < len ; i++)
-        if (vg_draw_pixel(x+i, y, color) != 0) return 1;
+        if (vg_draw_pixel(x, y+i, color) != 0) return 1;
     return 0;
 }
 int (vg_draw_rectangle)(uint16_t x, uint16_t y, uint16_t width, uint16_t height, uint32_t color){
-    for(unsigned i = 0; i < height ; i++)
-        if (vg_draw_hline(x, y+i, width, color) != 0) {
+    for(unsigned i = 0; i < width ; i++)
+        if (vg_draw_hline(x+i, y, height, color) != 0) {
             return 1;
         }
     return 0;

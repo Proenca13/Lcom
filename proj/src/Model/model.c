@@ -1,6 +1,6 @@
 #include "model.h"
 extern uint8_t scancode;
-uint8_t entry = 0;
+int8_t entry = 0;
 extern uint8_t byte_counter;
 extern struct packet mouse_packet;
 MenuState menuState = STARTMENU;
@@ -13,14 +13,34 @@ extern uint16_t x;
 extern uint16_t y;
 
 Sprite *start_button_sprite;
+Sprite *start_button2_sprite;
 Sprite *cursor_mouse;
+Sprite *controls_button_sprite;
+Sprite *controls_button2_sprite;
+Sprite *exit_button_sprite;
+Sprite *exit_button2_sprite;
+Sprite *title_sprite;
+Sprite *dirt_block;
+
+
 void create_sprites(){
-    //start_button_sprite = create_sprite((xpm_map_t)startgame_xpm);
+    start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
+    start_button2_sprite = create_sprite((xpm_map_t)start_button2_xpm);
     cursor_mouse = create_sprite((xpm_map_t)cursor_xpm);
+    controls_button_sprite = create_sprite((xpm_map_t)Controls_button);
+    controls_button2_sprite = create_sprite((xpm_map_t)Controls_button2);
+    exit_button_sprite = create_sprite((xpm_map_t)Exit);
+    exit_button2_sprite = create_sprite((xpm_map_t)Exit2);
+    title_sprite = create_sprite((xpm_map_t)Title_xpm);
+
 }
 void destroy_sprites(){
-   // destroy_sprite(start_button_sprite);
+    destroy_sprite(start_button_sprite);
+    destroy_sprite(start_button2_sprite);
     destroy_sprite(cursor_mouse);
+    destroy_sprite(controls_button_sprite);
+    destroy_sprite(exit_button_sprite);
+    destroy_sprite(title_sprite);
 }
 void timer_state(){
     counter_timer++;
@@ -55,7 +75,7 @@ void keyboard_state(){
                break;
        }
    }
-   //draw_state();
+   draw_state();
 }
 void mouse_state() {
     mouse_ih();

@@ -14,8 +14,15 @@
 #include "Controller/RTC//rtc.h"
 #include "Model/model.h"
 #include "configs.h"
-#include "Model/xpm/startgame.xpm"
+#include "Model/xpm/Start.xpm"
+#include "Model/xpm/Start2.xpm"
 #include "Model/xpm/mouse.xpm"
+#include "Model/xpm/Controls.xpm"
+#include "Model/xpm/Controls2.xpm"
+#include "Model/xpm/Exit.xpm"
+#include "Model/xpm/Exit2.xpm"
+#include "Model/xpm/Title.xpm"
+#include "Model/xpm/dirt_block.xpm"
 void display_time();
 void draw_state();
 void draw_main_menu();

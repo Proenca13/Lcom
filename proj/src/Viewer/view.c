@@ -7,17 +7,30 @@ extern vbe_mode_info_t modeInfo;
 extern uint16_t x;
 extern uint16_t y;
 
+extern int8_t entry;
+
 extern Sprite *start_button_sprite;
+extern Sprite *start_button2_sprite;
 extern Sprite *cursor_mouse;
+extern Sprite *controls_button_sprite;
+extern Sprite *controls_button2_sprite;
+extern Sprite *exit_button_sprite;
+extern Sprite *title_sprite;
+extern Sprite *exit_button2_sprite;
+
+
 void display_time(){
     printf("%d/%d/%d %d @%d:%d:%d\n", 2000 + timeIrl.year, timeIrl.month, timeIrl.day, timeIrl.day_week ,timeIrl.hours, timeIrl.minutes, timeIrl.seconds);
 }
 void draw_state(){
-   // if(menuState == STARTMENU)draw_main_menu();
+   if(menuState == STARTMENU)draw_main_menu();
     draw_mouse();
 }
 void draw_main_menu(){
-    draw_sprite(start_button_sprite,modeInfo.XResolution/2,modeInfo.YResolution/2);
+    draw_sprite(title_sprite,modeInfo.XResolution/4,50);
+    draw_sprite(entry == 0 ? start_button2_sprite:start_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
+    draw_sprite(entry == 1? controls_button2_sprite:controls_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
+    draw_sprite(entry==2?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 50);
 }
 void draw_mouse(){
     draw_sprite(cursor_mouse,x,y);
