@@ -32,6 +32,7 @@ void create_sprites(){
     exit_button_sprite = create_sprite((xpm_map_t)Exit);
     exit_button2_sprite = create_sprite((xpm_map_t)Exit2);
     title_sprite = create_sprite((xpm_map_t)Title_xpm);
+    dirt_block = create_sprite((xpm_map_t)Dirt_block);
 
 }
 void destroy_sprites(){
@@ -41,8 +42,10 @@ void destroy_sprites(){
     destroy_sprite(controls_button_sprite);
     destroy_sprite(exit_button_sprite);
     destroy_sprite(title_sprite);
+    destroy_sprite(dirt_block);
 }
 void timer_state(){
+    swap_buffers();
     counter_timer++;
 }
 void keyboard_state(){
@@ -52,11 +55,11 @@ void keyboard_state(){
            case BRK_ESC:
                programState = END;
                break;
-           case ARROW_DOWN_BRK:
+           case ARROW_DOWN_MAKE:
                entry++;
                if(entry > 2)entry = 0;
                break;
-           case ARROW_UP_BRK:
+           case ARROW_UP_MAKE:
                entry--;
                if(entry < 0)entry = 2;
                break;
