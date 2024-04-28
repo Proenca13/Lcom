@@ -26,6 +26,7 @@ void display_time(){
 }
 void draw_state(){
    if(menuState == STARTMENU)draw_main_menu();
+   if(menuState == CONTROLLERMENU)draw_controls_menu();
     draw_mouse();
 }
 void draw_main_menu(){
