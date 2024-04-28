@@ -45,6 +45,7 @@ void destroy_sprites(){
     destroy_sprite(dirt_block);
 }
 void timer_state(){
+    swap_buffers();
     counter_timer++;
 }
 void keyboard_state(){

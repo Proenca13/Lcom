@@ -5,6 +5,8 @@
 #include "graphic.h"
 vbe_mode_info_t modeInfo;
 uint8_t* frame_buffer;
+uint8_t *second_frame_buffer;
+unsigned int vram_size;
 int (set_graphic_mode)(uint16_t mode){
     reg86_t r;
     memset(&r ,0, sizeof(r));
@@ -22,7 +24,7 @@ int (set_frame_buffer)(uint16_t mode){
     if(vbe_get_mode_info(mode, &modeInfo)!=0)return 1;
 
     unsigned int bytes_per_pixel = (modeInfo.BitsPerPixel+7)/8;
-    unsigned int vram_size = modeInfo.XResolution * modeInfo.YResolution * bytes_per_pixel;;
+    vram_size = modeInfo.XResolution * modeInfo.YResolution * bytes_per_pixel;;
 
     struct minix_mem_range mr;
     mr.mr_base = modeInfo.PhysBasePtr;
@@ -37,13 +39,17 @@ int (set_frame_buffer)(uint16_t mode){
         panic("couldn’t map video memory");
         return 1;
     }
+    second_frame_buffer = (uint8_t *) malloc(vram_size);
     return 0;
+}
+void swap_buffers() {
+    memcpy(frame_buffer, second_frame_buffer, vram_size);
 }
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     if(x > modeInfo.XResolution || y > modeInfo.YResolution) return 1;
     unsigned int bytes_per_pixel = (modeInfo.BitsPerPixel+7)/8;
     unsigned int index = (modeInfo.XResolution * y +x)*bytes_per_pixel;
-    if (memcpy(&frame_buffer[index], &color, bytes_per_pixel) == NULL) return 1;
+    if (memcpy(&second_frame_buffer[index], &color, bytes_per_pixel) == NULL) return 1;
     return 0;
 }
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
