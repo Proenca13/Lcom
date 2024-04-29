@@ -27,6 +27,7 @@
 #include "Model/xpm/DaySky.xpm"
 #include "Model/xpm/NightSky.xpm"
 #include "Model/xpm/AfternoonSky.xpm"
+#include "Model/xpm/dyog.xpm"
 
 void draw_state();
 void draw_main_menu();
