@@ -24,6 +24,7 @@
 #include "Model/xpm/Title.xpm"
 #include "Model/xpm/dirt.xpm"
 #include "Model/xpm/arrows.xpm"
+#include "Model/xpm/DaySky.xpm"
 
 void display_time();
 void draw_state();

@@ -23,6 +23,8 @@ Sprite *exit_button2_sprite;
 Sprite *title_sprite;
 Sprite *dirt_block;
 Sprite *arrows_sprite;
+Sprite *day_sky_sprite;
+
 
 
 
@@ -37,17 +39,21 @@ void create_sprites(){
     exit_button2_sprite = create_sprite((xpm_map_t)Exit2);
     title_sprite = create_sprite((xpm_map_t)Title_xpm);
     dirt_block = create_sprite((xpm_map_t)Dirt_block);
+    day_sky_sprite = create_sprite((xpm_map_t)Day_sky);
 
 }
 void destroy_sprites(){
-    destroy_sprite(start_button_sprite); 
-    destroy_sprite(arrows_sprite);
+    destroy_sprite(start_button_sprite);
     destroy_sprite(start_button2_sprite);
-    destroy_sprite(cursor_mouse);
     destroy_sprite(controls_button_sprite);
+    destroy_sprite(controls_button2_sprite);
     destroy_sprite(exit_button_sprite);
+    destroy_sprite(exit_button2_sprite);
     destroy_sprite(title_sprite);
     destroy_sprite(dirt_block);
+    destroy_sprite(arrows_sprite);
+    destroy_sprite(cursor_mouse);
+    destroy_sprite(day_sky_sprite);
 }
 void timer_state(){
     swap_buffers();
@@ -87,7 +93,7 @@ void keyboard_state(){
    else if(menuState == GAMEMENU){
        switch (scancode) {
            case BRK_ESC:
-               menuState = STARTMENU;
+               gameState = PLAY;
                break;
            case ARROW_DOWN_MAKE:
                pause_entry++;
