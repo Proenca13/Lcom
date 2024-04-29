@@ -8,6 +8,7 @@ extern uint16_t x;
 extern uint16_t y;
 
 extern int8_t entry;
+extern int8_t pause_entry;
 
 extern Sprite *start_button_sprite;
 extern Sprite *start_button2_sprite;
@@ -25,8 +26,12 @@ void display_time(){
     printf("%d/%d/%d %d @%d:%d:%d\n", 2000 + timeIrl.year, timeIrl.month, timeIrl.day, timeIrl.day_week ,timeIrl.hours, timeIrl.minutes, timeIrl.seconds);
 }
 void draw_state(){
-   if(menuState == STARTMENU)draw_main_menu();
-    draw_mouse();
+    if(gameState != PLAY){
+        if(menuState == STARTMENU )draw_main_menu();
+        if(menuState == GAMEMENU )draw_game_menu();
+    }
+   if(gameState == PLAY)draw_game();
+   draw_mouse();
 }
 void draw_main_menu(){
     draw_sprite(dirt_block,0,0);
@@ -35,12 +40,24 @@ void draw_main_menu(){
     draw_sprite(entry == 1? controls_button2_sprite:controls_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
     draw_sprite(entry==2?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 50);
 }
+void draw_game(){
+    draw_sprite(dirt_block,0,0);
+    draw_sprite(title_sprite,modeInfo.XResolution/4,50);
+}
+void draw_game_menu(){
+    draw_sprite(dirt_block,0,0);
+    draw_sprite(title_sprite,modeInfo.XResolution/4,50);
+    draw_sprite(pause_entry == 0? start_button2_sprite:start_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
+    draw_sprite(pause_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
+}
 void draw_mouse(){
     draw_sprite(cursor_mouse,x,y);
 }
 int draw_sprite(Sprite *sprite, int x, int y) {
     uint16_t height = sprite->height;
     uint16_t width = sprite->width;
+    sprite->x = x;
+    sprite->y= y;
     uint32_t current_color;
     for (int h = 0 ; h < height ; h++) {
         for (int w = 0 ; w < width ; w++) {

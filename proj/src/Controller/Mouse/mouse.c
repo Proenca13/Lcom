@@ -4,9 +4,10 @@ int mouse_hook_id = 2;
 uint8_t byte_counter = 0;
 uint8_t packet_bytes[3];
 struct packet mouse_packet;
-uint16_t x = 10;
-uint16_t y = 10;
+int16_t x = 10;
+int16_t y = 10;
 uint8_t current_byte;
+extern vbe_mode_info_t modeInfo;
 int (mouse_subscribe_int)(){
     return sys_irqsetpolicy(IRQ_MOUSE,IRQ_REENABLE|IRQ_EXCLUSIVE,&mouse_hook_id);
 }
@@ -38,6 +39,7 @@ void (mouse_bytes_to_packet)(){
     if(mouse_packet.x_ov || mouse_packet.y_ov)return;
     mouse_packet.delta_x = (packet_bytes[0] & MOUSE_X_DISPLACEMENT) ? (0xFF00 | packet_bytes[1]) : packet_bytes[1];
     mouse_packet.delta_y = (packet_bytes[0] & MOUSE_Y_DISPLACEMENT) ? (0xFF00 | packet_bytes[2]) : packet_bytes[2];
+    if (x + mouse_packet.delta_x < 0 || x + mouse_packet.delta_x> modeInfo.XResolution || y - mouse_packet.delta_y < 0 || y - mouse_packet.delta_y > modeInfo.YResolution) return;
     x = x + mouse_packet.delta_x;
     y = y - mouse_packet.delta_y;
 }
