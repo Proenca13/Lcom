@@ -52,3 +52,8 @@ int draw_sprite(Sprite *sprite, int x, int y) {
     }
     return 0;
 }
+
+void draw_controls_menu() {
+    draw_sprite(dirt_block,0,0);
+    draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
+}

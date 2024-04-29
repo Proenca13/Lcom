@@ -71,9 +71,12 @@ void keyboard_state(){
                break;
        }
    }
-   if(menuState == CONTROLLERMENU){
+    else if(menuState == CONTROLLERMENU){
        switch (scancode) {
            case BRK_ESC:
+               menuState = STARTMENU;
+               break;
+            case ENTER_BRK:
                menuState = STARTMENU;
                break;
        }

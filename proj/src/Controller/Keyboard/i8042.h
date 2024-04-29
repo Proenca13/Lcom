@@ -33,6 +33,7 @@
 #define MOUSE_Y_OVERFLOW BIT(7)
 
 #define ENTER_BRK 0x9C
+#define ENTER_MAKE 0x1C
 #define F_BRK 0xA1
 #define ARROW_UP_BRK 0xC8
 #define ARROW_DOWN_BRK 0xD0
