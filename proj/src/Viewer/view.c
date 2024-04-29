@@ -11,6 +11,7 @@ extern int8_t entry;
 
 extern Sprite *start_button_sprite;
 extern Sprite *start_button2_sprite;
+extern Sprite *arrows_sprite;
 extern Sprite *cursor_mouse;
 extern Sprite *controls_button_sprite;
 extern Sprite *controls_button2_sprite;
@@ -55,5 +56,7 @@ int draw_sprite(Sprite *sprite, int x, int y) {
 
 void draw_controls_menu() {
     draw_sprite(dirt_block,0,0);
+    draw_sprite(title_sprite,modeInfo.XResolution/4,50);
+    draw_sprite(arrows_sprite,modeInfo.XResolution/8,150);
     draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
 }

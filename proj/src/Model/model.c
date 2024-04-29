@@ -21,10 +21,12 @@ Sprite *exit_button_sprite;
 Sprite *exit_button2_sprite;
 Sprite *title_sprite;
 Sprite *dirt_block;
+Sprite *arrows_sprite;
 
 
 void create_sprites(){
     start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
+    arrows_sprite = create_sprite((xpm_map_t)arrows_xpm);
     start_button2_sprite = create_sprite((xpm_map_t)start_button2_xpm);
     cursor_mouse = create_sprite((xpm_map_t)cursor_xpm);
     controls_button_sprite = create_sprite((xpm_map_t)Controls_button);
@@ -36,6 +38,7 @@ void create_sprites(){
 
 }
 void destroy_sprites(){
+    destroy_sprite(arrows_sprite);
     destroy_sprite(start_button_sprite);
     destroy_sprite(start_button2_sprite);
     destroy_sprite(cursor_mouse);
