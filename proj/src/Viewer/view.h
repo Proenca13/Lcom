@@ -26,7 +26,9 @@
 void display_time();
 void draw_state();
 void draw_main_menu();
+void draw_game_menu();
 void draw_mouse();
+void draw_game();
 int draw_sprite(Sprite *sprite, int x, int y);
 
 #endif //SHARED_VIEW_H

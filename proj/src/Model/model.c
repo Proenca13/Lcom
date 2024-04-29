@@ -1,6 +1,7 @@
 #include "model.h"
 extern uint8_t scancode;
 int8_t entry = 0;
+int8_t pause_entry = 0;
 extern uint8_t byte_counter;
 extern struct packet mouse_packet;
 MenuState menuState = STARTMENU;
@@ -9,8 +10,8 @@ GameState gameState = STOP;
 extern Time_Irl timeIrl;
 extern vbe_mode_info_t modeInfo;
 int counter_timer = 0;
-extern uint16_t x;
-extern uint16_t y;
+extern int16_t x;
+extern int16_t y;
 
 Sprite *start_button_sprite;
 Sprite *start_button2_sprite;
@@ -50,7 +51,7 @@ void timer_state(){
 }
 void keyboard_state(){
     kbc_ih();
-   if(menuState == STARTMENU){
+   if(menuState == STARTMENU && gameState != PLAY){
        switch (scancode) {
            case BRK_ESC:
                programState = END;
@@ -71,6 +72,34 @@ void keyboard_state(){
                break;
        }
    }
+   else if(gameState == PLAY){
+       switch (scancode) {
+           case BRK_ESC:
+               gameState = STOP;
+               menuState = GAMEMENU;
+               break;
+       }
+   }
+   else if(menuState == GAMEMENU){
+       switch (scancode) {
+           case BRK_ESC:
+               menuState = STARTMENU;
+               break;
+           case ARROW_DOWN_MAKE:
+               pause_entry++;
+               if(pause_entry > 1)pause_entry = 0;
+               break;
+           case ARROW_UP_MAKE:
+               pause_entry--;
+               if(pause_entry < 0)pause_entry = 1;
+               break;
+           case ENTER_BRK:
+               if(pause_entry == 0)gameState = PLAY;
+               if(pause_entry == 1)menuState = STARTMENU;
+               pause_entry = 0;
+               break;
+       }
+   }
    if(menuState == CONTROLLERMENU){
        switch (scancode) {
            case BRK_ESC:
@@ -86,6 +115,24 @@ void mouse_state() {
     if (byte_counter == 3) {
         mouse_bytes_to_packet();
         byte_counter = 0;
+        if((x > start_button2_sprite->x && x < start_button2_sprite->x + start_button2_sprite->width) && (y > start_button2_sprite->y && y < start_button2_sprite->y + start_button2_sprite->height)){
+            entry = 0;
+            if(mouse_packet.rb){
+                gameState = PLAY;
+            }
+        }
+        if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y > controls_button_sprite->y && y < controls_button_sprite->y + controls_button_sprite->height)){
+            entry = 1;
+            if(mouse_packet.rb){
+                menuState = CONTROLLERMENU;
+            }
+        }
+        if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+            entry = 2;
+            if(mouse_packet.rb){
+                programState = END;
+            }
+        }
     }
     draw_state();
 }

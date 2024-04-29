@@ -25,8 +25,7 @@ typedef enum {
 typedef enum {
     STARTMENU,
     CONTROLLERMENU,
-    GAMEMENU,
-    ENDMENU
+    GAMEMENU
 } MenuState;
 void create_sprites();
 void destroy_sprites();

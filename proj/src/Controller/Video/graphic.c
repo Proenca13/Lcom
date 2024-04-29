@@ -46,7 +46,7 @@ void swap_buffers() {
     memcpy(frame_buffer, second_frame_buffer, vram_size);
 }
 int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
-    if(x > modeInfo.XResolution || y > modeInfo.YResolution) return 1;
+    if(x > modeInfo.XResolution || y > modeInfo.YResolution || x <0 || y <0) return 1;
     unsigned int bytes_per_pixel = (modeInfo.BitsPerPixel+7)/8;
     unsigned int index = (modeInfo.XResolution * y +x)*bytes_per_pixel;
     if (memcpy(&second_frame_buffer[index], &color, bytes_per_pixel) == NULL) return 1;
