@@ -28,6 +28,9 @@
 #include "Model/xpm/NightSky.xpm"
 #include "Model/xpm/AfternoonSky.xpm"
 #include "Model/xpm/dyog.xpm"
+#include "Model/xpm/dyog2.xpm"
+#include "Model/xpm/Continue.xpm"
+#include "Model/xpm/Continue2.xpm"
 
 void draw_state();
 void draw_main_menu();

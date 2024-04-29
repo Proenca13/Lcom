@@ -1,4 +1,4 @@
-static char *Continue2[] = {
+static char *continue_button2_xpm[] = {
 "800 600 137 2 ",
 "   c #FFFFFE",
 ".  c #000000",

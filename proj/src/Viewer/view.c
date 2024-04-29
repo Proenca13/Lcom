@@ -24,6 +24,9 @@ extern Sprite *day_sky_sprite;
 extern Sprite *night_sky_sprite;
 extern Sprite *afternoon_sky_sprite;
 extern Sprite *dyog_sprite;
+extern Sprite *dyog2_sprite;
+extern Sprite *continue_button_sprite;
+extern Sprite *continue_button2_sprite;
 
 void draw_state(){
     if(gameState != PLAY){
@@ -48,9 +51,10 @@ void draw_game(){
 void draw_game_menu(){
     draw_sprite(dirt_block,0,0);
     draw_sprite(title_sprite,modeInfo.XResolution/4,50);
-    draw_sprite(pause_entry == 0? start_button2_sprite:start_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
+    draw_sprite(pause_entry==0?continue_button2_sprite:continue_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(pause_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
     draw_sprite(dyog_sprite,modeInfo.XResolution-200,modeInfo.YResolution - 200);
+    draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
 
 }
 void draw_mouse(){

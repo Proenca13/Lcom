@@ -27,6 +27,10 @@ Sprite *day_sky_sprite;
 Sprite *night_sky_sprite;
 Sprite *afternoon_sky_sprite;
 Sprite *dyog_sprite;
+Sprite *dyog2_sprite;
+Sprite *continue_button_sprite;
+Sprite *continue_button2_sprite;
+
 void create_sprites(){
     start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
     arrows_sprite = create_sprite((xpm_map_t)arrows_xpm);
@@ -42,6 +46,10 @@ void create_sprites(){
     night_sky_sprite = create_sprite((xpm_map_t)Night_sky);
     afternoon_sky_sprite = create_sprite((xpm_map_t)Afternoon_Sky);
     dyog_sprite = create_sprite((xpm_map_t)dyog);
+    dyog2_sprite =  create_sprite((xpm_map_t)dyog2);
+    continue_button_sprite = create_sprite((xpm_map_t)continue_button_xpm);
+    continue_button2_sprite = create_sprite((xpm_map_t)continue_button2_xpm);
+
 }
 void destroy_sprites(){
     destroy_sprite(start_button_sprite);
@@ -58,6 +66,9 @@ void destroy_sprites(){
     destroy_sprite(night_sky_sprite);
     destroy_sprite(afternoon_sky_sprite);
     destroy_sprite(dyog_sprite);
+    destroy_sprite(dyog2_sprite);
+    destroy_sprite(continue_button_sprite);
+    destroy_sprite(continue_button2_sprite);
 }
 void timer_state(){
     swap_buffers();

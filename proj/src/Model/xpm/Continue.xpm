@@ -1,5 +1,5 @@
 /* XPM */
-static char *Continue[] = {
+static char *continue_button_xpm[] = {
 /* columns rows colors chars-per-pixel */
 "800 600 137 2 ",
 "   c #000000",
