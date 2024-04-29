@@ -16,3 +16,5 @@
 /proj/src/trace.txt
 /proj/src/.clang-format
 /proj/src/output.txt
+/.idea
+/.vscode
