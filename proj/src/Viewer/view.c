@@ -13,6 +13,7 @@ extern int8_t pause_entry;
 extern Sprite *start_button_sprite;
 extern Sprite *start_button2_sprite;
 extern Sprite *cursor_mouse;
+extern Sprite *arrows_sprite;
 extern Sprite *controls_button_sprite;
 extern Sprite *controls_button2_sprite;
 extern Sprite *exit_button_sprite;
@@ -28,6 +29,7 @@ void display_time(){
 void draw_state(){
     if(gameState != PLAY){
         if(menuState == STARTMENU )draw_main_menu();
+        if(menuState == CONTROLLERMENU) draw_controls_menu();
         if(menuState == GAMEMENU )draw_game_menu();
     }
    if(gameState == PLAY)draw_game();
@@ -67,4 +69,11 @@ int draw_sprite(Sprite *sprite, int x, int y) {
         }
     }
     return 0;
+}
+
+void draw_controls_menu() {
+    draw_sprite(dirt_block,0,0);
+    draw_sprite(title_sprite,modeInfo.XResolution/4,50);
+    draw_sprite(arrows_sprite,modeInfo.XResolution/8,150);
+    draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
 }

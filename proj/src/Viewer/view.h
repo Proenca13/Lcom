@@ -23,12 +23,15 @@
 #include "Model/xpm/Exit2.xpm"
 #include "Model/xpm/Title.xpm"
 #include "Model/xpm/dirt.xpm"
+#include "Model/xpm/arrows.xpm"
+
 void display_time();
 void draw_state();
 void draw_main_menu();
 void draw_game_menu();
 void draw_mouse();
 void draw_game();
+void draw_controls_menu();
 int draw_sprite(Sprite *sprite, int x, int y);
 
 #endif //SHARED_VIEW_H

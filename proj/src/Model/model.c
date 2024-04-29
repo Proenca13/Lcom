@@ -1,6 +1,6 @@
 #include "model.h"
 extern uint8_t scancode;
-int8_t entry = 0;
+int8_t entry = -1;
 int8_t pause_entry = 0;
 extern uint8_t byte_counter;
 extern struct packet mouse_packet;
@@ -22,10 +22,13 @@ Sprite *exit_button_sprite;
 Sprite *exit_button2_sprite;
 Sprite *title_sprite;
 Sprite *dirt_block;
+Sprite *arrows_sprite;
+
 
 
 void create_sprites(){
     start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
+    arrows_sprite = create_sprite((xpm_map_t)arrows_xpm);
     start_button2_sprite = create_sprite((xpm_map_t)start_button2_xpm);
     cursor_mouse = create_sprite((xpm_map_t)cursor_xpm);
     controls_button_sprite = create_sprite((xpm_map_t)Controls_button);
@@ -37,7 +40,8 @@ void create_sprites(){
 
 }
 void destroy_sprites(){
-    destroy_sprite(start_button_sprite);
+    destroy_sprite(start_button_sprite); 
+    destroy_sprite(arrows_sprite);
     destroy_sprite(start_button2_sprite);
     destroy_sprite(cursor_mouse);
     destroy_sprite(controls_button_sprite);
@@ -100,13 +104,17 @@ void keyboard_state(){
                break;
        }
    }
-   if(menuState == CONTROLLERMENU){
+   else if(menuState == CONTROLLERMENU){
        switch (scancode) {
            case BRK_ESC:
                menuState = STARTMENU;
                break;
+            case ENTER_BRK:
+               menuState = STARTMENU;
+               break;
        }
    }
+
    draw_state();
 }
 void mouse_state() {
