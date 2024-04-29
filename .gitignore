@@ -14,3 +14,5 @@
 /proj/src/main.o
 /proj/src/model.o
 /proj/src/trace.txt
+/proj/src/.clang-format
+/proj/src/output.txt
