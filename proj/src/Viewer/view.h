@@ -25,14 +25,16 @@
 #include "Model/xpm/dirt.xpm"
 #include "Model/xpm/arrows.xpm"
 #include "Model/xpm/DaySky.xpm"
+#include "Model/xpm/NightSky.xpm"
+#include "Model/xpm/AfternoonSky.xpm"
 
-void display_time();
 void draw_state();
 void draw_main_menu();
 void draw_game_menu();
 void draw_mouse();
 void draw_game();
 void draw_controls_menu();
+Sprite *check_time_sprite();
 int draw_sprite(Sprite *sprite, int x, int y);
 
 #endif //SHARED_VIEW_H

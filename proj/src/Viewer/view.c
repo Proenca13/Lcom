@@ -21,13 +21,10 @@ extern Sprite *title_sprite;
 extern Sprite *exit_button2_sprite;
 extern Sprite *dirt_block;
 extern Sprite *day_sky_sprite;
+extern Sprite *night_sky_sprite;
+extern Sprite *afternoon_sky_sprite;
 
 
-
-
-void display_time(){
-    printf("%d/%d/%d %d @%d:%d:%d\n", 2000 + timeIrl.year, timeIrl.month, timeIrl.day, timeIrl.day_week ,timeIrl.hours, timeIrl.minutes, timeIrl.seconds);
-}
 void draw_state(){
     if(gameState != PLAY){
         if(menuState == STARTMENU )draw_main_menu();
@@ -38,7 +35,7 @@ void draw_state(){
    draw_mouse();
 }
 void draw_main_menu(){
-    draw_sprite(day_sky_sprite,0,0);
+    draw_sprite(check_time_sprite(),0,0);
     draw_sprite(title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(entry == 0 ? start_button2_sprite:start_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(entry == 1? controls_button2_sprite:controls_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
@@ -63,7 +60,6 @@ void draw_controls_menu() {
     draw_sprite(arrows_sprite,modeInfo.XResolution/8,150);
     draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
 }
-
 int draw_sprite(Sprite *sprite, int x, int y) {
     uint16_t height = sprite->height;
     uint16_t width = sprite->width;
@@ -79,4 +75,14 @@ int draw_sprite(Sprite *sprite, int x, int y) {
     }
     return 0;
 }
+
+Sprite *check_time_sprite(){
+    rtc_update_time();
+    if (timeIrl.hours >= 22 || timeIrl.hours < 6)return night_sky_sprite;
+    else if(timeIrl.hours >= 6 && timeIrl.hours < 14 )return  day_sky_sprite;
+    else if(timeIrl.hours >=  14 && timeIrl.hours < 22)return afternoon_sky_sprite;
+    return day_sky_sprite;
+
+}
+
 

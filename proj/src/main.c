@@ -81,8 +81,6 @@ int (proj_main_loop)(int argc, char *argv[]){
                     }
                     if (msg.m_notify.interrupts & RTC_IRQ_SET){
                         rtc_state();
-                        display_time();
-
                     }
                     break;
                 default:
