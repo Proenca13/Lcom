@@ -29,6 +29,11 @@ extern Sprite *dyog_sprite;
 extern Sprite *dyog2_sprite;
 extern Sprite *continue_button_sprite;
 extern Sprite *continue_button2_sprite;
+extern Sprite *right_click_sprite;
+extern Sprite *left_click_sprite;
+extern Sprite *esc_sprite;
+extern Sprite *f_sprite;
+extern Sprite *space_sprite;
 
 void draw_state(){
     if(gameState != PLAY){
@@ -67,6 +72,11 @@ void draw_controls_menu() {
     draw_sprite(control_title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(arrows_sprite,modeInfo.XResolution/8,150);
     draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
+    draw_sprite(right_click_sprite, modeInfo.XResolution/12 + 20, 300);
+    draw_sprite(left_click_sprite, modeInfo.XResolution/12 + 120, 300);
+    draw_sprite(f_sprite, (modeInfo.XResolution / 8) *4.5, 150);
+    draw_sprite(space_sprite, (modeInfo.XResolution / 8) *4.5, 270);
+    draw_sprite(esc_sprite, (modeInfo.XResolution / 8) *4.5, 390);
 }
 int draw_sprite(Sprite *sprite, int x, int y) {
     uint16_t height = sprite->height;
@@ -85,7 +95,9 @@ int draw_sprite(Sprite *sprite, int x, int y) {
 }
 
 Sprite *check_time_sprite(){
+    printf("hours = %d  \n",timeIrl.hours);
     rtc_update_time();
+    printf("hours = %d  \n",timeIrl.hours);
     if (timeIrl.hours >= 22 || timeIrl.hours < 6)return night_sky_sprite;
     else if(timeIrl.hours >= 6 && timeIrl.hours < 14 )return  day_sky_sprite;
     else if(timeIrl.hours >=  14 && timeIrl.hours < 22)return afternoon_sky_sprite;

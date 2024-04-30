@@ -32,6 +32,11 @@ Sprite *dyog_sprite;
 Sprite *dyog2_sprite;
 Sprite *continue_button_sprite;
 Sprite *continue_button2_sprite;
+Sprite *right_click_sprite;
+Sprite *left_click_sprite;
+Sprite *esc_sprite;
+Sprite *f_sprite;
+Sprite *space_sprite;
 
 void create_sprites(){
     start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
@@ -53,8 +58,13 @@ void create_sprites(){
     dyog2_sprite =  create_sprite((xpm_map_t)dyog2);
     continue_button_sprite = create_sprite((xpm_map_t)continue_button_xpm);
     continue_button2_sprite = create_sprite((xpm_map_t)continue_button2_xpm);
-
+    right_click_sprite = create_sprite((xpm_map_t)Right_click);
+    left_click_sprite = create_sprite((xpm_map_t)Left_click);
+    esc_sprite = create_sprite((xpm_map_t)ESC);
+    f_sprite = create_sprite((xpm_map_t)F);
+    space_sprite = create_sprite((xpm_map_t)space);
 }
+
 void destroy_sprites(){
     destroy_sprite(start_button_sprite);
     destroy_sprite(start_button2_sprite);
@@ -75,11 +85,18 @@ void destroy_sprites(){
     destroy_sprite(dyog2_sprite);
     destroy_sprite(continue_button_sprite);
     destroy_sprite(continue_button2_sprite);
+    destroy_sprite(right_click_sprite);
+    destroy_sprite(left_click_sprite);
+    destroy_sprite(esc_sprite);
+    destroy_sprite(f_sprite);
+    destroy_sprite(space_sprite);
 }
+
 void timer_state(){
     swap_buffers();
     counter_timer++;
 }
+
 void keyboard_state(){
     kbc_ih();
    if(menuState == STARTMENU && gameState != PLAY){

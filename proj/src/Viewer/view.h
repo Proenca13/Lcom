@@ -33,6 +33,11 @@
 #include "Model/xpm/Continue2.xpm"
 #include "Model/xpm/paused.xpm"
 #include "Model/xpm/controls_title.xpm"
+#include "Model/xpm/F.xpm"
+#include "Model/xpm/ESC.xpm"
+#include "Model/xpm/RightClick.xpm"
+#include "Model/xpm/LeftClick.xpm"
+#include "Model/xpm/space.xpm"
 
 void draw_state();
 void draw_main_menu();
