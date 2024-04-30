@@ -42,6 +42,7 @@ void (mouse_bytes_to_packet)(){
     if (x + mouse_packet.delta_x < 0 || x + mouse_packet.delta_x> modeInfo.XResolution || y - mouse_packet.delta_y < 0 || y - mouse_packet.delta_y > modeInfo.YResolution) return;
     x = x + mouse_packet.delta_x;
     y = y - mouse_packet.delta_y;
+    printf("x = %d  , y = %d\n",x,y);
 }
 int (mouse_write)(uint8_t command){
     uint8_t attemps = 10;

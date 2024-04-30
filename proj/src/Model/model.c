@@ -21,6 +21,8 @@ Sprite *controls_button2_sprite;
 Sprite *exit_button_sprite;
 Sprite *exit_button2_sprite;
 Sprite *title_sprite;
+Sprite *control_title_sprite;
+Sprite *paused_title_sprite;
 Sprite *dirt_block;
 Sprite *arrows_sprite;
 Sprite *day_sky_sprite;
@@ -41,6 +43,8 @@ void create_sprites(){
     exit_button_sprite = create_sprite((xpm_map_t)Exit);
     exit_button2_sprite = create_sprite((xpm_map_t)Exit2);
     title_sprite = create_sprite((xpm_map_t)Title_xpm);
+    control_title_sprite = create_sprite((xpm_map_t)Controls_Title);
+    paused_title_sprite = create_sprite((xpm_map_t)paused);
     dirt_block = create_sprite((xpm_map_t)Dirt_block);
     day_sky_sprite = create_sprite((xpm_map_t)Day_sky);
     night_sky_sprite = create_sprite((xpm_map_t)Night_sky);
@@ -59,6 +63,8 @@ void destroy_sprites(){
     destroy_sprite(exit_button_sprite);
     destroy_sprite(exit_button2_sprite);
     destroy_sprite(title_sprite);
+    destroy_sprite(control_title_sprite);
+    destroy_sprite(paused_title_sprite);
     destroy_sprite(dirt_block);
     destroy_sprite(arrows_sprite);
     destroy_sprite(cursor_mouse);
@@ -135,7 +141,6 @@ void keyboard_state(){
                break;
        }
    }
-
    draw_state();
 }
 void mouse_state() {
@@ -144,21 +149,21 @@ void mouse_state() {
     if (byte_counter == 3) {
         mouse_bytes_to_packet();
         byte_counter = 0;
-        if((x > start_button2_sprite->x && x < start_button2_sprite->x + start_button2_sprite->width) && (y > start_button2_sprite->y && y < start_button2_sprite->y + start_button2_sprite->height)){
+        if((x > start_button_sprite->x && x < start_button_sprite->x + start_button_sprite->width) && (y > start_button_sprite->y && y < start_button_sprite->y + start_button_sprite->height)){
             entry = 0;
-            if(mouse_packet.rb){
+            if(mouse_packet.lb){
                 gameState = PLAY;
             }
         }
         if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y > controls_button_sprite->y && y < controls_button_sprite->y + controls_button_sprite->height)){
             entry = 1;
-            if(mouse_packet.rb){
+            if(mouse_packet.lb){
                 menuState = CONTROLLERMENU;
             }
         }
         if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
             entry = 2;
-            if(mouse_packet.rb){
+            if(mouse_packet.lb){
                 programState = END;
             }
         }

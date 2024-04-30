@@ -31,6 +31,8 @@
 #include "Model/xpm/dyog2.xpm"
 #include "Model/xpm/Continue.xpm"
 #include "Model/xpm/Continue2.xpm"
+#include "Model/xpm/paused.xpm"
+#include "Model/xpm/controls_title.xpm"
 
 void draw_state();
 void draw_main_menu();
