@@ -24,6 +24,8 @@ Sprite *left_click_sprite;
 Sprite *esc_sprite;
 Sprite *f_sprite;
 Sprite *space_sprite;
+Sprite *grass_sprite;
+
 
 void create_sprites(){
     start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
@@ -50,6 +52,7 @@ void create_sprites(){
     esc_sprite = create_sprite((xpm_map_t)ESC);
     f_sprite = create_sprite((xpm_map_t)F);
     space_sprite = create_sprite((xpm_map_t)space);
+    grass_sprite = create_sprite((xpm_map_t)grass_xpm);
 }
 
 void destroy_sprites(){
@@ -77,5 +80,6 @@ void destroy_sprites(){
     destroy_sprite(esc_sprite);
     destroy_sprite(f_sprite);
     destroy_sprite(space_sprite);
+    destroy_sprite(grass_sprite);
 }
 

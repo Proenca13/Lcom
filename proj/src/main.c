@@ -6,6 +6,7 @@
 #include "Controller/Mouse/mouse.h"
 #include "Controller/RTC/rtc.h"
 #include "Model/model.h"
+#include "Model/game.h"
 #include "State/state.h"
 #include "Viewer/view.h"
 #include "configs.h"
@@ -46,6 +47,7 @@ int init_game(){
     if(rtc_subscribe_int()!=0)return 1;
     if(mouse_write(ENABLE_DATA_REPORTING)!=0)return 1;
     create_sprites();
+    create_game();
     return 0;
 }
 int shut_down(){
@@ -56,6 +58,7 @@ int shut_down(){
     if(rtc_unsubscribe_int()!=0)return 1;
     if(mouse_write(DISABLE_DATA_REPORTING)!=0)return 1;
     destroy_sprites();
+    destroy_game();
     return 0;
 }
 int (proj_main_loop)(int argc, char *argv[]){

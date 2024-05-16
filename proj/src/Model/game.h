@@ -6,21 +6,33 @@
 typedef enum{
     Flagged,
     Revealed,
-    Not_Reveled;
+    Not_Revealed
 }BlockState;
+typedef enum{
+    ONE,
+    TWO,
+    THREE,
+    FOUR,
+    FIVE,
+    SIX,
+    SEVEN,
+    EIGHT,
+    BOMB,
+    EMPTY
+}BlockType;
 typedef struct {
-    Sprite *block;
-    char id;
+    Sprite *block_sprite;
+    BlockType type;
     int16_t row,col;
     bool is_selected;
     BlockState state;
 } Block;
 void SetPosition(int16_t row, int16_t col);
 void SetSprite(Sprite *block);
-void SetId(char id);
+void SetId(BlockType type);
 void SetSelected(bool is_selected);
 void SetState(BlockState state);
-void draw_block(const Block block);
-void create_block(Sprite *block,char id, int16_t row, int16_t col,bool is_selected,BlockState state);
+Block *create_block(Sprite *block_sprite,BlockType type, int16_t row, int16_t col,bool is_selected,BlockState state);
 void create_game();
+void destroy_game();
 #endif //SHARED_GAME_H

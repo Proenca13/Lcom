@@ -6,7 +6,8 @@ extern GameState gameState;
 extern vbe_mode_info_t modeInfo;
 extern uint16_t x;
 extern uint16_t y;
-
+extern uint8_t rows ;
+extern uint8_t cols ;
 extern int8_t entry;
 extern int8_t pause_entry;
 
@@ -34,6 +35,9 @@ extern Sprite *left_click_sprite;
 extern Sprite *esc_sprite;
 extern Sprite *f_sprite;
 extern Sprite *space_sprite;
+extern Sprite *grass_sprite;
+extern Block* **grid;
+
 void draw_state(){
     if(gameState != PLAY){
         if(menuState == STARTMENU )draw_main_menu();
@@ -53,6 +57,13 @@ void draw_main_menu(){
 void draw_game(){
     draw_sprite(dirt_block,0,0);
     draw_sprite(title_sprite,modeInfo.XResolution/4,50);
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            int x = modeInfo.XResolution/2 -( 4 * grid[i][j]->block_sprite->width) + i * grid[i][j]->block_sprite->width;
+            int y = modeInfo.YResolution/2 -( 4 * grid[i][j]->block_sprite->height) + j * grid[i][j]->block_sprite->height;
+            draw_sprite(grid[i][j]->block_sprite, x, y);
+        }
+    }
 }
 void draw_game_menu(){
     draw_sprite(dirt_block,0,0);

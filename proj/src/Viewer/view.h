@@ -13,6 +13,7 @@
 #include "Controller/Mouse/mouse.h"
 #include "Controller/RTC//rtc.h"
 #include "Model/model.h"
+#include "Model/game.h"
 #include "configs.h"
 #include "State/state.h"
 #include "Model/xpm/Start.xpm"
@@ -39,6 +40,8 @@
 #include "Model/xpm/RightClick.xpm"
 #include "Model/xpm/LeftClick.xpm"
 #include "Model/xpm/space.xpm"
+#include "Model/xpm/grass.xpm"
+
 
 void draw_state();
 void draw_main_menu();
