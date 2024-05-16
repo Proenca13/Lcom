@@ -14,23 +14,7 @@
 #include "Viewer/view.h"
 #ifndef SHARED_MODEL_H
 #define SHARED_MODEL_H
-typedef enum {
-    RUNNING,
-    END
-} ProgramState;
-typedef enum {
-    PLAY,
-    STOP
-} GameState;
-typedef enum {
-    STARTMENU,
-    CONTROLLERMENU,
-    GAMEMENU
-} MenuState;
+
 void create_sprites();
 void destroy_sprites();
-void timer_state();
-void keyboard_state();
-void mouse_state();
-void rtc_state();
 #endif //SHARED_MODEL_H

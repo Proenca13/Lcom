@@ -6,6 +6,7 @@
 #include "Controller/Mouse/mouse.h"
 #include "Controller/RTC/rtc.h"
 #include "Model/model.h"
+#include "State/state.h"
 #include "Viewer/view.h"
 #include "configs.h"
 
