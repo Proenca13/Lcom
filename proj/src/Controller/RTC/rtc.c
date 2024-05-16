@@ -7,7 +7,7 @@ int read_rtc(uint8_t command, uint8_t *st){
 }
 int rtc_update(){
     uint8_t st;
-    if(read_rtc(10,&st)!=0)return 1;
+    if(read_rtc(0x0A,&st)!=0)return 1;
     return st & UPDATING;
 }
 uint8_t binary_converter(uint8_t num) {

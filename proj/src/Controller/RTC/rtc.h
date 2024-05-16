@@ -12,15 +12,15 @@
 #define IRQ_RTC 8
 #define RTC_IRQ_SET BIT(5)
 
-#define SECONDS 0
-#define MINUTES 2
-#define HOURS 4
-#define DAY_OF_THE_WEEK 6
-#define DAY_OF_THE_MONTH  7
-#define MONTH  8
-#define YEAR  9
+#define SECONDS 0x00
+#define MINUTES 0x02
+#define HOURS 0x04
+#define DAY_OF_THE_WEEK 0x06
+#define DAY_OF_THE_MONTH  0x07
+#define MONTH  0x08
+#define YEAR  0x09
 #define RTC_ADDR_REG 0x70
-#define RTC_DATA_REG 0x71 // read or write
+#define RTC_DATA_REG 0x71
 
 #define UPDATING BIT(7)
 

@@ -4,10 +4,7 @@
 
 #include <stdint.h>
 #include <stdio.h>
-enum lpv_dir_t {
-    lpv_hor, // horizontal line
-    lpv_vert // vertical line
-};
+
 int pp_test_line(uint8_t mode, enum lpv_dir_t dir, uint16_t x,uint16_t y, uint16_t len, uint32_t color, uint32_t delay){
     if(lpv_set_mode(mode)!=0)return 1;
     lpv_mode_info_t mode_info;
@@ -21,21 +18,21 @@ int pp_test_line(uint8_t mode, enum lpv_dir_t dir, uint16_t x,uint16_t y, uint16
         uint8_t red = color >> 16;
         uint8_t green = (color >> 8)&0xFF;
         uint8_t blue = color & 0xFF;
-        color = red << mode_info.r_pos|| blue << mode_info.b_pos || green << mode_info.green_pos;
+        color = red << mode_info.r_pos| blue << mode_info.b_pos | green << mode_info.green_pos;
     }
-    switch (dir) {
-        case lpv_hor:
+    switch (sl_num) {
+        case 0:
             for(unsigned i = 0;i < len; i++){
                 if(x+i> mode_info.x_res || y > mode_info.y_res)return 1;
                 unsigned index = ((mode_info.x_res*y)+(x+i))*bytes_per_pixel;
                 if(memcpy(video_mem[index],&color,bytes_per_pixel)!=0)return 1;
             }
             break;
-        case lpv_vert:
+        case 1:
             for(unsigned i = 0;i < len; i++){
                 if(x> mode_info.x_res || y+i > mode_info.y_res)return 1;
-                unsigned index = ((mode_info.x_res*(y+i))+x)*bytes_per_pixel;
-                if(memcpy(video_mem,&color,bytes_per_pixel)!=0)return 1;
+                unsigned index = ((mode_info.x_res*(y-i))+x+i)*bytes_per_pixel;
+                if(memcpy(video_mem[index],&color,bytes_per_pixel)!=0)return 1;
             }
             break;
         default:

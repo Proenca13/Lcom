@@ -14,6 +14,7 @@
 #include "Controller/RTC//rtc.h"
 #include "Model/model.h"
 #include "configs.h"
+#include "State/state.h"
 #include "Model/xpm/Start.xpm"
 #include "Model/xpm/Start2.xpm"
 #include "Model/xpm/mouse.xpm"

@@ -53,7 +53,6 @@ int(video_test_rectangle)(uint16_t mode, uint16_t x, uint16_t y,
     if(waiting_ESC_key()!=0)return 1;
     return vg_exit();
 }
-
 int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, uint8_t step) {
     if(set_frame_buffer(mode)!=0)return 1;
     if(set_graphic_mode(mode)!=0)return 1;
@@ -77,7 +76,6 @@ int(video_test_pattern)(uint16_t mode, uint8_t no_rectangles, uint32_t first, ui
     if(waiting_ESC_key()!=0)return 1;
     return vg_exit();
 }
-
 int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     if(set_frame_buffer(0x105)!=0)return 1;
     if(set_graphic_mode(0x105)!=0)return 1;
@@ -85,7 +83,6 @@ int(video_test_xpm)(xpm_map_t xpm, uint16_t x, uint16_t y) {
     if(waiting_ESC_key()!=0)return 1;
     return vg_exit();
 }
-
 int(video_test_move)(xpm_map_t xpm, uint16_t xi, uint16_t yi, uint16_t xf, uint16_t yf,
                      int16_t speed, uint8_t fr_rate) {
     int ipc_status,r;
