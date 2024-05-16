@@ -1,6 +1,6 @@
-static char * grass_xpm[] = {
+static char * selectedgrass_xpm[] = {
 "48 48 366 2",
-"  	c #000000",
+"  	c #E5F217",
 ". 	c #97C566",
 "+ 	c #96C565",
 "@ 	c #98C666",

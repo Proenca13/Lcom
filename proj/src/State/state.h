@@ -8,6 +8,7 @@
 #include "Controller/RTC//rtc.h"
 #include "configs.h"
 #include "Viewer/view.h"
+#include "Model/game.h"
 #ifndef SHARED_STATE_H
 #define SHARED_STATE_H
 typedef enum {
@@ -27,4 +28,5 @@ void timer_state();
 void keyboard_state();
 void mouse_state();
 void rtc_state();
+void cell_state();
 #endif //SHARED_STATE_H

@@ -15,6 +15,10 @@ extern vbe_mode_info_t modeInfo;
 extern Sprite *start_button_sprite;
 extern Sprite *controls_button_sprite;
 extern Sprite *exit_button_sprite;
+
+extern Grid_entry grid_entry;
+extern Block* **grid;
+
 void timer_state(){
     swap_buffers();
     counter_timer++;
@@ -35,20 +39,22 @@ void keyboard_state(){
                 if(entry < 0)entry = 2;
                 break;
             case ENTER_BRK:
-                if(entry == 0)gameState = PLAY;
-                if(entry == 1)menuState = CONTROLLERMENU;
-                if(entry == 2)programState = END;
+                if(entry == 0){
+                    gameState = PLAY;
+                    create_game();
+                }
+                else if(entry == 1)menuState = CONTROLLERMENU;
+                else if(entry == 2)programState = END;
                 entry = 0;
                 break;
         }
     }
     else if(gameState == PLAY){
-        switch (scancode) {
-            case BRK_ESC:
+        if (scancode == BRK_ESC) {
                 gameState = STOP;
                 menuState = GAMEMENU;
-                break;
         }
+        else cell_state();
     }
     else if(menuState == GAMEMENU){
         switch (scancode) {
@@ -65,7 +71,10 @@ void keyboard_state(){
                 break;
             case ENTER_BRK:
                 if(pause_entry == 0)gameState = PLAY;
-                if(pause_entry == 1)menuState = STARTMENU;
+                else if(pause_entry == 1){
+                    menuState = STARTMENU;
+                    destroy_game();
+                }
                 pause_entry = 0;
                 break;
         }
@@ -111,4 +120,38 @@ void mouse_state() {
 }
 void rtc_state(){
     if(counter_timer%FREQUENCY==0)rtc_update_time();
+}
+void cell_state(){
+    switch (scancode) {
+        case ARROW_DOWN_MAKE:
+                grid[grid_entry.x][grid_entry.y]->is_selected = false;
+                grid_entry.y++;
+                if(grid_entry.y > 7)grid_entry.y= 0;
+                grid[grid_entry.x][grid_entry.y]->is_selected = true;
+                break;
+        case ARROW_UP_MAKE:
+            grid[grid_entry.x][grid_entry.y]->is_selected = false;
+            grid_entry.y--;
+            if(grid_entry.y <0)grid_entry.y = 7;
+            grid[grid_entry.x][grid_entry.y]->is_selected = true;
+            break;
+        case ARROW_LEFT_MAKE:
+            grid[grid_entry.x][grid_entry.y]->is_selected = false;
+            grid_entry.x--;
+            if(grid_entry.x< 0)grid_entry.x = 7;
+            grid[grid_entry.x][grid_entry.y]->is_selected = true;
+            break;
+        case ARROW_RIGHT_MAKE:
+            grid[grid_entry.x][grid_entry.y]->is_selected = false;
+            grid_entry.x++;
+            if(grid_entry.x> 7)grid_entry.x = 0;
+            grid[grid_entry.x][grid_entry.y]->is_selected = true;
+            break;
+        case ENTER_BRK:
+            if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed) {
+                grid[grid_entry.x][grid_entry.y]->state = Revealed;
+            }
+            break;
+        }
+    return;
 }

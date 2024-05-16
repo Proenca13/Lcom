@@ -41,6 +41,8 @@
 #include "Model/xpm/LeftClick.xpm"
 #include "Model/xpm/space.xpm"
 #include "Model/xpm/grass.xpm"
+#include "Model/xpm/selectedgrass.xpm"
+#include "Model/xpm/tnt.xpm"
 
 
 void draw_state();

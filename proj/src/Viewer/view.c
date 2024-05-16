@@ -36,6 +36,9 @@ extern Sprite *esc_sprite;
 extern Sprite *f_sprite;
 extern Sprite *space_sprite;
 extern Sprite *grass_sprite;
+extern Sprite *selected_grass_sprite;
+extern Sprite *tnt_sprite;
+
 extern Block* **grid;
 
 void draw_state(){
@@ -61,7 +64,18 @@ void draw_game(){
         for (int j = 0; j < cols; j++) {
             int x = modeInfo.XResolution/2 -( 4 * grid[i][j]->block_sprite->width) + i * grid[i][j]->block_sprite->width;
             int y = modeInfo.YResolution/2 -( 4 * grid[i][j]->block_sprite->height) + j * grid[i][j]->block_sprite->height;
-            draw_sprite(grid[i][j]->block_sprite, x, y);
+            if(grid[i][j]->state == Not_Revealed){
+                if(grid[i][j]->is_selected == true){
+                    draw_sprite(selected_grass_sprite , x, y);
+                }
+                else{
+                    draw_sprite(grass_sprite, x, y);
+                }
+            }
+            else if(grid[i][j]->state == Revealed){
+                draw_sprite(grid[i][j]->block_sprite, x, y);
+            }
+
         }
     }
 }
