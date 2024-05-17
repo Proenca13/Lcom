@@ -51,7 +51,9 @@ Sprite *selected_tile8_sprite;
 Sprite *flag_sprite;
 Sprite *selected_flag_sprite;
 Sprite *game_over_sprite;
+Sprite *you_won_sprite;
 Sprite *tnt_sprite;
+Sprite *king_charles;
 
 void create_sprites(){
     start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
@@ -74,7 +76,7 @@ void create_sprites(){
     continue_button_sprite = create_sprite((xpm_map_t)continue_button_xpm);
     continue_button2_sprite = create_sprite((xpm_map_t)continue_button2_xpm);
     play_again_button_sprite = create_sprite((xpm_map_t)PlayAgain_xpm);
-    play_again_button_sprite = create_sprite((xpm_map_t)PlayAgain2_xpm);
+    play_again_button2_sprite = create_sprite((xpm_map_t)PlayAgain2_xpm);
     restart_button_sprite = create_sprite((xpm_map_t)Restart_xpm);
     restart_button2_sprite = create_sprite((xpm_map_t)Restart2_xpm);
     right_click_sprite = create_sprite((xpm_map_t)Right_click);
@@ -105,7 +107,9 @@ void create_sprites(){
     flag_sprite = create_sprite((xpm_map_t)flag_xpm);
     selected_flag_sprite = create_sprite((xpm_map_t)flagselected_xpm);
     game_over_sprite = create_sprite((xpm_map_t)GameOver_xpm);
+    you_won_sprite = create_sprite((xpm_map_t)YouWon_xpm);
     tnt_sprite = create_sprite((xpm_map_t)tnt_xpm);
+    king_charles = create_sprite((xpm_map_t)kingcharles_xpm);
 }
 
 void destroy_sprites(){
@@ -160,6 +164,8 @@ void destroy_sprites(){
     destroy_sprite(flag_sprite);
     destroy_sprite(selected_flag_sprite);
     destroy_sprite(game_over_sprite);
+    destroy_sprite(you_won_sprite);
     destroy_sprite(tnt_sprite);
+    destroy_sprite(king_charles);
 }
 

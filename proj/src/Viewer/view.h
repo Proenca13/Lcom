@@ -68,7 +68,8 @@
 #include "Model/xpm/PlayAgain2.xpm"
 #include "Model/xpm/Restart.xpm"
 #include "Model/xpm/Restart2.xpm"
-
+#include "Model/xpm/YouWon.xpm"
+#include "Model/xpm/kingcharles.xpm"
 
 void draw_state();
 void draw_main_menu();
@@ -77,6 +78,7 @@ void draw_mouse();
 void draw_game();
 void draw_controls_menu();
 void draw_game_over_menu();
+void draw_win_menu();
 Sprite *check_time_sprite();
 int draw_sprite(Sprite *sprite, int x, int y);
 

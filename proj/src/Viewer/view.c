@@ -11,6 +11,8 @@ extern uint8_t cols ;
 extern int8_t entry;
 extern int8_t pause_entry;
 extern int8_t game_over_entry;
+extern int8_t win_entry ;
+
 
 extern Sprite *start_button_sprite;
 extern Sprite *start_button2_sprite;
@@ -64,6 +66,8 @@ extern Sprite *play_again_button_sprite;
 extern Sprite *play_again_button2_sprite;
 extern Sprite *restart_button_sprite;
 extern Sprite *restart_button2_sprite;
+extern Sprite *you_won_sprite;
+extern Sprite *king_charles;
 
 extern Block* **grid;
 
@@ -73,6 +77,7 @@ void draw_state(){
         if(menuState == CONTROLLERMENU) draw_controls_menu();
         if(menuState == GAMEMENU )draw_game_menu();
         if(menuState == GAMEOVER)draw_game_over_menu();
+        if(menuState == WINMENU)draw_win_menu();
     }
    if(gameState == PLAY)draw_game();
    draw_mouse();
@@ -133,10 +138,17 @@ void draw_game_menu(){
 void draw_game_over_menu(){
     draw_sprite(dirt_block,0,0);
     draw_sprite(game_over_sprite,modeInfo.XResolution/4,50);
-    draw_sprite(game_over_entry==0?continue_button2_sprite:continue_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
+    draw_sprite(game_over_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(game_over_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
     draw_sprite(dyog_sprite,modeInfo.XResolution-200,modeInfo.YResolution - 200);
     draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
+}
+void draw_win_menu(){
+    draw_sprite(dirt_block,0,0);
+    draw_sprite(you_won_sprite,modeInfo.XResolution/4,50);
+    draw_sprite(win_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
+    draw_sprite(win_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
+    draw_sprite(king_charles,0,0);
 }
 void draw_mouse(){
     draw_sprite(cursor_mouse,x,y);

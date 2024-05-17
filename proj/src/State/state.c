@@ -10,6 +10,7 @@ extern uint8_t scancode;
 int8_t entry = -1;
 int8_t pause_entry = 0;
 int8_t game_over_entry = 0;
+int8_t win_entry = 0;
 extern uint8_t byte_counter;
 extern struct packet mouse_packet;
 extern Time_Irl timeIrl;
@@ -63,7 +64,7 @@ void keyboard_state(){
                     break;
                 case ARROW_UP_MAKE:
                     pause_entry--;
-                    if(pause_entry < 0)pause_entry = 1;
+                    if(pause_entry < 0)pause_entry = 2;
                     break;
                 case ENTER_BRK:
                     if(pause_entry == 0)gameState = PLAY;
@@ -101,7 +102,32 @@ void keyboard_state(){
                     else if(game_over_entry == 1){
                         menuState = STARTMENU;
                     }
-                    pause_entry = 0;
+                    game_over_entry = 0;
+                    break;
+            }
+        }
+        else if(menuState == WINMENU){
+            switch (scancode) {
+                case BRK_ESC:
+                    menuState = STARTMENU;
+                    break;
+                case ARROW_DOWN_MAKE:
+                    win_entry++;
+                    if(win_entry > 1)win_entry = 0;
+                    break;
+                case ARROW_UP_MAKE:
+                    win_entry--;
+                    if(win_entry < 0)win_entry = 1;
+                    break;
+                case ENTER_BRK:
+                    if(win_entry == 0){
+                        gameState = PLAY;
+                        create_game();
+                    }
+                    else if(win_entry == 1){
+                        menuState = STARTMENU;
+                    }
+                    win_entry = 0;
                     break;
             }
         }
@@ -189,25 +215,24 @@ void cell_state(){
                 if(check_win()){
                     draw_state();
                     sleep(3);
-                    menuState = GAMEOVER;
+                    menuState = WINMENU;
                     gameState = STOP;
                     destroy_game();
                     grid_entry.x = 0;
                     grid_entry.y = 0;
                 }
                 if(grid[grid_entry.x][grid_entry.y]->type == BOMB){
-                    draw_state();
-                    sleep(3);
                     menuState = GAMEOVER;
                     gameState = STOP;
                     destroy_game();
                     grid_entry.x = 0;
                     grid_entry.y = 0;
                 }
+                if(grid[grid_entry.x][grid_entry.y]->type == EMPTY)reveal_near_zeros(grid_entry.x,grid_entry.y);
             }
             break;
         case F_BRK:
-            if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed) {
+            if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed && check_can_flag()) {
                 grid[grid_entry.x][grid_entry.y]->state = Flagged;
             }
             else if(grid[grid_entry.x][grid_entry.y]->state == Flagged) {

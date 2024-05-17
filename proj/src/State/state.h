@@ -23,6 +23,7 @@ typedef enum {
     STARTMENU,
     CONTROLLERMENU,
     GAMEOVER,
+    WINMENU,
     GAMEMENU
 } MenuState;
 void timer_state();

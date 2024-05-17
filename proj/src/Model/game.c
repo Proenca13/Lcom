@@ -112,17 +112,6 @@ void count_bombs_around(int16_t x , int16_t y){
             break;
     }
 }
-int check_win(){
-    uint8_t revealed_count = 0;
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            if(grid[i][j]->type != BOMB && grid[i][j]->state == Revealed){
-                revealed_count++;
-            }
-        }
-    }
-    return (revealed_count == ((8*8)-10));
-}
 void create_game(){
     grid = malloc(rows * sizeof(Block *));
     for (int i = 0; i < rows; i++) {
@@ -155,4 +144,44 @@ void destroy_game(){
         free(grid[i]);
     }
     free(grid);
+}
+int check_win(){
+    uint8_t revealed_count = 0;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if(grid[i][j]->type != BOMB && grid[i][j]->state == Revealed){
+                revealed_count++;
+            }
+        }
+    }
+    if(revealed_count == ((8*8)-10)) return 1;
+    return 0;
+}
+int check_can_flag(){
+    uint8_t flag_count = 0;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if(grid[i][j]->state == Flagged){
+                flag_count++;
+            }
+        }
+    }
+    if(flag_count >= 10)return 0;
+    return 1;
+}
+void reveal_near_zeros(int16_t x , int16_t y){
+            int dr[] = {-1, -1, -1, 0, 0, 1, 1, 1};
+            int dc[] = {-1, 0, 1, -1, 1, -1, 0, 1};
+            for (int k = 0; k < 8; k++) {
+                int n_row = x + dr[k];
+                int n_col = y + dc[k];
+                if (n_row >= 0 && n_row < rows && n_col >= 0 && n_col < cols) {
+                    if (grid[n_row][n_col]->state != Revealed) {
+                        grid[n_row][n_col]->state = Revealed;
+                        if(grid[n_row][n_col]->type == EMPTY){
+                            reveal_near_zeros(n_row,n_col);
+                        }
+                    }
+                }
+    }
 }
