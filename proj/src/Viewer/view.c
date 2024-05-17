@@ -10,6 +10,7 @@ extern uint8_t rows ;
 extern uint8_t cols ;
 extern int8_t entry;
 extern int8_t pause_entry;
+extern int8_t game_over_entry;
 
 extern Sprite *start_button_sprite;
 extern Sprite *start_button2_sprite;
@@ -38,6 +39,27 @@ extern Sprite *space_sprite;
 extern Sprite *grass_sprite;
 extern Sprite *selected_grass_sprite;
 extern Sprite *tnt_sprite;
+extern Sprite *cobblestone_sprite;
+extern Sprite *selected_cobblestone_sprite;
+extern Sprite *tile1_sprite;
+extern Sprite *selected_tile1_sprite;
+extern Sprite *tile2_sprite;
+extern Sprite *selected_tile2_sprite;
+extern Sprite *tile3_sprite;
+extern Sprite *selected_tile3_sprite;
+extern Sprite *tile4_sprite;
+extern Sprite *selected_tile4_sprite;
+extern Sprite *tile5_sprite;
+extern Sprite *selected_tile5_sprite;
+extern Sprite *tile6_sprite;
+extern Sprite *selected_tile6_sprite;
+extern Sprite *tile7_sprite;
+extern Sprite *selected_tile7_sprite;
+extern Sprite *tile8_sprite;
+extern Sprite *selected_tile8_sprite;
+extern Sprite *flag_sprite;
+extern Sprite *selected_flag_sprite;
+extern Sprite *game_over_sprite;
 
 extern Block* **grid;
 
@@ -46,6 +68,7 @@ void draw_state(){
         if(menuState == STARTMENU )draw_main_menu();
         if(menuState == CONTROLLERMENU) draw_controls_menu();
         if(menuState == GAMEMENU )draw_game_menu();
+        if(menuState == GAMEOVER)draw_game_over_menu();
     }
    if(gameState == PLAY)draw_game();
    draw_mouse();
@@ -63,7 +86,7 @@ void draw_game(){
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             int x = modeInfo.XResolution/2 -( 4 * grid[i][j]->block_sprite->width) + i * grid[i][j]->block_sprite->width;
-            int y = modeInfo.YResolution/2 -( 4 * grid[i][j]->block_sprite->height) + j * grid[i][j]->block_sprite->height;
+            int y = modeInfo.YResolution/2 -( 4 * grid[i][j]->block_sprite->height) + j * grid[i][j]->block_sprite->height + 25;
             if(grid[i][j]->state == Not_Revealed){
                 if(grid[i][j]->is_selected == true){
                     draw_sprite(selected_grass_sprite , x, y);
@@ -73,7 +96,22 @@ void draw_game(){
                 }
             }
             else if(grid[i][j]->state == Revealed){
-                draw_sprite(grid[i][j]->block_sprite, x, y);
+                if(grid[i][j]->is_selected == true){
+                    draw_sprite(grid[i][j]->selected_block_sprite, x, y);;
+                }
+                else{
+                    draw_sprite(grid[i][j]->block_sprite, x, y);
+                }
+
+            }
+            else if(grid[i][j]->state == Flagged){
+                if(grid[i][j]->is_selected == true){
+                    draw_sprite(selected_flag_sprite, x, y);;
+                }
+                else{
+                    draw_sprite(flag_sprite, x, y);
+                }
+
             }
 
         }
@@ -86,7 +124,14 @@ void draw_game_menu(){
     draw_sprite(pause_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
     draw_sprite(dyog_sprite,modeInfo.XResolution-200,modeInfo.YResolution - 200);
     draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
-
+}
+void draw_game_over_menu(){
+    draw_sprite(dirt_block,0,0);
+    draw_sprite(game_over_sprite,modeInfo.XResolution/4,50);
+    draw_sprite(game_over_entry==0?continue_button2_sprite:continue_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
+    draw_sprite(game_over_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
+    draw_sprite(dyog_sprite,modeInfo.XResolution-200,modeInfo.YResolution - 200);
+    draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
 }
 void draw_mouse(){
     draw_sprite(cursor_mouse,x,y);

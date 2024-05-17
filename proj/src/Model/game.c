@@ -2,13 +2,34 @@
 extern Sprite *grass_sprite;
 extern Sprite *tnt_sprite;
 extern Sprite *selected_grass_sprite;
+extern Sprite *cobblestone_sprite;
+extern Sprite *selected_cobblestone_sprite;
+extern Sprite *tile1_sprite;
+extern Sprite *selected_tile1_sprite;
+extern Sprite *tile2_sprite;
+extern Sprite *selected_tile2_sprite;
+extern Sprite *tile3_sprite;
+extern Sprite *selected_tile3_sprite;
+extern Sprite *tile4_sprite;
+extern Sprite *selected_tile4_sprite;
+extern Sprite *tile5_sprite;
+extern Sprite *selected_tile5_sprite;
+extern Sprite *tile6_sprite;
+extern Sprite *selected_tile6_sprite;
+extern Sprite *tile7_sprite;
+extern Sprite *selected_tile7_sprite;
+extern Sprite *tile8_sprite;
+extern Sprite *selected_tile8_sprite;
+extern Sprite *flag_sprite;
+extern Sprite *selected_flag_sprite;
 uint8_t rows = 8;
 uint8_t cols = 8;
 Grid_entry grid_entry = {0, 0};
 Block* **grid;
-Block *create_block(Sprite *block_sprite,BlockType type, int16_t row, int16_t col,bool is_selected,BlockState state){
+Block *create_block(Sprite *block_sprite,Sprite *selected_block_sprite,BlockType type, int16_t row, int16_t col,bool is_selected,BlockState state){
     Block *block = (Block *) malloc (sizeof(Block));
     block->block_sprite = block_sprite;
+    block->selected_block_sprite = selected_block_sprite;
     block->type= type;
     block->row = row;
     block->col = col;
@@ -25,6 +46,7 @@ void placeBombs(){
         if (grid[random_row][random_col]->type != BOMB) {
             grid[random_row][random_col]->type = BOMB;
             grid[random_row][random_col]->block_sprite = tnt_sprite;
+            grid[random_row][random_col]->selected_block_sprite = tnt_sprite;
             bombs_placed++;
         }
     }
@@ -45,30 +67,48 @@ void count_bombs_around(int16_t x , int16_t y){
     switch (count) {
         case 0:
             grid[x][y]->type = EMPTY;
+            grid[x][y]->block_sprite = cobblestone_sprite;
+            grid[x][y]->selected_block_sprite = selected_cobblestone_sprite;
             break;
         case 1:
             grid[x][y]->type = ONE;
+            grid[x][y]->block_sprite = tile1_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile1_sprite;
             break;
         case 2:
             grid[x][y]->type = TWO;
+            grid[x][y]->block_sprite = tile2_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile2_sprite;
             break;
         case 3:
             grid[x][y]->type = THREE;
+            grid[x][y]->block_sprite = tile3_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile3_sprite;
             break;
         case 4:
             grid[x][y]->type = FOUR;
+            grid[x][y]->block_sprite = tile4_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile4_sprite;
             break;
         case 5:
             grid[x][y]->type = FIVE;
+            grid[x][y]->block_sprite = tile5_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile5_sprite;
             break;
         case 6:
             grid[x][y]->type = SIX;
+            grid[x][y]->block_sprite = tile6_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile6_sprite;
             break;
         case 7:
             grid[x][y]->type = SEVEN;
+            grid[x][y]->block_sprite = tile7_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile7_sprite;
             break;
         case 8:
             grid[x][y]->type = EIGHT;
+            grid[x][y]->block_sprite = tile8_sprite;
+            grid[x][y]->selected_block_sprite = selected_tile8_sprite;
             break;
     }
 }
@@ -80,20 +120,24 @@ void create_game(){
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             Sprite *block_sprite = grass_sprite;
+            Sprite *selected_block_sprite = selected_grass_sprite;
             BlockType type = EMPTY;
             int16_t row = i;
             int16_t col = j;
             bool is_selected = false;
             BlockState state = Not_Revealed;
-            grid[i][j] = create_block(block_sprite, type, row, col, is_selected, state);
+            grid[i][j] = create_block(block_sprite,selected_block_sprite ,type, row, col, is_selected, state);
         }
     }
     placeBombs();
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
-           count_bombs_around( i , j) ;
+            if(grid[i][j]->type != BOMB){
+                count_bombs_around( i , j) ;
+            }
         }
     }
+    grid[grid_entry.x][grid_entry.y]->is_selected = true;
 }
 void destroy_game(){
     for (int i = 0; i < rows; i++) {

@@ -22,6 +22,7 @@ typedef enum {
 typedef enum {
     STARTMENU,
     CONTROLLERMENU,
+    GAMEOVER,
     GAMEMENU
 } MenuState;
 void timer_state();

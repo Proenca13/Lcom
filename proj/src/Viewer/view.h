@@ -42,15 +42,35 @@
 #include "Model/xpm/space.xpm"
 #include "Model/xpm/grass.xpm"
 #include "Model/xpm/selectedgrass.xpm"
+#include "Model/xpm/cobblestone.xpm"
+#include "Model/xpm/cobblestone2.xpm"
 #include "Model/xpm/tnt.xpm"
-
-
+#include "Model/xpm/tile1.xpm"
+#include "Model/xpm/tile1selected.xpm"
+#include "Model/xpm/tile2.xpm"
+#include "Model/xpm/tile2selected.xpm"
+#include "Model/xpm/tile3.xpm"
+#include "Model/xpm/tile3selected.xpm"
+#include "Model/xpm/tile4.xpm"
+#include "Model/xpm/tile4selected.xpm"
+#include "Model/xpm/tile5.xpm"
+#include "Model/xpm/tile5selected.xpm"
+#include "Model/xpm/tile6.xpm"
+#include "Model/xpm/tile6selected.xpm"
+#include "Model/xpm/tile7.xpm"
+#include "Model/xpm/tile7selected.xpm"
+#include "Model/xpm/tile8.xpm"
+#include "Model/xpm/tile8selected.xpm"
+#include "Model/xpm/flag.xpm"
+#include "Model/xpm/flagselected.xpm"
+#include "Model/xpm/GameOver.xpm"
 void draw_state();
 void draw_main_menu();
 void draw_game_menu();
 void draw_mouse();
 void draw_game();
 void draw_controls_menu();
+void draw_game_over_menu();
 Sprite *check_time_sprite();
 int draw_sprite(Sprite *sprite, int x, int y);
 

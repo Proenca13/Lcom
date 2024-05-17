@@ -26,6 +26,27 @@ Sprite *f_sprite;
 Sprite *space_sprite;
 Sprite *grass_sprite;
 Sprite *selected_grass_sprite;
+Sprite *cobblestone_sprite;
+Sprite *selected_cobblestone_sprite;
+Sprite *tile1_sprite;
+Sprite *selected_tile1_sprite;
+Sprite *tile2_sprite;
+Sprite *selected_tile2_sprite;
+Sprite *tile3_sprite;
+Sprite *selected_tile3_sprite;
+Sprite *tile4_sprite;
+Sprite *selected_tile4_sprite;
+Sprite *tile5_sprite;
+Sprite *selected_tile5_sprite;
+Sprite *tile6_sprite;
+Sprite *selected_tile6_sprite;
+Sprite *tile7_sprite;
+Sprite *selected_tile7_sprite;
+Sprite *tile8_sprite;
+Sprite *selected_tile8_sprite;
+Sprite *flag_sprite;
+Sprite *selected_flag_sprite;
+Sprite *game_over_sprite;
 Sprite *tnt_sprite;
 
 void create_sprites(){
@@ -55,6 +76,27 @@ void create_sprites(){
     space_sprite = create_sprite((xpm_map_t)space);
     grass_sprite = create_sprite((xpm_map_t)grass_xpm);
     selected_grass_sprite = create_sprite((xpm_map_t)selectedgrass_xpm);
+    cobblestone_sprite = create_sprite((xpm_map_t)cobblestone_xpm);
+    selected_cobblestone_sprite = create_sprite((xpm_map_t)cobblestone2_xpm);
+    tile1_sprite = create_sprite((xpm_map_t)tile1_xpm);
+    selected_tile1_sprite = create_sprite((xpm_map_t)tile1selected_xpm);
+    tile2_sprite = create_sprite((xpm_map_t)tile2_xpm);
+    selected_tile2_sprite = create_sprite((xpm_map_t)tile2selected_xpm);
+    tile3_sprite = create_sprite((xpm_map_t)tile3_xpm);
+    selected_tile3_sprite = create_sprite((xpm_map_t)tile3selected_xpm);
+    tile4_sprite = create_sprite((xpm_map_t)tile4_xpm);
+    selected_tile4_sprite = create_sprite((xpm_map_t)tile4selected_xpm);
+    tile5_sprite = create_sprite((xpm_map_t)tile5_xpm);
+    selected_tile5_sprite = create_sprite((xpm_map_t)tile5selected_xpm);
+    tile6_sprite = create_sprite((xpm_map_t)tile6_xpm);
+    selected_tile6_sprite = create_sprite((xpm_map_t)tile6selected_xpm);
+    tile7_sprite = create_sprite((xpm_map_t)tile7_xpm);
+    selected_tile7_sprite = create_sprite((xpm_map_t)tile7selected_xpm);
+    tile8_sprite = create_sprite((xpm_map_t)tile8_xpm);
+    selected_tile8_sprite = create_sprite((xpm_map_t)tile8selected_xpm);
+    flag_sprite = create_sprite((xpm_map_t)flag_xpm);
+    selected_flag_sprite = create_sprite((xpm_map_t)flagselected_xpm);
+    game_over_sprite = create_sprite((xpm_map_t)GameOver_xpm);
     tnt_sprite = create_sprite((xpm_map_t)tnt_xpm);
 }
 
@@ -85,6 +127,27 @@ void destroy_sprites(){
     destroy_sprite(space_sprite);
     destroy_sprite(grass_sprite);
     destroy_sprite(selected_grass_sprite);
+    destroy_sprite(cobblestone_sprite);
+    destroy_sprite(selected_cobblestone_sprite);
+    destroy_sprite(tile1_sprite);
+    destroy_sprite(selected_tile1_sprite);
+    destroy_sprite(tile2_sprite);
+    destroy_sprite(selected_tile2_sprite);
+    destroy_sprite(tile3_sprite);
+    destroy_sprite(selected_tile3_sprite);
+    destroy_sprite(tile4_sprite);
+    destroy_sprite(selected_tile4_sprite);
+    destroy_sprite(tile5_sprite);
+    destroy_sprite(selected_tile5_sprite);
+    destroy_sprite(tile6_sprite);
+    destroy_sprite(selected_tile6_sprite);
+    destroy_sprite(tile7_sprite);
+    destroy_sprite(selected_tile7_sprite);
+    destroy_sprite(tile8_sprite);
+    destroy_sprite(selected_tile8_sprite);
+    destroy_sprite(flag_sprite);
+    destroy_sprite(selected_flag_sprite);
+    destroy_sprite(game_over_sprite);
     destroy_sprite(tnt_sprite);
 }
 
