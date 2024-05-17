@@ -1,7 +1,7 @@
 /* XPM */
 static char * kingcharles_xpm[] = {
 "600 695 39393 3",
-"   	c None",
+"   	c #FFFFFE",
 ".  	c #533B18",
 "+  	c #513916",
 "@  	c #5E4622",

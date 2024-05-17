@@ -64,6 +64,12 @@
 #include "Model/xpm/flag.xpm"
 #include "Model/xpm/flagselected.xpm"
 #include "Model/xpm/GameOver.xpm"
+#include "Model/xpm/PlayAgain.xpm"
+#include "Model/xpm/PlayAgain2.xpm"
+#include "Model/xpm/Restart.xpm"
+#include "Model/xpm/Restart2.xpm"
+
+
 void draw_state();
 void draw_main_menu();
 void draw_game_menu();

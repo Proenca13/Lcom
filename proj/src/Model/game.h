@@ -41,4 +41,5 @@ void count_bombs_around(int16_t x,int16_t y);
 Block *create_block(Sprite *block_sprite,Sprite *selected_block_sprite,BlockType type, int16_t row, int16_t col,bool is_selected,BlockState state);
 void create_game();
 void destroy_game();
+int check_win();
 #endif //SHARED_GAME_H

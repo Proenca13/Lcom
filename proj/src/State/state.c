@@ -1,4 +1,5 @@
 #include "state.h"
+#include <unistd.h>
 MenuState menuState = STARTMENU;
 ProgramState programState = RUNNING;
 GameState gameState = STOP;
@@ -58,7 +59,7 @@ void keyboard_state(){
                     break;
                 case ARROW_DOWN_MAKE:
                     pause_entry++;
-                    if(pause_entry > 1)pause_entry = 0;
+                    if(pause_entry > 2)pause_entry = 0;
                     break;
                 case ARROW_UP_MAKE:
                     pause_entry--;
@@ -67,6 +68,11 @@ void keyboard_state(){
                 case ENTER_BRK:
                     if(pause_entry == 0)gameState = PLAY;
                     else if(pause_entry == 1){
+                        destroy_game();
+                        create_game();
+                        gameState = PLAY;
+                    }
+                    else if(pause_entry == 2){
                         menuState = STARTMENU;
                         destroy_game();
                     }
@@ -180,6 +186,12 @@ void cell_state(){
         case SPACE_BRK:
             if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed || grid[grid_entry.x][grid_entry.y]->state == Flagged) {
                 grid[grid_entry.x][grid_entry.y]->state = Revealed;
+                if(check_win()){
+                    sleep(3);
+                    menuState = GAMEOVER;
+                    gameState = STOP;
+                    destroy_game();
+                }
                 if(grid[grid_entry.x][grid_entry.y]->type == BOMB){
                     menuState = GAMEOVER;
                     gameState = STOP;
@@ -191,6 +203,9 @@ void cell_state(){
             if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed) {
                 grid[grid_entry.x][grid_entry.y]->state = Flagged;
             }
+            else if(grid[grid_entry.x][grid_entry.y]->state == Flagged) {
+                 grid[grid_entry.x][grid_entry.y]->state = Not_Revealed;
+             }
             break;
         }
 

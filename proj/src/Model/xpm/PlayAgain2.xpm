@@ -1,7 +1,7 @@
 /* XPM */
 static char * PlayAgain2_xpm[] = {
 "800 600 139 2",
-"  	c None",
+"  	c #FFFFFE",
 ". 	c #000000",
 "+ 	c #010101",
 "@ 	c #020202",

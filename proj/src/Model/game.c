@@ -112,6 +112,17 @@ void count_bombs_around(int16_t x , int16_t y){
             break;
     }
 }
+int check_win(){
+    uint8_t revealed_count = 0;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if(grid[i][j]->type != BOMB && grid[i][j]->state == Revealed){
+                revealed_count++;
+            }
+        }
+    }
+    return (revealed_count == ((8*8)-10));
+}
 void create_game(){
     grid = malloc(rows * sizeof(Block *));
     for (int i = 0; i < rows; i++) {

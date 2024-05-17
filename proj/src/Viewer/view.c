@@ -60,6 +60,10 @@ extern Sprite *selected_tile8_sprite;
 extern Sprite *flag_sprite;
 extern Sprite *selected_flag_sprite;
 extern Sprite *game_over_sprite;
+extern Sprite *play_again_button_sprite;
+extern Sprite *play_again_button2_sprite;
+extern Sprite *restart_button_sprite;
+extern Sprite *restart_button2_sprite;
 
 extern Block* **grid;
 
@@ -121,7 +125,8 @@ void draw_game_menu(){
     draw_sprite(dirt_block,0,0);
     draw_sprite(paused_title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(pause_entry==0?continue_button2_sprite:continue_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
-    draw_sprite(pause_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
+    draw_sprite(pause_entry == 1? restart_button2_sprite:restart_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
+    draw_sprite(pause_entry == 2? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 50);
     draw_sprite(dyog_sprite,modeInfo.XResolution-200,modeInfo.YResolution - 200);
     draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
 }
