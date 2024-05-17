@@ -187,15 +187,22 @@ void cell_state(){
             if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed || grid[grid_entry.x][grid_entry.y]->state == Flagged) {
                 grid[grid_entry.x][grid_entry.y]->state = Revealed;
                 if(check_win()){
+                    draw_state();
                     sleep(3);
                     menuState = GAMEOVER;
                     gameState = STOP;
                     destroy_game();
+                    grid_entry.x = 0;
+                    grid_entry.y = 0;
                 }
                 if(grid[grid_entry.x][grid_entry.y]->type == BOMB){
+                    draw_state();
+                    sleep(3);
                     menuState = GAMEOVER;
                     gameState = STOP;
                     destroy_game();
+                    grid_entry.x = 0;
+                    grid_entry.y = 0;
                 }
             }
             break;
