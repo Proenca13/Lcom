@@ -148,7 +148,8 @@ void draw_win_menu(){
     draw_sprite(you_won_sprite,modeInfo.XResolution/4,50);
     draw_sprite(win_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(win_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
-    draw_sprite(king_charles,0,0);
+    draw_sprite(king_charles, 30, modeInfo.YResolution - king_charles->height - 30 );
+    draw_sprite(king_charles, modeInfo.XResolution - 30 - king_charles->width, modeInfo.YResolution - king_charles->height - 30 );
 }
 void draw_mouse(){
     draw_sprite(cursor_mouse,x,y);
