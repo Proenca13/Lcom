@@ -167,6 +167,7 @@ void draw_mouse(){
     draw_sprite(cursor_mouse,x,y);
 }
 void draw_controls_menu() {
+    draw_sprite(dirt_block,0,0);
     draw_sprite(control_title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(arrows_sprite,modeInfo.XResolution/8,150);
     draw_sprite(right_click_sprite, modeInfo.XResolution/12 + 20, 300);
