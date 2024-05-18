@@ -193,6 +193,14 @@ int draw_sprite(Sprite *sprite, int x, int y) {
     }
     return 0;
 }
+int draw_background(uint32_t color) {
+    for (int h = 0 ; h < modeInfo.YResolution ; h++) {
+        for (int w = 0 ; w < modeInfo.XResolution; w++) {
+            if (vg_draw_pixel(w, h, color) != 0) return 1;
+        }
+    }
+    return 0;
+}
 
 Sprite *check_time_sprite(){
     rtc_update_time();

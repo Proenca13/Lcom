@@ -161,22 +161,26 @@ void mouse_state() {
         byte_counter = 0;
         if(gameState != PLAY){
             if (menuState == STARTMENU ){
-                if((x > start_button_sprite->x && x < start_button_sprite->x + start_button_sprite->width) && (y < start_button_sprite->y && y > start_button_sprite->y - start_button_sprite->height)){
+                if((x > start_button_sprite->x && x < start_button_sprite->x + start_button_sprite->width) && (y > start_button_sprite->y && y < start_button_sprite->y + start_button_sprite->height)){
                     entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
+                        create_game();
+                        entry = 0;
                     }
                 }
-                if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y < controls_button_sprite->y && y > controls_button_sprite->y - controls_button_sprite->height)){
+                if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y > controls_button_sprite->y && y < controls_button_sprite->y + controls_button_sprite->height)){
                     entry = 1;
                     if(mouse_packet.lb){
                         menuState = CONTROLLERMENU;
+                        entry = 0;
                     }
                 }
-                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y < exit_button_sprite->y && y > exit_button_sprite->y - exit_button_sprite->height)){
+                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
                     entry = 2;
                     if(mouse_packet.lb){
                         programState = END;
+                        entry = 0;
                     }
                 }
             }
