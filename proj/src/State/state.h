@@ -30,5 +30,6 @@ void timer_state();
 void keyboard_state();
 void mouse_state();
 void rtc_state();
-void cell_state();
+void cell_state_keyboard();
+void cell_state_mouse();
 #endif //SHARED_STATE_H

@@ -149,7 +149,7 @@ void keyboard_state(){
                 gameState = STOP;
                 menuState = GAMEMENU;
         }
-        else cell_state();
+        else cell_state_keyboard();
     }
     draw_state();
 }
@@ -182,7 +182,7 @@ void mouse_state() {
             }
         }
         else{
-
+            cell_state_mouse();
         }
 
     }
@@ -191,7 +191,56 @@ void mouse_state() {
 void rtc_state(){
     if(counter_timer%FREQUENCY==0)rtc_update_time();
 }
-void cell_state(){
+void cell_state_mouse(){
+    int  left_border,right_border,upper_border,lower_border;
+    left_border = modeInfo.XResolution/2 -( 4 * 48) ;
+    right_border = left_border + 48*8;
+    upper_border = modeInfo.YResolution/2 -( 4 * 48)  + 25;
+    lower_border = upper_border+ 48*8;
+    if (x >= left_border && x < right_border && y >= upper_border && y < lower_border) {
+        grid[grid_entry.x][grid_entry.y]->is_selected = false;
+        grid_entry.x = (x - left_border) / 48;
+        grid_entry.y = (y - upper_border) / 48;
+        grid[grid_entry.x][grid_entry.y]->is_selected = true;
+        if(mouse_packet.lb){
+            if(check_first_touch()){
+                placeBombs();
+            }
+            if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed || grid[grid_entry.x][grid_entry.y]->state == Flagged) {
+                grid[grid_entry.x][grid_entry.y]->state = Revealed;
+                if(check_win()){
+                    draw_state();
+                    sleep(3);
+                    menuState = WINMENU;
+                    gameState = STOP;
+                    destroy_game();
+                    grid_entry.x = 0;
+                    grid_entry.y = 0;
+                }
+                if(grid[grid_entry.x][grid_entry.y]->type == BOMB){
+                    menuState = GAMEOVER;
+                    gameState = STOP;
+                    destroy_game();
+                    grid_entry.x = 0;
+                    grid_entry.y = 0;
+                }
+                if(grid[grid_entry.x][grid_entry.y]->type == EMPTY)reveal_near_zeros(grid_entry.x,grid_entry.y);
+            }
+        }
+        else if(mouse_packet.lb){
+            if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed && check_can_flag()) {
+                grid[grid_entry.x][grid_entry.y]->state = Flagged;
+            }
+            else if(grid[grid_entry.x][grid_entry.y]->state == Flagged) {
+                grid[grid_entry.x][grid_entry.y]->state = Not_Revealed;
+            }
+        }
+    }
+    else {
+        return;
+    }
+}
+void cell_state_keyboard(){
     switch (scancode) {
         case ARROW_DOWN_MAKE:
                 grid[grid_entry.x][grid_entry.y]->is_selected = false;
