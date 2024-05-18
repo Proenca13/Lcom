@@ -18,6 +18,9 @@ extern vbe_mode_info_t modeInfo;
 extern Sprite *start_button_sprite;
 extern Sprite *controls_button_sprite;
 extern Sprite *exit_button_sprite;
+extern Sprite *restart_button_sprite;
+extern Sprite *continue_button2_sprite;
+extern Sprite *play_again_button2_sprite;
 
 extern Grid_entry grid_entry;
 extern Block* **grid;
@@ -181,6 +184,68 @@ void mouse_state() {
                     if(mouse_packet.lb){
                         programState = END;
                         entry = 0;
+                    }
+                }
+            }
+            if (menuState == GAMEMENU){
+                if((x > continue_button2_sprite->x && x < continue_button2_sprite->x + continue_button2_sprite->width) && (y > continue_button2_sprite->y && y < continue_button2_sprite->y + continue_button2_sprite->height)){
+                    pause_entry = 0;
+                    if(mouse_packet.lb){
+                        gameState = PLAY;
+                        pause_entry = 0;
+                    }
+                }
+                if((x > restart_button_sprite->x && x < restart_button_sprite->x + restart_button_sprite->width) && (y > restart_button_sprite->y && y < restart_button_sprite->y + restart_button_sprite->height)){
+                    pause_entry = 1;
+                    if(mouse_packet.lb){
+                        grid_entry.x = 0;
+                        grid_entry.y = 0;
+                        destroy_game();
+                        create_game();
+                        gameState = PLAY;
+                        pause_entry = 0;
+                    }
+                }
+                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+                    pause_entry = 2;
+                    if(mouse_packet.lb){
+                        menuState = STARTMENU;
+                        destroy_game();
+                        pause_entry = 0;
+                    }
+                }
+            }
+            if(menuState == GAMEOVER){
+                if((x > play_again_button2_sprite->x && x < play_again_button2_sprite->x + play_again_button2_sprite->width) && (y > play_again_button2_sprite->y && y < play_again_button2_sprite->y + play_again_button2_sprite->height)){
+                    game_over_entry = 0;
+                    if(mouse_packet.lb){
+                        gameState = PLAY;
+                        create_game();
+                        game_over_entry = 0;
+                    }
+                }
+                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+                    game_over_entry = 1;
+                    if(mouse_packet.lb){
+                        menuState = STARTMENU;
+                        game_over_entry = 0;
+                    }
+                }
+            }
+            if(menuState == WINMENU){
+                if((x > play_again_button2_sprite->x && x < play_again_button2_sprite->x + play_again_button2_sprite->width) && (y > play_again_button2_sprite->y && y < play_again_button2_sprite->y + play_again_button2_sprite->height)){
+                    win_entry = 0;
+                    if(mouse_packet.lb){
+                        gameState = PLAY;
+                        create_game();
+                        win_entry = 0;
+                    }
+                }
+                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+                    win_entry = 1;
+                    if(mouse_packet.lb){
+                        menuState = STARTMENU;
+                        win_entry = 0;
                     }
                 }
             }
