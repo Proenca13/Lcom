@@ -149,6 +149,7 @@ void draw_game_menu(){
     draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
 }
 void draw_game_over_menu(){
+    draw_sprite(dirt_block,0,0);
     draw_sprite(game_over_sprite,modeInfo.XResolution/4,50);
     draw_sprite(game_over_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(game_over_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
