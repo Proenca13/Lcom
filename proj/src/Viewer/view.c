@@ -205,8 +205,6 @@ Sprite *check_time_sprite(){
 void draw_counter_sprite(){
     uint8_t count_flag = 0;
     flag_counter(&count_flag);
-    printf("flags = %d  \n",count_flag);
-
     switch (count_flag) {
         case 0:
             draw_sprite(counter0_sprite,modeInfo.XResolution/4  +265,563);

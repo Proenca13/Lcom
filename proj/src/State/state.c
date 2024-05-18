@@ -159,26 +159,32 @@ void mouse_state() {
     if (byte_counter == 3) {
         mouse_bytes_to_packet();
         byte_counter = 0;
-        if (menuState == STARTMENU && gameState != PLAY){
-            if((x > start_button_sprite->x && x < start_button_sprite->x + start_button_sprite->width) && (y > start_button_sprite->y && y < start_button_sprite->y + start_button_sprite->height)){
-                entry = 0;
-                if(mouse_packet.lb){
-                    gameState = PLAY;
+        if(gameState != PLAY){
+            if (menuState == STARTMENU ){
+                if((x > start_button_sprite->x && x < start_button_sprite->x + start_button_sprite->width) && (y < start_button_sprite->y && y > start_button_sprite->y - start_button_sprite->height)){
+                    entry = 0;
+                    if(mouse_packet.lb){
+                        gameState = PLAY;
+                    }
                 }
-            }
-            if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y > controls_button_sprite->y && y < controls_button_sprite->y + controls_button_sprite->height)){
-                entry = 1;
-                if(mouse_packet.lb){
-                    menuState = CONTROLLERMENU;
+                if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y < controls_button_sprite->y && y > controls_button_sprite->y - controls_button_sprite->height)){
+                    entry = 1;
+                    if(mouse_packet.lb){
+                        menuState = CONTROLLERMENU;
+                    }
                 }
-            }
-            if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
-                entry = 2;
-                if(mouse_packet.lb){
-                    programState = END;
+                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y < exit_button_sprite->y && y > exit_button_sprite->y - exit_button_sprite->height)){
+                    entry = 2;
+                    if(mouse_packet.lb){
+                        programState = END;
+                    }
                 }
             }
         }
+        else{
+
+        }
+
     }
     draw_state();
 }
