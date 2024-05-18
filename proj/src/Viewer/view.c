@@ -157,7 +157,6 @@ void draw_game_over_menu(){
     draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
 }
 void draw_win_menu(){
-    draw_sprite(dirt_block,0,0);
     draw_sprite(you_won_sprite,modeInfo.XResolution/4,50);
     draw_sprite(win_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(win_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
@@ -168,15 +167,14 @@ void draw_mouse(){
     draw_sprite(cursor_mouse,x,y);
 }
 void draw_controls_menu() {
-    draw_sprite(dirt_block,0,0);
     draw_sprite(control_title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(arrows_sprite,modeInfo.XResolution/8,150);
-    draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
     draw_sprite(right_click_sprite, modeInfo.XResolution/12 + 20, 300);
     draw_sprite(left_click_sprite, modeInfo.XResolution/12 + 120, 300);
     draw_sprite(f_sprite, (modeInfo.XResolution / 8) *4.5, 150);
     draw_sprite(space_sprite, (modeInfo.XResolution / 8) *4.5, 270);
     draw_sprite(esc_sprite, (modeInfo.XResolution / 8) *4.5, 390);
+    draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
 }
 int draw_sprite(Sprite *sprite, int x, int y) {
     uint16_t height = sprite->height;

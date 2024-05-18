@@ -18,6 +18,7 @@ extern vbe_mode_info_t modeInfo;
 extern Sprite *start_button_sprite;
 extern Sprite *controls_button_sprite;
 extern Sprite *exit_button_sprite;
+extern Sprite *exit_button2_sprite;
 extern Sprite *restart_button_sprite;
 extern Sprite *continue_button2_sprite;
 extern Sprite *play_again_button2_sprite;
@@ -246,6 +247,13 @@ void mouse_state() {
                     if(mouse_packet.lb){
                         menuState = STARTMENU;
                         win_entry = 0;
+                    }
+                }
+            }
+            if (menuState == CONTROLLERMENU){
+                if((x > exit_button2_sprite->x && x < exit_button2_sprite->x + exit_button2_sprite->width) && (y > exit_button2_sprite->y && y < exit_button2_sprite->y + exit_button2_sprite->height)){
+                    if(mouse_packet.lb){
+                        menuState = STARTMENU;
                     }
                 }
             }

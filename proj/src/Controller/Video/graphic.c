@@ -85,34 +85,3 @@ int normalize_color(uint32_t color, uint32_t *new_color) {
     }
     return 0;
 }
-uint32_t (direct_mode)(uint32_t R, uint32_t G, uint32_t B) {
-    return (R << modeInfo.RedFieldPosition) | (G << modeInfo.GreenFieldPosition) | (B << modeInfo.BlueFieldPosition);
-}
-
-uint32_t (indexed_mode)(uint16_t col, uint16_t row, uint8_t step, uint32_t first, uint8_t n) {
-    return (first + (row * n + col) * step) % (1 << modeInfo.BitsPerPixel);
-}
-
-uint32_t (Red)(unsigned j, uint8_t step, uint32_t first) {
-    return (R(first) + j * step) % (1 << modeInfo.RedMaskSize);
-}
-
-uint32_t (Green)(unsigned i, uint8_t step, uint32_t first) {
-    return (G(first) + i * step) % (1 << modeInfo.GreenMaskSize);
-}
-
-uint32_t (Blue)(unsigned j, unsigned i, uint8_t step, uint32_t first) {
-    return (B(first) + (i + j) * step) % (1 << modeInfo.BlueMaskSize);
-}
-
-uint32_t (R)(uint32_t first){
-    return ((1 << modeInfo.RedMaskSize) - 1) & (first >> modeInfo.RedFieldPosition);
-}
-
-uint32_t (G)(uint32_t first){
-    return ((1 << modeInfo.GreenMaskSize) - 1) & (first >> modeInfo.GreenFieldPosition);
-}
-
-uint32_t (B)(uint32_t first){
-    return ((1 << modeInfo.BlueMaskSize) - 1) & (first >> modeInfo.BlueFieldPosition);
-}

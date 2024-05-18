@@ -39,10 +39,20 @@ void (mouse_bytes_to_packet)(){
     if(mouse_packet.x_ov || mouse_packet.y_ov)return;
     mouse_packet.delta_x = (packet_bytes[0] & MOUSE_X_DISPLACEMENT) ? (0xFF00 | packet_bytes[1]) : packet_bytes[1];
     mouse_packet.delta_y = (packet_bytes[0] & MOUSE_Y_DISPLACEMENT) ? (0xFF00 | packet_bytes[2]) : packet_bytes[2];
-    if (x + mouse_packet.delta_x < 0 || x + mouse_packet.delta_x> modeInfo.XResolution || y - mouse_packet.delta_y < 0 || y - mouse_packet.delta_y > modeInfo.YResolution) return;
+    if (x + mouse_packet.delta_x < 0 ){
+        x = 0;
+    }
+    else if(y - mouse_packet.delta_y < 0 ){
+        y = 0;
+    }
+    else if( x + mouse_packet.delta_x> modeInfo.XResolution ){
+        x = modeInfo.XResolution;
+    }
+    else if(y - mouse_packet.delta_y > modeInfo.YResolution){
+        y = modeInfo.YResolution;
+    }
     x = x + mouse_packet.delta_x;
     y = y - mouse_packet.delta_y;
-    printf("x = %d  , y = %d\n",x,y);
 }
 int (mouse_write)(uint8_t command){
     uint8_t attemps = 10;
