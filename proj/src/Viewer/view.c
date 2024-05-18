@@ -68,6 +68,17 @@ extern Sprite *restart_button_sprite;
 extern Sprite *restart_button2_sprite;
 extern Sprite *you_won_sprite;
 extern Sprite *king_charles;
+extern Sprite *counter0_sprite;
+extern Sprite *counter1_sprite;
+extern Sprite *counter2_sprite;
+extern Sprite *counter3_sprite;
+extern Sprite *counter4_sprite;
+extern Sprite *counter5_sprite;
+extern Sprite *counter6_sprite;
+extern Sprite *counter7_sprite;
+extern Sprite *counter8_sprite;
+extern Sprite *counter9_sprite;
+extern Sprite *flag_counter_sprite;
 
 extern Block* **grid;
 
@@ -125,6 +136,8 @@ void draw_game(){
 
         }
     }
+    draw_sprite(flag_counter_sprite,modeInfo.XResolution/4 +100,550);
+    draw_counter_sprite();
 }
 void draw_game_menu(){
     draw_sprite(dirt_block,0,0);
@@ -188,6 +201,49 @@ Sprite *check_time_sprite(){
     else if(timeIrl.hours >= 6 && timeIrl.hours < 14 )return  day_sky_sprite;
     else if(timeIrl.hours >=  14 && timeIrl.hours < 22)return afternoon_sky_sprite;
     return day_sky_sprite;
+}
+void draw_counter_sprite(){
+    uint8_t count_flag = 0;
+    flag_counter(&count_flag);
+    printf("flags = %d  \n",count_flag);
+
+    switch (count_flag) {
+        case 0:
+            draw_sprite(counter0_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 1:
+            draw_sprite(counter1_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 2:
+            draw_sprite(counter2_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 3:
+            draw_sprite(counter3_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 4:
+            draw_sprite(counter4_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 5:
+            draw_sprite(counter5_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 6:
+            draw_sprite(counter6_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 7:
+            draw_sprite(counter7_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 8:
+            draw_sprite(counter8_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 9:
+            draw_sprite(counter9_sprite,modeInfo.XResolution/4  +265,563);
+            break;
+        case 10:
+            draw_sprite(counter1_sprite,modeInfo.XResolution/4  +265,563);
+            draw_sprite(counter0_sprite,modeInfo.XResolution/4  +275,563);
+            break;
+    }
+    return ;
 }
 
 

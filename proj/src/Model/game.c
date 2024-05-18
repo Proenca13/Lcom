@@ -157,15 +157,19 @@ int check_win(){
     if(revealed_count == ((8*8)-10)) return 1;
     return 0;
 }
-int check_can_flag(){
-    uint8_t flag_count = 0;
+void flag_counter(uint8_t *flag_count){
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             if(grid[i][j]->state == Flagged){
-                flag_count++;
+                (*flag_count)++;
             }
         }
     }
+
+}
+int check_can_flag(){
+    uint8_t flag_count = 0;
+    flag_counter(&flag_count);
     if(flag_count >= 10)return 0;
     return 1;
 }

@@ -70,6 +70,17 @@
 #include "Model/xpm/Restart2.xpm"
 #include "Model/xpm/YouWon.xpm"
 #include "Model/xpm/kingcharles.xpm"
+#include "Model/xpm/Counter0.xpm"
+#include "Model/xpm/Counter1.xpm"
+#include "Model/xpm/Counter2.xpm"
+#include "Model/xpm/Counter3.xpm"
+#include "Model/xpm/Counter4.xpm"
+#include "Model/xpm/Counter5.xpm"
+#include "Model/xpm/Counter6.xpm"
+#include "Model/xpm/Counter7.xpm"
+#include "Model/xpm/Counter8.xpm"
+#include "Model/xpm/Counter9.xpm"
+#include "Model/xpm/FlagCounter.xpm"
 
 void draw_state();
 void draw_main_menu();
@@ -80,6 +91,7 @@ void draw_controls_menu();
 void draw_game_over_menu();
 void draw_win_menu();
 Sprite *check_time_sprite();
+void draw_counter_sprite();
 int draw_sprite(Sprite *sprite, int x, int y);
 
 #endif //SHARED_VIEW_H

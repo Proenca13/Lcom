@@ -54,6 +54,17 @@ Sprite *game_over_sprite;
 Sprite *you_won_sprite;
 Sprite *tnt_sprite;
 Sprite *king_charles;
+Sprite *counter0_sprite;
+Sprite *counter1_sprite;
+Sprite *counter2_sprite;
+Sprite *counter3_sprite;
+Sprite *counter4_sprite;
+Sprite *counter5_sprite;
+Sprite *counter6_sprite;
+Sprite *counter7_sprite;
+Sprite *counter8_sprite;
+Sprite *counter9_sprite;
+Sprite *flag_counter_sprite;
 
 void create_sprites(){
     start_button_sprite = create_sprite((xpm_map_t)start_button_xpm);
@@ -110,6 +121,20 @@ void create_sprites(){
     you_won_sprite = create_sprite((xpm_map_t)YouWon_xpm);
     tnt_sprite = create_sprite((xpm_map_t)tnt_xpm);
     king_charles = create_sprite((xpm_map_t)kingcharles_xpm);
+    counter0_sprite = create_sprite((xpm_map_t)Counter0_xpm);
+    counter1_sprite = create_sprite((xpm_map_t)Counter1_xpm);
+    counter2_sprite = create_sprite((xpm_map_t)Counter2_xpm);
+    counter3_sprite = create_sprite((xpm_map_t)Counter3_xpm);
+    counter4_sprite = create_sprite((xpm_map_t)Counter4_xpm);
+    counter5_sprite = create_sprite((xpm_map_t)Counter5_xpm);
+    counter6_sprite = create_sprite((xpm_map_t)Counter6_xpm);
+    counter7_sprite = create_sprite((xpm_map_t)Counter7_xpm);
+    counter8_sprite = create_sprite((xpm_map_t)Counter8_xpm);
+    counter9_sprite = create_sprite((xpm_map_t)Counter9_xpm);
+    flag_counter_sprite = create_sprite((xpm_map_t)FlagCounter_xpm);
+
+
+
 }
 
 void destroy_sprites(){
@@ -167,5 +192,16 @@ void destroy_sprites(){
     destroy_sprite(you_won_sprite);
     destroy_sprite(tnt_sprite);
     destroy_sprite(king_charles);
+    destroy_sprite(counter0_sprite);
+    destroy_sprite(counter1_sprite);
+    destroy_sprite(counter2_sprite);
+    destroy_sprite(counter3_sprite);
+    destroy_sprite(counter4_sprite);
+    destroy_sprite(counter5_sprite);
+    destroy_sprite(counter6_sprite);
+    destroy_sprite(counter7_sprite);
+    destroy_sprite(counter8_sprite);
+    destroy_sprite(counter9_sprite);
+    destroy_sprite(flag_counter_sprite);
 }
 
