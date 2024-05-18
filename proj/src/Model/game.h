@@ -44,5 +44,6 @@ void destroy_game();
 int check_win();
 void flag_counter(uint8_t *flag_count);
 int check_can_flag();
+int check_first_touch();
 void reveal_near_zeros(int16_t x , int16_t y);
 #endif //SHARED_GAME_H

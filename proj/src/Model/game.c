@@ -43,11 +43,18 @@ void placeBombs(){
         int random_row = rand() % rows;
         int random_col = rand() % cols;
 
-        if (grid[random_row][random_col]->type != BOMB) {
+        if (grid[random_row][random_col]->type != BOMB && (random_row!= grid_entry.x && random_col!=grid_entry.y)) {
             grid[random_row][random_col]->type = BOMB;
             grid[random_row][random_col]->block_sprite = tnt_sprite;
             grid[random_row][random_col]->selected_block_sprite = tnt_sprite;
             bombs_placed++;
+        }
+    }
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if(grid[i][j]->type != BOMB){
+                count_bombs_around( i , j) ;
+            }
         }
     }
 }
@@ -129,14 +136,6 @@ void create_game(){
             grid[i][j] = create_block(block_sprite,selected_block_sprite ,type, row, col, is_selected, state);
         }
     }
-    placeBombs();
-    for (int i = 0; i < rows; i++) {
-        for (int j = 0; j < cols; j++) {
-            if(grid[i][j]->type != BOMB){
-                count_bombs_around( i , j) ;
-            }
-        }
-    }
     grid[grid_entry.x][grid_entry.y]->is_selected = true;
 }
 void destroy_game(){
@@ -166,6 +165,17 @@ void flag_counter(uint8_t *flag_count){
         }
     }
 
+}
+int check_first_touch(){
+    uint8_t revealed_count = 0;
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            if(grid[i][j]->state == Revealed){
+                revealed_count++;
+            }
+        }
+    }
+    return revealed_count == 0;
 }
 int check_can_flag(){
     uint8_t flag_count = 0;

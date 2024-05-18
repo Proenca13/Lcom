@@ -69,6 +69,8 @@ void keyboard_state(){
                 case ENTER_BRK:
                     if(pause_entry == 0)gameState = PLAY;
                     else if(pause_entry == 1){
+                        grid_entry.x = 0;
+                        grid_entry.y = 0;
                         destroy_game();
                         create_game();
                         gameState = PLAY;
@@ -210,6 +212,9 @@ void cell_state(){
             grid[grid_entry.x][grid_entry.y]->is_selected = true;
             break;
         case SPACE_BRK:
+            if(check_first_touch()){
+                placeBombs();
+            }
             if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed || grid[grid_entry.x][grid_entry.y]->state == Flagged) {
                 grid[grid_entry.x][grid_entry.y]->state = Revealed;
                 if(check_win()){
