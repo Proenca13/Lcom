@@ -4,8 +4,8 @@ MenuState menuState = STARTMENU;
 ProgramState programState = RUNNING;
 GameState gameState = STOP;
 int counter_timer = 0;
-extern int16_t x;
-extern int16_t y;
+extern int x;
+extern int y;
 extern uint8_t scancode;
 int8_t entry = -1;
 int8_t pause_entry = 0;
@@ -172,6 +172,7 @@ void mouse_state() {
                         create_game();
                         entry = 0;
                     }
+                    return;
                 }
                 if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y > controls_button_sprite->y && y < controls_button_sprite->y + controls_button_sprite->height)){
                     entry = 1;
@@ -179,6 +180,7 @@ void mouse_state() {
                         menuState = CONTROLLERMENU;
                         entry = 0;
                     }
+                    return;
                 }
                 if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
                     entry = 2;
@@ -186,6 +188,7 @@ void mouse_state() {
                         programState = END;
                         entry = 0;
                     }
+                    return;
                 }
             }
             if (menuState == GAMEMENU){
@@ -195,6 +198,7 @@ void mouse_state() {
                         gameState = PLAY;
                         pause_entry = 0;
                     }
+                    return;
                 }
                 if((x > restart_button_sprite->x && x < restart_button_sprite->x + restart_button_sprite->width) && (y > restart_button_sprite->y && y < restart_button_sprite->y + restart_button_sprite->height)){
                     pause_entry = 1;
@@ -206,6 +210,7 @@ void mouse_state() {
                         gameState = PLAY;
                         pause_entry = 0;
                     }
+                    return;
                 }
                 if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
                     pause_entry = 2;
@@ -214,6 +219,7 @@ void mouse_state() {
                         destroy_game();
                         pause_entry = 0;
                     }
+                    return;
                 }
             }
             if(menuState == GAMEOVER){
@@ -224,6 +230,7 @@ void mouse_state() {
                         create_game();
                         game_over_entry = 0;
                     }
+                    return;
                 }
                 if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
                     game_over_entry = 1;
@@ -231,6 +238,7 @@ void mouse_state() {
                         menuState = STARTMENU;
                         game_over_entry = 0;
                     }
+                    return;
                 }
             }
             if(menuState == WINMENU){
@@ -241,6 +249,7 @@ void mouse_state() {
                         create_game();
                         win_entry = 0;
                     }
+                    return;
                 }
                 if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
                     win_entry = 1;
@@ -248,6 +257,7 @@ void mouse_state() {
                         menuState = STARTMENU;
                         win_entry = 0;
                     }
+                    return;
                 }
             }
             if (menuState == CONTROLLERMENU){
@@ -256,6 +266,7 @@ void mouse_state() {
                         menuState = STARTMENU;
                     }
                 }
+                return;
             }
         }
         else{
@@ -304,7 +315,7 @@ void cell_state_mouse(){
                 if(grid[grid_entry.x][grid_entry.y]->type == EMPTY)reveal_near_zeros(grid_entry.x,grid_entry.y);
             }
         }
-        else if(mouse_packet.lb){
+        else if(mouse_packet.rb){
             if(grid[grid_entry.x][grid_entry.y]->state == Not_Revealed && check_can_flag()) {
                 grid[grid_entry.x][grid_entry.y]->state = Flagged;
             }

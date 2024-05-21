@@ -4,8 +4,8 @@ int mouse_hook_id = 2;
 uint8_t byte_counter = 0;
 uint8_t packet_bytes[3];
 struct packet mouse_packet;
-int16_t x = 10;
-int16_t y = 10;
+int x = 10;
+int y = 10;
 uint8_t current_byte;
 extern vbe_mode_info_t modeInfo;
 int (mouse_subscribe_int)(){
@@ -18,7 +18,7 @@ void (mouse_ih)(){
     read_KBC_output(KBC_OUT_BUF,&current_byte,1);
 }
 void (mouse_sync_bytes)(){
-    if((byte_counter == 0 ) && (MOUSE_3_BIT && current_byte)){
+    if((byte_counter == 0 ) && (MOUSE_3_BIT & current_byte)){
         packet_bytes[byte_counter] = current_byte;
         byte_counter++;
     }
@@ -27,33 +27,36 @@ void (mouse_sync_bytes)(){
         byte_counter++;
     }
 }
-void (mouse_bytes_to_packet)(){
-    for(int i = 0; i <3;i++){
+void (mouse_bytes_to_packet)() {
+    for (int i = 0; i < 3; i++) {
         mouse_packet.bytes[i] = packet_bytes[i];
     }
+
     mouse_packet.rb = packet_bytes[0] & MOUSE_RIGHT_BUTTON;
     mouse_packet.lb = packet_bytes[0] & MOUSE_LEFT_BUTTON;
     mouse_packet.mb = packet_bytes[0] & MOUSE_MIDDLE_BUTTON;
     mouse_packet.x_ov = packet_bytes[0] & MOUSE_X_OVERFLOW;
-    mouse_packet.y_ov = packet_bytes[0] &MOUSE_Y_OVERFLOW;
-    if(mouse_packet.x_ov || mouse_packet.y_ov)return;
+    mouse_packet.y_ov = packet_bytes[0] & MOUSE_Y_OVERFLOW;
+
+    if (mouse_packet.x_ov || mouse_packet.y_ov) return;
+
     mouse_packet.delta_x = (packet_bytes[0] & MOUSE_X_DISPLACEMENT) ? (0xFF00 | packet_bytes[1]) : packet_bytes[1];
     mouse_packet.delta_y = (packet_bytes[0] & MOUSE_Y_DISPLACEMENT) ? (0xFF00 | packet_bytes[2]) : packet_bytes[2];
-    if (x + mouse_packet.delta_x < 0 ){
-        x = 0;
-    }
-    else if(y - mouse_packet.delta_y < 0 ){
-        y = 0;
-    }
-    else if( x + mouse_packet.delta_x> modeInfo.XResolution ){
-        x = modeInfo.XResolution;
-    }
-    else if(y - mouse_packet.delta_y > modeInfo.YResolution){
-        y = modeInfo.YResolution;
-    }
-    x = x + mouse_packet.delta_x;
-    y = y - mouse_packet.delta_y;
+
+    int new_x = x + mouse_packet.delta_x;
+    int new_y = y - mouse_packet.delta_y;
+
+    if (new_x < 0) new_x = 0;
+    else if (new_x > modeInfo.XResolution) new_x = modeInfo.XResolution-1;
+
+    if (new_y < 0) new_y = 0;
+    else if (new_y > modeInfo.YResolution) new_y = modeInfo.YResolution-1;
+
+    x = new_x;
+    y = new_y;
+
 }
+
 int (mouse_write)(uint8_t command){
     uint8_t attemps = 10;
     uint8_t mouse_response;

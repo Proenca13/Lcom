@@ -6,6 +6,7 @@
 vbe_mode_info_t modeInfo;
 uint8_t* frame_buffer;
 uint8_t *second_frame_buffer;
+uint8_t *drawing_frame_buffer;
 unsigned int vram_size;
 int (set_graphic_mode)(uint16_t mode){
     reg86_t r;
@@ -40,6 +41,7 @@ int (set_frame_buffer)(uint16_t mode){
         return 1;
     }
     second_frame_buffer = (uint8_t *) malloc(vram_size);
+    drawing_frame_buffer = second_frame_buffer;
     return 0;
 }
 void swap_buffers() {
@@ -49,7 +51,7 @@ int (vg_draw_pixel)(uint16_t x, uint16_t y, uint32_t color){
     if(x > modeInfo.XResolution || y > modeInfo.YResolution || x <0 || y <0) return 1;
     unsigned int bytes_per_pixel = (modeInfo.BitsPerPixel+7)/8;
     unsigned int index = (modeInfo.XResolution * y +x)*bytes_per_pixel;
-    if (memcpy(&second_frame_buffer[index], &color, bytes_per_pixel) == NULL) return 1;
+    if (memcpy(&drawing_frame_buffer[index], &color, bytes_per_pixel) == NULL) return 1;
     return 0;
 }
 int (vg_draw_hline)(uint16_t x, uint16_t y, uint16_t len, uint32_t color){
