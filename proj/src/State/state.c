@@ -4,8 +4,8 @@ MenuState menuState = STARTMENU;
 ProgramState programState = RUNNING;
 GameState gameState = STOP;
 int counter_timer = 0;
-extern int x;
-extern int y;
+extern int mouse_x;
+extern int mouse_y;
 extern uint8_t scancode;
 int8_t entry = -1;
 int8_t pause_entry = 0;
@@ -165,7 +165,7 @@ void mouse_state() {
         byte_counter = 0;
         if(gameState != PLAY){
             if (menuState == STARTMENU ){
-                if((x > start_button_sprite->x && x < start_button_sprite->x + start_button_sprite->width) && (y > start_button_sprite->y && y < start_button_sprite->y + start_button_sprite->height)){
+                if((mouse_x > start_button_sprite->x && mouse_x < start_button_sprite->x + start_button_sprite->width) && (mouse_y > start_button_sprite->y && mouse_y < start_button_sprite->y + start_button_sprite->height)){
                     entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
@@ -174,7 +174,7 @@ void mouse_state() {
                     }
                     return;
                 }
-                if((x > controls_button_sprite->x && x < controls_button_sprite->x + controls_button_sprite->width) && (y > controls_button_sprite->y && y < controls_button_sprite->y + controls_button_sprite->height)){
+                if((mouse_x > controls_button_sprite->x && mouse_x < controls_button_sprite->x + controls_button_sprite->width) && (mouse_y > controls_button_sprite->y && mouse_y < controls_button_sprite->y + controls_button_sprite->height)){
                     entry = 1;
                     if(mouse_packet.lb){
                         menuState = CONTROLLERMENU;
@@ -182,7 +182,7 @@ void mouse_state() {
                     }
                     return;
                 }
-                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+                if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
                     entry = 2;
                     if(mouse_packet.lb){
                         programState = END;
@@ -192,7 +192,7 @@ void mouse_state() {
                 }
             }
             if (menuState == GAMEMENU){
-                if((x > continue_button2_sprite->x && x < continue_button2_sprite->x + continue_button2_sprite->width) && (y > continue_button2_sprite->y && y < continue_button2_sprite->y + continue_button2_sprite->height)){
+                if((mouse_x > continue_button2_sprite->x && mouse_x < continue_button2_sprite->x + continue_button2_sprite->width) && (mouse_y > continue_button2_sprite->y && mouse_y < continue_button2_sprite->y + continue_button2_sprite->height)){
                     pause_entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
@@ -200,7 +200,7 @@ void mouse_state() {
                     }
                     return;
                 }
-                if((x > restart_button_sprite->x && x < restart_button_sprite->x + restart_button_sprite->width) && (y > restart_button_sprite->y && y < restart_button_sprite->y + restart_button_sprite->height)){
+                if((mouse_x > restart_button_sprite->x && mouse_x < restart_button_sprite->x + restart_button_sprite->width) && (mouse_y > restart_button_sprite->y && mouse_y < restart_button_sprite->y + restart_button_sprite->height)){
                     pause_entry = 1;
                     if(mouse_packet.lb){
                         grid_entry.x = 0;
@@ -212,7 +212,7 @@ void mouse_state() {
                     }
                     return;
                 }
-                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+                if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
                     pause_entry = 2;
                     if(mouse_packet.lb){
                         menuState = STARTMENU;
@@ -223,7 +223,7 @@ void mouse_state() {
                 }
             }
             if(menuState == GAMEOVER){
-                if((x > play_again_button2_sprite->x && x < play_again_button2_sprite->x + play_again_button2_sprite->width) && (y > play_again_button2_sprite->y && y < play_again_button2_sprite->y + play_again_button2_sprite->height)){
+                if((mouse_x > play_again_button2_sprite->x && mouse_x < play_again_button2_sprite->x + play_again_button2_sprite->width) && (mouse_y > play_again_button2_sprite->y && mouse_y < play_again_button2_sprite->y + play_again_button2_sprite->height)){
                     game_over_entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
@@ -232,7 +232,7 @@ void mouse_state() {
                     }
                     return;
                 }
-                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+                if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
                     game_over_entry = 1;
                     if(mouse_packet.lb){
                         menuState = STARTMENU;
@@ -242,7 +242,7 @@ void mouse_state() {
                 }
             }
             if(menuState == WINMENU){
-                if((x > play_again_button2_sprite->x && x < play_again_button2_sprite->x + play_again_button2_sprite->width) && (y > play_again_button2_sprite->y && y < play_again_button2_sprite->y + play_again_button2_sprite->height)){
+                if((mouse_x > play_again_button2_sprite->x && mouse_x < play_again_button2_sprite->x + play_again_button2_sprite->width) && (mouse_y > play_again_button2_sprite->y && mouse_y < play_again_button2_sprite->y + play_again_button2_sprite->height)){
                     win_entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
@@ -251,7 +251,7 @@ void mouse_state() {
                     }
                     return;
                 }
-                if((x > exit_button_sprite->x && x < exit_button_sprite->x + exit_button_sprite->width) && (y > exit_button_sprite->y && y < exit_button_sprite->y + exit_button_sprite->height)){
+                if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
                     win_entry = 1;
                     if(mouse_packet.lb){
                         menuState = STARTMENU;
@@ -261,7 +261,7 @@ void mouse_state() {
                 }
             }
             if (menuState == CONTROLLERMENU){
-                if((x > exit_button2_sprite->x && x < exit_button2_sprite->x + exit_button2_sprite->width) && (y > exit_button2_sprite->y && y < exit_button2_sprite->y + exit_button2_sprite->height)){
+                if((mouse_x > exit_button2_sprite->x && mouse_x < exit_button2_sprite->x + exit_button2_sprite->width) && (mouse_y > exit_button2_sprite->y && mouse_y < exit_button2_sprite->y + exit_button2_sprite->height)){
                     if(mouse_packet.lb){
                         menuState = STARTMENU;
                     }
@@ -285,10 +285,10 @@ void cell_state_mouse(){
     right_border = left_border + 48*8;
     upper_border = modeInfo.YResolution/2 -( 4 * 48)  + 25;
     lower_border = upper_border+ 48*8;
-    if (x >= left_border && x < right_border && y >= upper_border && y < lower_border) {
+    if (mouse_x >= left_border && mouse_x < right_border && mouse_y >= upper_border && mouse_y < lower_border) {
         grid[grid_entry.x][grid_entry.y]->is_selected = false;
-        grid_entry.x = (x - left_border) / 48;
-        grid_entry.y = (y - upper_border) / 48;
+        grid_entry.x = (mouse_x - left_border) / 48;
+        grid_entry.y = (mouse_y - upper_border) / 48;
         grid[grid_entry.x][grid_entry.y]->is_selected = true;
         if(mouse_packet.lb){
             if(check_first_touch()){

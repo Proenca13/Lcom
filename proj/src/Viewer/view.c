@@ -4,8 +4,8 @@ extern MenuState menuState ;
 extern ProgramState programState;
 extern GameState gameState;
 extern vbe_mode_info_t modeInfo;
-extern int x;
-extern int y;
+extern int mouse_x;
+extern int mouse_y;
 extern uint8_t rows ;
 extern uint8_t cols ;
 extern int8_t entry;
@@ -165,7 +165,7 @@ void draw_win_menu(){
     draw_sprite(king_charles, modeInfo.XResolution - 30 - king_charles->width, modeInfo.YResolution - king_charles->height - 30 );
 }
 void draw_mouse(){
-    draw_sprite(cursor_mouse,x,y);
+    draw_sprite(cursor_mouse,mouse_x,mouse_y);
 }
 void draw_controls_menu() {
     draw_sprite(dirt_block,0,0);
@@ -188,25 +188,11 @@ int draw_sprite(Sprite *sprite, int x, int y) {
         for (int w = 0 ; w < width ; w++) {
             current_color = sprite->map[w + h*width];
             if(current_color == TRANSPARENT)continue;
-            if (vg_draw_pixel(x + w, y + h, current_color) != 0) return 1;
+            if (vg_draw_pixel(x + w, y + h, current_color) != 0) continue;
         }
     }
     return 0;
 }
-int draw_background(Sprite *sprite, int x, int y) {
-    uint16_t height = cursor_mouse->height;
-    uint16_t width = cursor_mouse->width;
-    uint32_t current_color;
-    for (int h = 0 ; h < height ; h++) {
-        for (int w = 0 ; w < width ; w++) {
-            current_color = sprite->map[w + h*width];
-            if(current_color == TRANSPARENT)continue;
-            if (vg_draw_pixel(x + w, y + h, current_color) != 0) return 1;
-        }
-    }
-    return 0;
-}
-
 Sprite *check_time_sprite(){
     rtc_update_time();
     printf("hours = %d  \n",timeIrl.hours);

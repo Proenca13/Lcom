@@ -4,8 +4,8 @@ int mouse_hook_id = 2;
 uint8_t byte_counter = 0;
 uint8_t packet_bytes[3];
 struct packet mouse_packet;
-int x = 10;
-int y = 10;
+int mouse_x = 10;
+int mouse_y = 10;
 uint8_t current_byte;
 extern vbe_mode_info_t modeInfo;
 int (mouse_subscribe_int)(){
@@ -42,9 +42,8 @@ void (mouse_bytes_to_packet)() {
 
     mouse_packet.delta_x = (packet_bytes[0] & MOUSE_X_DISPLACEMENT) ? (0xFF00 | packet_bytes[1]) : packet_bytes[1];
     mouse_packet.delta_y = (packet_bytes[0] & MOUSE_Y_DISPLACEMENT) ? (0xFF00 | packet_bytes[2]) : packet_bytes[2];
-
-    int new_x = x + mouse_packet.delta_x;
-    int new_y = y - mouse_packet.delta_y;
+    int new_x = mouse_x + mouse_packet.delta_x;
+    int new_y = mouse_y - mouse_packet.delta_y;
 
     if (new_x < 0) new_x = 0;
     else if (new_x > modeInfo.XResolution) new_x = modeInfo.XResolution-1;
@@ -52,9 +51,8 @@ void (mouse_bytes_to_packet)() {
     if (new_y < 0) new_y = 0;
     else if (new_y > modeInfo.YResolution) new_y = modeInfo.YResolution-1;
 
-    x = new_x;
-    y = new_y;
-
+    mouse_x = new_x;
+    mouse_y = new_y;
 }
 
 int (mouse_write)(uint8_t command){

@@ -93,6 +93,4 @@ void draw_win_menu();
 Sprite *check_time_sprite();
 void draw_counter_sprite();
 int draw_sprite(Sprite *sprite, int x, int y);
-int draw_background(Sprite *sprite, int x, int y);
-
 #endif //SHARED_VIEW_H
