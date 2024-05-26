@@ -39,4 +39,6 @@
 #define ENABLE_DATA_REPORTING 0xF4
 #define DISABLE_DATA_REPORTING 0xF5
 #define ACK 0xFA
+#define SET_STREAM_MODE 0xEA
+#define Set_Sample_Rate 0xF3
 #endif /* _LCOM_I8042_H_ */

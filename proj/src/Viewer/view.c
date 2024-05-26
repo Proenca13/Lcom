@@ -195,7 +195,6 @@ int draw_sprite(Sprite *sprite, int x, int y) {
 }
 Sprite *check_time_sprite(){
     rtc_update_time();
-    printf("hours = %d  \n",timeIrl.hours);
     if (timeIrl.hours >= 22 || timeIrl.hours < 6)return night_sky_sprite;
     else if(timeIrl.hours >= 6 && timeIrl.hours < 14 )return  day_sky_sprite;
     else if(timeIrl.hours >=  14 && timeIrl.hours < 22)return afternoon_sky_sprite;
