@@ -46,8 +46,7 @@ int init_game(){
     if(rtc_subscribe_int()!=0)return 1;
     if(mouse_write(ENABLE_DATA_REPORTING)!=0)return 1;
     if(mouse_write(SET_STREAM_MODE)!=0)return 1;
-    if(mouse_write(Set_Sample_Rate)!=0)return 1;
-    if(mouse_write(40)!=0)return 1;
+
     create_sprites();
     return 0;
 }

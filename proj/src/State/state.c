@@ -33,7 +33,6 @@ void timer_state(){
     counter_timer++;
     if(counter_timer%FREQUENCY==0) {
         timer++;
-        draw_state();
     }
 }
 void keyboard_state(){
@@ -192,6 +191,7 @@ void mouse_state() {
                         create_game();
                         entry = 0;
                     }
+                    draw_state();
                     return;
                 }
                 if((mouse_x > controls_button_sprite->x && mouse_x < controls_button_sprite->x + controls_button_sprite->width) && (mouse_y > controls_button_sprite->y && mouse_y < controls_button_sprite->y + controls_button_sprite->height)){
@@ -200,6 +200,7 @@ void mouse_state() {
                         menuState = CONTROLLERMENU;
                         entry = 0;
                     }
+                    draw_state();
                     return;
                 }
                 if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
@@ -208,6 +209,7 @@ void mouse_state() {
                         programState = END;
                         entry = 0;
                     }
+                    draw_state();
                     return;
                 }
             }
@@ -219,6 +221,7 @@ void mouse_state() {
                         timer = fixedtimer;
                         pause_entry = 0;
                     }
+                    draw_state();
                     return;
                 }
                 if((mouse_x > restart_button_sprite->x && mouse_x < restart_button_sprite->x + restart_button_sprite->width) && (mouse_y > restart_button_sprite->y && mouse_y < restart_button_sprite->y + restart_button_sprite->height)){
@@ -233,6 +236,7 @@ void mouse_state() {
                         fixedtimer = 0;
                         pause_entry = 0;
                     }
+                    draw_state();
                     return;
                 }
                 if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
@@ -242,6 +246,7 @@ void mouse_state() {
                         destroy_game();
                         pause_entry = 0;
                     }
+                    draw_state();
                     return;
                 }
             }
@@ -255,6 +260,7 @@ void mouse_state() {
                         create_game();
                         game_over_entry = 0;
                     }
+                    draw_state();
                     return;
                 }
                 if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
@@ -263,6 +269,7 @@ void mouse_state() {
                         menuState = STARTMENU;
                         game_over_entry = 0;
                     }
+                    draw_state();
                     return;
                 }
             }
@@ -276,6 +283,7 @@ void mouse_state() {
                         create_game();
                         win_entry = 0;
                     }
+                    draw_state();
                     return;
                 }
                 if((mouse_x > exit_button_sprite->x && mouse_x < exit_button_sprite->x + exit_button_sprite->width) && (mouse_y > exit_button_sprite->y && mouse_y < exit_button_sprite->y + exit_button_sprite->height)){
@@ -284,6 +292,7 @@ void mouse_state() {
                         menuState = STARTMENU;
                         win_entry = 0;
                     }
+                    draw_state();
                     return;
                 }
             }
@@ -293,15 +302,15 @@ void mouse_state() {
                         menuState = STARTMENU;
                     }
                 }
+                draw_state();
                 return;
             }
         }
         else{
             cell_state_mouse();
         }
-
+        draw_state();
     }
-    draw_state();
 }
 void rtc_state(){
     {
