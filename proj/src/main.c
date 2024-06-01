@@ -82,7 +82,7 @@ int (proj_main_loop)(int argc, char *argv[]){
                     if (msg.m_notify.interrupts & MOUSE_IRQ_SET){
                         mouse_state();
                     }
-                    if (msg.m_notify.interrupts & RTC_IRQ_SET){
+                    if (msg.m_notify.interrupts & 5){
                         rtc_state();
                     }
                     break;

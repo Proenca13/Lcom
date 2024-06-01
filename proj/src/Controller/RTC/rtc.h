@@ -10,7 +10,6 @@
 #include <stdint.h>
 
 #define IRQ_RTC 8
-#define RTC_IRQ_SET BIT(5)
 
 #define SECONDS 0x00
 #define MINUTES 0x02

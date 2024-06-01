@@ -2,8 +2,8 @@
 static char * Counter5_xpm[] = {
 "16 16 3 1",
 " 	c #FFFFFE",
-".	c #FF0000",
-"+	c #FE0000",
+".	c #FFFFFF",
+"+	c #FFFFFF",
 "                ",
 "                ",
 "                ",

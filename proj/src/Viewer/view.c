@@ -13,7 +13,9 @@ extern int8_t pause_entry;
 extern int8_t game_over_entry;
 extern int8_t win_entry ;
 extern uint8_t timer;
-extern uint8_t fixedtimer;
+extern uint8_t seconds ;
+extern uint8_t minutes ;
+extern uint8_t hours ;
 extern Sprite *start_button_sprite;
 extern Sprite *start_button2_sprite;
 extern Sprite *cursor_mouse;
@@ -101,9 +103,6 @@ void draw_main_menu(){
     draw_sprite(entry==2?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 50);
 }
 void draw_game(){
-    uint8_t seconds = timer%60;
-    uint8_t minutes = (timer%3600)/60;
-    uint8_t hours = timer/3600;
     draw_sprite(dirt_block,0,0);
     draw_sprite(title_sprite,modeInfo.XResolution/4,20);
     draw_sprite(check_time_sprite2(hours/10),modeInfo.XResolution/2-60,100);
@@ -150,19 +149,17 @@ void draw_game(){
 }
 void draw_game_menu(){
     draw_sprite(dirt_block,0,0);
-    uint8_t seconds = fixedtimer%60;
-    uint8_t minutes = (fixedtimer%3600)/60;
-    uint8_t hours = fixedtimer/3600;
+    draw_sprite(paused_title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(check_time_sprite2(hours/10),modeInfo.XResolution/2-60,150);
     draw_sprite(check_time_sprite2(hours%10),modeInfo.XResolution/2-45,150);
     draw_sprite(check_time_sprite2(minutes/10),modeInfo.XResolution/2-15,150);
     draw_sprite(check_time_sprite2(minutes%10),modeInfo.XResolution/2,150);
     draw_sprite(check_time_sprite2(seconds/10),modeInfo.XResolution/2+30,150);
     draw_sprite(check_time_sprite2(seconds%10),modeInfo.XResolution/2+45,150);
-    draw_sprite(paused_title_sprite,modeInfo.XResolution/4,50);
-    draw_sprite(pause_entry==0?continue_button2_sprite:continue_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
-    draw_sprite(pause_entry == 1? restart_button2_sprite:restart_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
-    draw_sprite(pause_entry == 2? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 50);
+
+    draw_sprite(pause_entry==0?continue_button2_sprite:continue_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 75);
+    draw_sprite(pause_entry == 1? restart_button2_sprite:restart_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 75);
+    draw_sprite(pause_entry == 2? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 75);
     draw_sprite(dyog_sprite,modeInfo.XResolution-200,modeInfo.YResolution - 200);
     draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
 }
@@ -176,18 +173,15 @@ void draw_game_over_menu(){
 }
 void draw_win_menu(){
     draw_sprite(dirt_block,0,0);
-    uint8_t seconds = fixedtimer%60;
-    uint8_t minutes = (fixedtimer%3600)/60;
-    uint8_t hours = fixedtimer/3600;
-    draw_sprite(check_time_sprite2(hours/10),modeInfo.XResolution/2-60,100);
-    draw_sprite(check_time_sprite2(hours%10),modeInfo.XResolution/2-45,100);
-    draw_sprite(check_time_sprite2(minutes/10),modeInfo.XResolution/2-15,100);
-    draw_sprite(check_time_sprite2(minutes%10),modeInfo.XResolution/2,100);
-    draw_sprite(check_time_sprite2(seconds/10),modeInfo.XResolution/2+30,100);
-    draw_sprite(check_time_sprite2(seconds%10),modeInfo.XResolution/2+45,100);
     draw_sprite(you_won_sprite,modeInfo.XResolution/4,50);
-    draw_sprite(win_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
-    draw_sprite(win_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
+    draw_sprite(check_time_sprite2(hours/10),modeInfo.XResolution/2-60,150);
+    draw_sprite(check_time_sprite2(hours%10),modeInfo.XResolution/2-45,150);
+    draw_sprite(check_time_sprite2(minutes/10),modeInfo.XResolution/2-15,150);
+    draw_sprite(check_time_sprite2(minutes%10),modeInfo.XResolution/2,150);
+    draw_sprite(check_time_sprite2(seconds/10),modeInfo.XResolution/2+30,150);
+    draw_sprite(check_time_sprite2(seconds%10),modeInfo.XResolution/2+45,150);
+    draw_sprite(win_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 75);
+    draw_sprite(win_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 75);
     draw_sprite(king_charles, 30, modeInfo.YResolution - king_charles->height - 30 );
     draw_sprite(king_charles, modeInfo.XResolution - 30 - king_charles->width, modeInfo.YResolution - king_charles->height - 30 );
 }
