@@ -12,6 +12,8 @@ int8_t pause_entry = 0;
 int8_t game_over_entry = 0;
 int8_t win_entry = 0;
 extern uint8_t byte_counter;
+uint8_t timer = 0;
+uint8_t fixedtimer = 0;
 extern struct packet mouse_packet;
 extern Time_Irl timeIrl;
 extern vbe_mode_info_t modeInfo;
@@ -29,6 +31,10 @@ extern Block* **grid;
 void timer_state(){
     swap_buffers();
     counter_timer++;
+    if(counter_timer%FREQUENCY==0) {
+        timer++;
+        draw_state();
+    }
 }
 void keyboard_state(){
     kbc_ih();
@@ -50,6 +56,7 @@ void keyboard_state(){
                     if(entry == 0){
                         gameState = PLAY;
                         create_game();
+                        timer = 0;
                     }
                     else if(entry == 1)menuState = CONTROLLERMENU;
                     else if(entry == 2)programState = END;
@@ -61,6 +68,8 @@ void keyboard_state(){
             switch (scancode) {
                 case BRK_ESC:
                     gameState = PLAY;
+                    timer = 0;
+                    fixedtimer = 0;
                     break;
                 case ARROW_DOWN_MAKE:
                     pause_entry++;
@@ -71,13 +80,17 @@ void keyboard_state(){
                     if(pause_entry < 0)pause_entry = 2;
                     break;
                 case ENTER_BRK:
-                    if(pause_entry == 0)gameState = PLAY;
+                    if(pause_entry == 0){
+                        gameState = PLAY;
+                        timer = fixedtimer;
+                    }
                     else if(pause_entry == 1){
                         grid_entry.x = 0;
                         grid_entry.y = 0;
                         destroy_game();
                         create_game();
                         gameState = PLAY;
+                        timer = fixedtimer;
                     }
                     else if(pause_entry == 2){
                         menuState = STARTMENU;
@@ -103,6 +116,8 @@ void keyboard_state(){
                 case ENTER_BRK:
                     if(game_over_entry == 0){
                         gameState = PLAY;
+                        timer = 0;
+                        fixedtimer = 0;
                         create_game();
                     }
                     else if(game_over_entry == 1){
@@ -129,6 +144,8 @@ void keyboard_state(){
                     if(win_entry == 0){
                         gameState = PLAY;
                         create_game();
+                        timer = 0;
+                        fixedtimer = 0;
                     }
                     else if(win_entry == 1){
                         menuState = STARTMENU;
@@ -152,6 +169,7 @@ void keyboard_state(){
         if (scancode == BRK_ESC) {
                 gameState = STOP;
                 menuState = GAMEMENU;
+                fixedtimer = timer;
         }
         else cell_state_keyboard();
     }
@@ -169,6 +187,8 @@ void mouse_state() {
                     entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
+                        fixedtimer = 0;
+                        timer = 0;
                         create_game();
                         entry = 0;
                     }
@@ -196,6 +216,7 @@ void mouse_state() {
                     pause_entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
+                        timer = fixedtimer;
                         pause_entry = 0;
                     }
                     return;
@@ -208,6 +229,8 @@ void mouse_state() {
                         destroy_game();
                         create_game();
                         gameState = PLAY;
+                        timer = 0;
+                        fixedtimer = 0;
                         pause_entry = 0;
                     }
                     return;
@@ -227,6 +250,8 @@ void mouse_state() {
                     game_over_entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
+                        timer = 0;
+                        fixedtimer = 0;
                         create_game();
                         game_over_entry = 0;
                     }
@@ -246,6 +271,8 @@ void mouse_state() {
                     win_entry = 0;
                     if(mouse_packet.lb){
                         gameState = PLAY;
+                        timer = 0;
+                        fixedtimer=0;
                         create_game();
                         win_entry = 0;
                     }
@@ -277,7 +304,9 @@ void mouse_state() {
     draw_state();
 }
 void rtc_state(){
-    if(counter_timer%FREQUENCY==0)rtc_update_time();
+    {
+        rtc_update_time();
+    }
 }
 void cell_state_mouse(){
     int  left_border,right_border,upper_border,lower_border;
@@ -299,6 +328,7 @@ void cell_state_mouse(){
                 if(check_win()){
                     draw_state();
                     sleep(3);
+                    fixedtimer = timer;
                     menuState = WINMENU;
                     gameState = STOP;
                     destroy_game();

@@ -91,6 +91,7 @@ void draw_controls_menu();
 void draw_game_over_menu();
 void draw_win_menu();
 Sprite *check_time_sprite();
+Sprite *check_time_sprite2(uint8_t timer2);
 void draw_counter_sprite();
 int draw_sprite(Sprite *sprite, int x, int y);
 #endif //SHARED_VIEW_H

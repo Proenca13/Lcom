@@ -12,8 +12,8 @@ extern int8_t entry;
 extern int8_t pause_entry;
 extern int8_t game_over_entry;
 extern int8_t win_entry ;
-
-
+extern uint8_t timer;
+extern uint8_t fixedtimer;
 extern Sprite *start_button_sprite;
 extern Sprite *start_button2_sprite;
 extern Sprite *cursor_mouse;
@@ -101,12 +101,21 @@ void draw_main_menu(){
     draw_sprite(entry==2?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 50);
 }
 void draw_game(){
+    uint8_t seconds = timer%60;
+    uint8_t minutes = (timer%3600)/60;
+    uint8_t hours = timer/3600;
     draw_sprite(dirt_block,0,0);
-    draw_sprite(title_sprite,modeInfo.XResolution/4,50);
+    draw_sprite(title_sprite,modeInfo.XResolution/4,20);
+    draw_sprite(check_time_sprite2(hours/10),modeInfo.XResolution/2-60,100);
+    draw_sprite(check_time_sprite2(hours%10),modeInfo.XResolution/2-45,100);
+    draw_sprite(check_time_sprite2(minutes/10),modeInfo.XResolution/2-15,100);
+    draw_sprite(check_time_sprite2(minutes%10),modeInfo.XResolution/2,100);
+    draw_sprite(check_time_sprite2(seconds/10),modeInfo.XResolution/2+30,100);
+    draw_sprite(check_time_sprite2(seconds%10),modeInfo.XResolution/2+45,100);
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
             int x = modeInfo.XResolution/2 -( 4 * grid[i][j]->block_sprite->width) + i * grid[i][j]->block_sprite->width;
-            int y = modeInfo.YResolution/2 -( 4 * grid[i][j]->block_sprite->height) + j * grid[i][j]->block_sprite->height + 25;
+            int y = modeInfo.YResolution/2 -( 4 * grid[i][j]->block_sprite->height) + j * grid[i][j]->block_sprite->height + 35;
             if(grid[i][j]->state == Not_Revealed){
                 if(grid[i][j]->is_selected == true){
                     draw_sprite(selected_grass_sprite , x, y);
@@ -141,6 +150,15 @@ void draw_game(){
 }
 void draw_game_menu(){
     draw_sprite(dirt_block,0,0);
+    uint8_t seconds = fixedtimer%60;
+    uint8_t minutes = (fixedtimer%3600)/60;
+    uint8_t hours = fixedtimer/3600;
+    draw_sprite(check_time_sprite2(hours/10),modeInfo.XResolution/2-60,150);
+    draw_sprite(check_time_sprite2(hours%10),modeInfo.XResolution/2-45,150);
+    draw_sprite(check_time_sprite2(minutes/10),modeInfo.XResolution/2-15,150);
+    draw_sprite(check_time_sprite2(minutes%10),modeInfo.XResolution/2,150);
+    draw_sprite(check_time_sprite2(seconds/10),modeInfo.XResolution/2+30,150);
+    draw_sprite(check_time_sprite2(seconds%10),modeInfo.XResolution/2+45,150);
     draw_sprite(paused_title_sprite,modeInfo.XResolution/4,50);
     draw_sprite(pause_entry==0?continue_button2_sprite:continue_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(pause_entry == 1? restart_button2_sprite:restart_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
@@ -158,6 +176,15 @@ void draw_game_over_menu(){
 }
 void draw_win_menu(){
     draw_sprite(dirt_block,0,0);
+    uint8_t seconds = fixedtimer%60;
+    uint8_t minutes = (fixedtimer%3600)/60;
+    uint8_t hours = fixedtimer/3600;
+    draw_sprite(check_time_sprite2(hours/10),modeInfo.XResolution/2-60,100);
+    draw_sprite(check_time_sprite2(hours%10),modeInfo.XResolution/2-45,100);
+    draw_sprite(check_time_sprite2(minutes/10),modeInfo.XResolution/2-15,100);
+    draw_sprite(check_time_sprite2(minutes%10),modeInfo.XResolution/2,100);
+    draw_sprite(check_time_sprite2(seconds/10),modeInfo.XResolution/2+30,100);
+    draw_sprite(check_time_sprite2(seconds%10),modeInfo.XResolution/2+45,100);
     draw_sprite(you_won_sprite,modeInfo.XResolution/4,50);
     draw_sprite(win_entry==0?play_again_button2_sprite:play_again_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution/5 + 50);
     draw_sprite(win_entry == 1? exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
@@ -199,6 +226,32 @@ Sprite *check_time_sprite(){
     else if(timeIrl.hours >= 6 && timeIrl.hours < 14 )return  day_sky_sprite;
     else if(timeIrl.hours >=  14 && timeIrl.hours < 22)return afternoon_sky_sprite;
     return day_sky_sprite;
+}
+Sprite *check_time_sprite2(uint8_t timer2){
+        switch (timer2) {
+        case 0:
+            return counter0_sprite;
+        case 1:
+            return counter1_sprite;
+        case 2:
+            return counter2_sprite;
+        case 3:
+            return counter3_sprite;
+        case 4:
+            return counter4_sprite;
+        case 5:
+            return counter5_sprite;
+        case 6:
+            return counter6_sprite;
+        case 7:
+            return counter7_sprite;
+        case 8:
+            return counter8_sprite;
+        case 9:
+            return counter9_sprite;
+        default:
+            return counter0_sprite;
+        }
 }
 void draw_counter_sprite(){
     uint8_t count_flag = 0;
