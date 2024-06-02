@@ -363,7 +363,6 @@ void cell_state_mouse(){
                 grid[grid_entry.x][grid_entry.y]->state = Revealed;
                 if(check_win()){
                     draw_state();
-                    sleep(3);
                     menuState = WINMENU;
                     gameState = STOP;
                     destroy_game();
