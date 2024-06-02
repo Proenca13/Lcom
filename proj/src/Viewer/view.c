@@ -81,7 +81,6 @@ extern Sprite *counter7_sprite;
 extern Sprite *counter8_sprite;
 extern Sprite *counter9_sprite;
 extern Sprite *flag_counter_sprite;
-
 extern Block* **grid;
 
 void draw_state(){
@@ -95,6 +94,7 @@ void draw_state(){
    if(gameState == PLAY)draw_game();
    draw_mouse();
 }
+
 void draw_main_menu(){
     draw_sprite(check_time_sprite(),0,0);
     draw_sprite(title_sprite,modeInfo.XResolution/4,50);
@@ -102,6 +102,7 @@ void draw_main_menu(){
     draw_sprite(entry == 1? controls_button2_sprite:controls_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*2)/5+ 50);
     draw_sprite(entry==2?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,(modeInfo.YResolution*3)/5+ 50);
 }
+
 void draw_game(){
     draw_sprite(dirt_block,0,0);
     draw_sprite(title_sprite,modeInfo.XResolution/4,20);
@@ -147,6 +148,7 @@ void draw_game(){
     draw_sprite(flag_counter_sprite,modeInfo.XResolution/4 +100,550);
     draw_counter_sprite();
 }
+
 void draw_game_menu(){
     draw_sprite(dirt_block,0,0);
     draw_sprite(paused_title_sprite,modeInfo.XResolution/4,50);
@@ -163,6 +165,7 @@ void draw_game_menu(){
     draw_sprite(dyog_sprite,modeInfo.XResolution-200,modeInfo.YResolution - 200);
     draw_sprite(dyog2_sprite,0,modeInfo.YResolution - 200);
 }
+
 void draw_game_over_menu(){
     draw_sprite(dirt_block,0,0);
     draw_sprite(game_over_sprite,modeInfo.XResolution/4,50);
@@ -199,6 +202,7 @@ void draw_controls_menu() {
     draw_sprite(esc_sprite, (modeInfo.XResolution / 8) *4.5, 390);
     draw_sprite(entry==0?exit_button2_sprite:exit_button_sprite,modeInfo.XResolution/4,modeInfo.YResolution - 60);
 }
+
 int draw_sprite(Sprite *sprite, int x, int y) {
     uint16_t height = sprite->height;
     uint16_t width = sprite->width;
@@ -214,6 +218,7 @@ int draw_sprite(Sprite *sprite, int x, int y) {
     }
     return 0;
 }
+
 Sprite *check_time_sprite(){
     rtc_update_time();
     if (timeIrl.hours >= 22 || timeIrl.hours < 6)return night_sky_sprite;
@@ -221,6 +226,7 @@ Sprite *check_time_sprite(){
     else if(timeIrl.hours >=  14 && timeIrl.hours < 22)return afternoon_sky_sprite;
     return day_sky_sprite;
 }
+
 Sprite *check_time_sprite2(uint8_t timer2){
         switch (timer2) {
         case 0:
@@ -247,6 +253,8 @@ Sprite *check_time_sprite2(uint8_t timer2){
             return counter0_sprite;
         }
 }
+
+
 void draw_counter_sprite(){
     uint8_t count_flag = 0;
     flag_counter(&count_flag);

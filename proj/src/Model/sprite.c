@@ -1,4 +1,5 @@
 #include "sprite.h"
+
 Sprite *create_sprite(xpm_map_t pic) {
 //allocate space for the "object"
     Sprite *sp = (Sprite *) malloc ( sizeof(Sprite));
@@ -15,6 +16,7 @@ Sprite *create_sprite(xpm_map_t pic) {
     sp->height=img.height;
     return sp;
 }
+
 void destroy_sprite(Sprite *sp) {
     if( sp == NULL )
         return;

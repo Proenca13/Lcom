@@ -1,4 +1,5 @@
 #include "game.h"
+
 extern Sprite *grass_sprite;
 extern Sprite *tnt_sprite;
 extern Sprite *selected_grass_sprite;
@@ -26,6 +27,7 @@ uint8_t rows = 8;
 uint8_t cols = 8;
 Grid_entry grid_entry = {0, 0};
 Block* **grid;
+
 Block *create_block(Sprite *block_sprite,Sprite *selected_block_sprite,BlockType type, int16_t row, int16_t col,bool is_selected,BlockState state){
     Block *block = (Block *) malloc (sizeof(Block));
     block->block_sprite = block_sprite;
@@ -37,6 +39,7 @@ Block *create_block(Sprite *block_sprite,Sprite *selected_block_sprite,BlockType
     block->state = state;
     return block;
 }
+
 void placeBombs(){
     int bombs_placed = 0;
     while (bombs_placed < 10) {
@@ -58,6 +61,7 @@ void placeBombs(){
         }
     }
 }
+
 void count_bombs_around(int16_t x , int16_t y){
     uint8_t count = 0;
     int dr[] = {-1, -1, -1, 0, 0, 1, 1, 1};
@@ -119,6 +123,7 @@ void count_bombs_around(int16_t x , int16_t y){
             break;
     }
 }
+
 void create_game(){
     grid = malloc(rows * sizeof(Block *));
     for (int i = 0; i < rows; i++) {
@@ -138,12 +143,14 @@ void create_game(){
     }
     grid[grid_entry.x][grid_entry.y]->is_selected = true;
 }
+
 void destroy_game(){
     for (int i = 0; i < rows; i++) {
         free(grid[i]);
     }
     free(grid);
 }
+
 int check_win(){
     uint8_t revealed_count = 0;
     for (int i = 0; i < rows; i++) {
@@ -156,6 +163,7 @@ int check_win(){
     if(revealed_count == ((8*8)-10)) return 1;
     return 0;
 }
+
 void flag_counter(uint8_t *flag_count){
     for (int i = 0; i < rows; i++) {
         for (int j = 0; j < cols; j++) {
@@ -166,6 +174,7 @@ void flag_counter(uint8_t *flag_count){
     }
 
 }
+
 int check_first_touch(){
     uint8_t revealed_count = 0;
     for (int i = 0; i < rows; i++) {
@@ -177,12 +186,14 @@ int check_first_touch(){
     }
     return revealed_count == 0;
 }
+
 int check_can_flag(){
     uint8_t flag_count = 0;
     flag_counter(&flag_count);
     if(flag_count >= 10)return 0;
     return 1;
 }
+
 void reveal_near_zeros(int16_t x , int16_t y){
             int dr[] = {-1, -1, -1, 0, 0, 1, 1, 1};
             int dc[] = {-1, 0, 1, -1, 1, -1, 0, 1};
