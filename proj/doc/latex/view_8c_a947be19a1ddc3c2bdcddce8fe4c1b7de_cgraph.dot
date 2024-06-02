@@ -1,0 +1,14 @@
+digraph "draw_win_menu"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="draw_win_menu",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Draws the win menu."];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="check_time_sprite2",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$view_8c.html#ac41b34b1dc3c89e8d393c931baa6f4be",tooltip="Determines the appropriate counter sprite based on the provided digit."];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="draw_sprite",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$view_8c.html#a81f7bc4c06ccd62eb7f3c414764d1ed9",tooltip="Draws a sprite at the specified coordinates."];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="vg_draw_pixel",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$graphic_8c.html#a6f895de9725f9f231f9a7f74b6087f60",tooltip=" "];
+}

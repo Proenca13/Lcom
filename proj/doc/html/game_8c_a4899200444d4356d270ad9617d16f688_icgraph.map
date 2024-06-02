@@ -1,0 +1,9 @@
+<map id="count_bombs_around" name="count_bombs_around">
+<area shape="rect" id="node1" title="Counts the number of bombs around a given cell." alt="" coords="697,31,859,57"/>
+<area shape="rect" id="node2" href="$game_8c.html#a6d7eac2de334af037d6647e6d5659a0f" title="Places bombs randomly on the grid." alt="" coords="547,31,649,57"/>
+<area shape="rect" id="node3" href="$state_8c.html#a14575ad012aa8dfb26d627e6c1f200f0" title="Handles keyboard input for cell selection and interaction." alt="" coords="347,5,499,32"/>
+<area shape="rect" id="node6" href="$state_8c.html#adb2d47d83be7d90be9b4bb9cb9472bb0" title="Handles mouse input for cell selection and interaction." alt="" coords="355,56,491,83"/>
+<area shape="rect" id="node4" href="$state_8c.html#a85a5a00216c3c664ad37836286e09be6" title="Handles keyboard input and updates the game state accordingly." alt="" coords="176,5,299,32"/>
+<area shape="rect" id="node5" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+<area shape="rect" id="node7" href="$state_8c.html#aef2e501a29ca47dd1826c6b2c0ebe666" title="Handles mouse input and updates the game state accordingly." alt="" coords="184,56,291,83"/>
+</map>

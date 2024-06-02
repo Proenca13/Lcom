@@ -1,0 +1,326 @@
+\hypertarget{state_8c}{}\doxysection{src/\+State/state.c File Reference}
+\label{state_8c}\index{src/State/state.c@{src/State/state.c}}
+{\ttfamily \#include \char`\"{}state.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+Include dependency graph for state.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{state_8c_ade23307b26c4fb98961332715bc11514}{timer\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles timer events and updates the game state accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8c_a85a5a00216c3c664ad37836286e09be6}{keyboard\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles keyboard input and updates the game state accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8c_aef2e501a29ca47dd1826c6b2c0ebe666}{mouse\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input and updates the game state accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8c_a9ef0fb9a645256112121584c07ac2133}{rtc\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles the real-\/time clock (RTC) state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8c_adb2d47d83be7d90be9b4bb9cb9472bb0}{cell\+\_\+state\+\_\+mouse}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input for cell selection and interaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8c_a14575ad012aa8dfb26d627e6c1f200f0}{cell\+\_\+state\+\_\+keyboard}} ()
+\begin{DoxyCompactList}\small\item\em Handles keyboard input for cell selection and interaction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2}{Menu\+State}} \mbox{\hyperlink{state_8c_a92b62ab09159876ce3ca4dc9340931ca}{menu\+State}} = \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a2cb3ae884dac0ba2d241c00a4880f592}{STARTMENU}}
+\item 
+\mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0}{Program\+State}} \mbox{\hyperlink{state_8c_a8c5908370c1d95d53e54112215a36d93}{program\+State}} = \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0a1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}
+\item 
+\mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \mbox{\hyperlink{state_8c_a2706ed05d331ef3b53c728a6868bda26}{game\+State}} = \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a679ee5320d66c8322e310daeb2ee99b8}{STOP}}
+\item 
+int \mbox{\hyperlink{state_8c_abdd2eef1d70041de463214f2f9469f4d}{counter\+\_\+timer}} = 0
+\item 
+int \mbox{\hyperlink{state_8c_a6c59af730728bf5260ef828aea2eebee}{mouse\+\_\+x}}
+\item 
+int \mbox{\hyperlink{state_8c_ab21653e455bbca86826aa5f628a5fdb2}{mouse\+\_\+y}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{state_8c_aa1de7a5557e9d96b83cf03f73c92163f}{scancode}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{state_8c_a29581506a04cee29907774bcdb9e3048}{entry}} = -\/1
+\item 
+int8\+\_\+t \mbox{\hyperlink{state_8c_afc1a5ebbe2101c2b4e5a785b94e7cf55}{pause\+\_\+entry}} = 0
+\item 
+int8\+\_\+t \mbox{\hyperlink{state_8c_a55daaeaff98bfb3dc53ca017cad966c0}{game\+\_\+over\+\_\+entry}} = 0
+\item 
+int8\+\_\+t \mbox{\hyperlink{state_8c_aed94f09bd7ba0a7794e68f8f8d45d239}{win\+\_\+entry}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{state_8c_ad443659f84cdbb5f8c9b324e30efbac4}{byte\+\_\+counter}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{state_8c_a0ff73b1428e9cd11a4f7a6cf46b7b550}{timer}} = 0
+\item 
+uint8\+\_\+t \mbox{\hyperlink{state_8c_a46729a903be1a03cdb248fb48d84d4f5}{seconds}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{state_8c_a7acca8be0094a19be6e308ac05924c4f}{minutes}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{state_8c_a00a531a34a1d603329df5778f1203ab6}{hours}}
+\item 
+struct packet \mbox{\hyperlink{state_8c_a3b2e64ffb96c650d6525c99be01c7331}{mouse\+\_\+packet}}
+\item 
+\mbox{\hyperlink{structTime__Irl}{Time\+\_\+\+Irl}} \mbox{\hyperlink{state_8c_ace588163a300dab67ff94ac2da75731f}{time\+Irl}}
+\item 
+vbe\+\_\+mode\+\_\+info\+\_\+t \mbox{\hyperlink{state_8c_acbcf61ec794276372586878110524b97}{mode\+Info}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{state_8c_ab7267fc253e37f711dcefc0c99773497}{start\+\_\+button\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{state_8c_ac96b9e0d488cd882d2e9fd5cfe64d7a5}{controls\+\_\+button\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{state_8c_ab6b4f996670f5bffdd0d54d769b877f6}{exit\+\_\+button\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{state_8c_a8d0ed28213b8621468ac8a8214151339}{exit\+\_\+button2\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{state_8c_a40d50586b67237fee9f9553477388c17}{restart\+\_\+button\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{state_8c_af46ecfa860d03e953a387e11349b5f56}{continue\+\_\+button2\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{state_8c_a278dd701b13d76ce736eb9031fbad00f}{play\+\_\+again\+\_\+button2\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structGrid__entry}{Grid\+\_\+entry}} \mbox{\hyperlink{state_8c_a5915c9fe94f562373b32c32ef8a24233}{grid\+\_\+entry}}
+\item 
+\mbox{\hyperlink{structBlock}{Block}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{state_8c_a4f0982c8660e6b5f0f91d13c20616476}{grid}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{state_8c_a14575ad012aa8dfb26d627e6c1f200f0}\label{state_8c_a14575ad012aa8dfb26d627e6c1f200f0}} 
+\index{state.c@{state.c}!cell\_state\_keyboard@{cell\_state\_keyboard}}
+\index{cell\_state\_keyboard@{cell\_state\_keyboard}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{cell\_state\_keyboard()}{cell\_state\_keyboard()}}
+{\footnotesize\ttfamily void cell\+\_\+state\+\_\+keyboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles keyboard input for cell selection and interaction. 
+
+Moves the selection cursor based on arrow key inputs. Allows the player to reveal cells using the spacebar and flag cells using the \textquotesingle{}F\textquotesingle{} key. Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{state_8c_adb2d47d83be7d90be9b4bb9cb9472bb0}\label{state_8c_adb2d47d83be7d90be9b4bb9cb9472bb0}} 
+\index{state.c@{state.c}!cell\_state\_mouse@{cell\_state\_mouse}}
+\index{cell\_state\_mouse@{cell\_state\_mouse}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{cell\_state\_mouse()}{cell\_state\_mouse()}}
+{\footnotesize\ttfamily void cell\+\_\+state\+\_\+mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles mouse input for cell selection and interaction. 
+
+Determines the selected cell based on mouse position and updates its state accordingly. Handles left and right button clicks for revealing cells and flagging cells, respectively. Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{state_8c_a85a5a00216c3c664ad37836286e09be6}\label{state_8c_a85a5a00216c3c664ad37836286e09be6}} 
+\index{state.c@{state.c}!keyboard\_state@{keyboard\_state}}
+\index{keyboard\_state@{keyboard\_state}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{keyboard\_state()}{keyboard\_state()}}
+{\footnotesize\ttfamily void keyboard\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles keyboard input and updates the game state accordingly. 
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{state_8c_aef2e501a29ca47dd1826c6b2c0ebe666}\label{state_8c_aef2e501a29ca47dd1826c6b2c0ebe666}} 
+\index{state.c@{state.c}!mouse\_state@{mouse\_state}}
+\index{mouse\_state@{mouse\_state}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_state()}{mouse\_state()}}
+{\footnotesize\ttfamily void mouse\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles mouse input and updates the game state accordingly. 
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{state_8c_a9ef0fb9a645256112121584c07ac2133}\label{state_8c_a9ef0fb9a645256112121584c07ac2133}} 
+\index{state.c@{state.c}!rtc\_state@{rtc\_state}}
+\index{rtc\_state@{rtc\_state}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_state()}{rtc\_state()}}
+{\footnotesize\ttfamily void rtc\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles the real-\/time clock (RTC) state. 
+
+Updates the game timer every {\ttfamily FREQUENCY} ticks when the game is in the PLAY state. Also updates the displayed time in seconds, minutes, and hours. Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{state_8c_ade23307b26c4fb98961332715bc11514}\label{state_8c_ade23307b26c4fb98961332715bc11514}} 
+\index{state.c@{state.c}!timer\_state@{timer\_state}}
+\index{timer\_state@{timer\_state}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{timer\_state()}{timer\_state()}}
+{\footnotesize\ttfamily void timer\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles timer events and updates the game state accordingly. 
+
+Here is the call graph for this function\+:
+% FIG 6
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{state_8c_ad443659f84cdbb5f8c9b324e30efbac4}\label{state_8c_ad443659f84cdbb5f8c9b324e30efbac4}} 
+\index{state.c@{state.c}!byte\_counter@{byte\_counter}}
+\index{byte\_counter@{byte\_counter}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{byte\_counter}{byte\_counter}}
+{\footnotesize\ttfamily uint8\+\_\+t byte\+\_\+counter\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_af46ecfa860d03e953a387e11349b5f56}\label{state_8c_af46ecfa860d03e953a387e11349b5f56}} 
+\index{state.c@{state.c}!continue\_button2\_sprite@{continue\_button2\_sprite}}
+\index{continue\_button2\_sprite@{continue\_button2\_sprite}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{continue\_button2\_sprite}{continue\_button2\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ continue\+\_\+button2\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_ac96b9e0d488cd882d2e9fd5cfe64d7a5}\label{state_8c_ac96b9e0d488cd882d2e9fd5cfe64d7a5}} 
+\index{state.c@{state.c}!controls\_button\_sprite@{controls\_button\_sprite}}
+\index{controls\_button\_sprite@{controls\_button\_sprite}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{controls\_button\_sprite}{controls\_button\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ controls\+\_\+button\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_abdd2eef1d70041de463214f2f9469f4d}\label{state_8c_abdd2eef1d70041de463214f2f9469f4d}} 
+\index{state.c@{state.c}!counter\_timer@{counter\_timer}}
+\index{counter\_timer@{counter\_timer}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{counter\_timer}{counter\_timer}}
+{\footnotesize\ttfamily int counter\+\_\+timer = 0}
+
+\mbox{\Hypertarget{state_8c_a29581506a04cee29907774bcdb9e3048}\label{state_8c_a29581506a04cee29907774bcdb9e3048}} 
+\index{state.c@{state.c}!entry@{entry}}
+\index{entry@{entry}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{entry}{entry}}
+{\footnotesize\ttfamily int8\+\_\+t entry = -\/1}
+
+\mbox{\Hypertarget{state_8c_a8d0ed28213b8621468ac8a8214151339}\label{state_8c_a8d0ed28213b8621468ac8a8214151339}} 
+\index{state.c@{state.c}!exit\_button2\_sprite@{exit\_button2\_sprite}}
+\index{exit\_button2\_sprite@{exit\_button2\_sprite}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{exit\_button2\_sprite}{exit\_button2\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ exit\+\_\+button2\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_ab6b4f996670f5bffdd0d54d769b877f6}\label{state_8c_ab6b4f996670f5bffdd0d54d769b877f6}} 
+\index{state.c@{state.c}!exit\_button\_sprite@{exit\_button\_sprite}}
+\index{exit\_button\_sprite@{exit\_button\_sprite}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{exit\_button\_sprite}{exit\_button\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ exit\+\_\+button\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a55daaeaff98bfb3dc53ca017cad966c0}\label{state_8c_a55daaeaff98bfb3dc53ca017cad966c0}} 
+\index{state.c@{state.c}!game\_over\_entry@{game\_over\_entry}}
+\index{game\_over\_entry@{game\_over\_entry}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{game\_over\_entry}{game\_over\_entry}}
+{\footnotesize\ttfamily int8\+\_\+t game\+\_\+over\+\_\+entry = 0}
+
+\mbox{\Hypertarget{state_8c_a2706ed05d331ef3b53c728a6868bda26}\label{state_8c_a2706ed05d331ef3b53c728a6868bda26}} 
+\index{state.c@{state.c}!gameState@{gameState}}
+\index{gameState@{gameState}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{gameState}{gameState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} game\+State = \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a679ee5320d66c8322e310daeb2ee99b8}{STOP}}}
+
+\mbox{\Hypertarget{state_8c_a4f0982c8660e6b5f0f91d13c20616476}\label{state_8c_a4f0982c8660e6b5f0f91d13c20616476}} 
+\index{state.c@{state.c}!grid@{grid}}
+\index{grid@{grid}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{grid}{grid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBlock}{Block}}$\ast$ $\ast$$\ast$ grid\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a5915c9fe94f562373b32c32ef8a24233}\label{state_8c_a5915c9fe94f562373b32c32ef8a24233}} 
+\index{state.c@{state.c}!grid\_entry@{grid\_entry}}
+\index{grid\_entry@{grid\_entry}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{grid\_entry}{grid\_entry}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGrid__entry}{Grid\+\_\+entry}} grid\+\_\+entry\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a00a531a34a1d603329df5778f1203ab6}\label{state_8c_a00a531a34a1d603329df5778f1203ab6}} 
+\index{state.c@{state.c}!hours@{hours}}
+\index{hours@{hours}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{hours}{hours}}
+{\footnotesize\ttfamily uint8\+\_\+t hours}
+
+\mbox{\Hypertarget{state_8c_a92b62ab09159876ce3ca4dc9340931ca}\label{state_8c_a92b62ab09159876ce3ca4dc9340931ca}} 
+\index{state.c@{state.c}!menuState@{menuState}}
+\index{menuState@{menuState}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{menuState}{menuState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2}{Menu\+State}} menu\+State = \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a2cb3ae884dac0ba2d241c00a4880f592}{STARTMENU}}}
+
+\mbox{\Hypertarget{state_8c_a7acca8be0094a19be6e308ac05924c4f}\label{state_8c_a7acca8be0094a19be6e308ac05924c4f}} 
+\index{state.c@{state.c}!minutes@{minutes}}
+\index{minutes@{minutes}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{minutes}{minutes}}
+{\footnotesize\ttfamily uint8\+\_\+t minutes}
+
+\mbox{\Hypertarget{state_8c_acbcf61ec794276372586878110524b97}\label{state_8c_acbcf61ec794276372586878110524b97}} 
+\index{state.c@{state.c}!modeInfo@{modeInfo}}
+\index{modeInfo@{modeInfo}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{modeInfo}{modeInfo}}
+{\footnotesize\ttfamily vbe\+\_\+mode\+\_\+info\+\_\+t mode\+Info\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a3b2e64ffb96c650d6525c99be01c7331}\label{state_8c_a3b2e64ffb96c650d6525c99be01c7331}} 
+\index{state.c@{state.c}!mouse\_packet@{mouse\_packet}}
+\index{mouse\_packet@{mouse\_packet}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_packet}{mouse\_packet}}
+{\footnotesize\ttfamily struct packet mouse\+\_\+packet\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a6c59af730728bf5260ef828aea2eebee}\label{state_8c_a6c59af730728bf5260ef828aea2eebee}} 
+\index{state.c@{state.c}!mouse\_x@{mouse\_x}}
+\index{mouse\_x@{mouse\_x}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_x}{mouse\_x}}
+{\footnotesize\ttfamily int mouse\+\_\+x\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_ab21653e455bbca86826aa5f628a5fdb2}\label{state_8c_ab21653e455bbca86826aa5f628a5fdb2}} 
+\index{state.c@{state.c}!mouse\_y@{mouse\_y}}
+\index{mouse\_y@{mouse\_y}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{mouse\_y}{mouse\_y}}
+{\footnotesize\ttfamily int mouse\+\_\+y\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_afc1a5ebbe2101c2b4e5a785b94e7cf55}\label{state_8c_afc1a5ebbe2101c2b4e5a785b94e7cf55}} 
+\index{state.c@{state.c}!pause\_entry@{pause\_entry}}
+\index{pause\_entry@{pause\_entry}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{pause\_entry}{pause\_entry}}
+{\footnotesize\ttfamily int8\+\_\+t pause\+\_\+entry = 0}
+
+\mbox{\Hypertarget{state_8c_a278dd701b13d76ce736eb9031fbad00f}\label{state_8c_a278dd701b13d76ce736eb9031fbad00f}} 
+\index{state.c@{state.c}!play\_again\_button2\_sprite@{play\_again\_button2\_sprite}}
+\index{play\_again\_button2\_sprite@{play\_again\_button2\_sprite}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{play\_again\_button2\_sprite}{play\_again\_button2\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ play\+\_\+again\+\_\+button2\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a8c5908370c1d95d53e54112215a36d93}\label{state_8c_a8c5908370c1d95d53e54112215a36d93}} 
+\index{state.c@{state.c}!programState@{programState}}
+\index{programState@{programState}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{programState}{programState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0}{Program\+State}} program\+State = \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0a1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}}
+
+\mbox{\Hypertarget{state_8c_a40d50586b67237fee9f9553477388c17}\label{state_8c_a40d50586b67237fee9f9553477388c17}} 
+\index{state.c@{state.c}!restart\_button\_sprite@{restart\_button\_sprite}}
+\index{restart\_button\_sprite@{restart\_button\_sprite}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{restart\_button\_sprite}{restart\_button\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ restart\+\_\+button\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_aa1de7a5557e9d96b83cf03f73c92163f}\label{state_8c_aa1de7a5557e9d96b83cf03f73c92163f}} 
+\index{state.c@{state.c}!scancode@{scancode}}
+\index{scancode@{scancode}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{scancode}{scancode}}
+{\footnotesize\ttfamily uint8\+\_\+t scancode\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a46729a903be1a03cdb248fb48d84d4f5}\label{state_8c_a46729a903be1a03cdb248fb48d84d4f5}} 
+\index{state.c@{state.c}!seconds@{seconds}}
+\index{seconds@{seconds}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{seconds}{seconds}}
+{\footnotesize\ttfamily uint8\+\_\+t seconds}
+
+\mbox{\Hypertarget{state_8c_ab7267fc253e37f711dcefc0c99773497}\label{state_8c_ab7267fc253e37f711dcefc0c99773497}} 
+\index{state.c@{state.c}!start\_button\_sprite@{start\_button\_sprite}}
+\index{start\_button\_sprite@{start\_button\_sprite}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{start\_button\_sprite}{start\_button\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ start\+\_\+button\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_ace588163a300dab67ff94ac2da75731f}\label{state_8c_ace588163a300dab67ff94ac2da75731f}} 
+\index{state.c@{state.c}!timeIrl@{timeIrl}}
+\index{timeIrl@{timeIrl}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{timeIrl}{timeIrl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTime__Irl}{Time\+\_\+\+Irl}} time\+Irl\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{state_8c_a0ff73b1428e9cd11a4f7a6cf46b7b550}\label{state_8c_a0ff73b1428e9cd11a4f7a6cf46b7b550}} 
+\index{state.c@{state.c}!timer@{timer}}
+\index{timer@{timer}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily uint8\+\_\+t timer = 0}
+
+\mbox{\Hypertarget{state_8c_aed94f09bd7ba0a7794e68f8f8d45d239}\label{state_8c_aed94f09bd7ba0a7794e68f8f8d45d239}} 
+\index{state.c@{state.c}!win\_entry@{win\_entry}}
+\index{win\_entry@{win\_entry}!state.c@{state.c}}
+\doxysubsubsection{\texorpdfstring{win\_entry}{win\_entry}}
+{\footnotesize\ttfamily int8\+\_\+t win\+\_\+entry = 0}
+

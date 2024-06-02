@@ -1,0 +1,4 @@
+<map id="create_sprites" name="create_sprites">
+<area shape="rect" id="node1" title="Creates all the necessary sprites for the game." alt="" coords="5,5,120,32"/>
+<area shape="rect" id="node2" href="$sprite_8c.html#ab8b348464d3c150e1d472db1a1897ed5" title="Creates a sprite from a given pixmap." alt="" coords="168,5,275,32"/>
+</map>

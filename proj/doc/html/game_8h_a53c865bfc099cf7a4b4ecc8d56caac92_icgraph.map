@@ -1,0 +1,7 @@
+<map id="create_block" name="create_block">
+<area shape="rect" id="node1" title="Creates a new block." alt="" coords="501,31,607,57"/>
+<area shape="rect" id="node2" href="$game_8c.html#acce0b3456d4c3f48a56422b9a8b792df" title="Creates the game grid." alt="" coords="347,31,453,57"/>
+<area shape="rect" id="node3" href="$state_8c.html#a85a5a00216c3c664ad37836286e09be6" title="Handles keyboard input and updates the game state accordingly." alt="" coords="176,5,299,32"/>
+<area shape="rect" id="node5" href="$state_8c.html#aef2e501a29ca47dd1826c6b2c0ebe666" title="Handles mouse input and updates the game state accordingly." alt="" coords="184,56,291,83"/>
+<area shape="rect" id="node4" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,31,128,57"/>
+</map>

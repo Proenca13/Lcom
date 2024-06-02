@@ -1,0 +1,87 @@
+\hypertarget{rtc_8c}{}\doxysection{src/\+Controller/\+RTC/rtc.c File Reference}
+\label{rtc_8c}\index{src/Controller/RTC/rtc.c@{src/Controller/RTC/rtc.c}}
+{\ttfamily \#include \char`\"{}rtc.\+h\char`\"{}}\newline
+Include dependency graph for rtc.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rtc_8c_adc6aaf1aaa4914cefba0701c09eb7311}{read\+\_\+rtc}} (uint8\+\_\+t command, uint8\+\_\+t $\ast$st)
+\item 
+int \mbox{\hyperlink{rtc_8c_a05f8a643eaa3f15f433fcf21639090a0}{rtc\+\_\+update}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{rtc_8c_a184a584d741fc51b9c5a92742824f9ca}{binary\+\_\+converter}} (uint8\+\_\+t num)
+\item 
+int \mbox{\hyperlink{rtc_8c_ae22bdeb51eb630e1d579dfc1cd1b2f11}{rtc\+\_\+update\+\_\+time}} ()
+\item 
+int \mbox{\hyperlink{rtc_8c_abd8de825e876e8ef94c64ac616f68a11}{rtc\+\_\+subscribe\+\_\+int}} ()
+\item 
+int \mbox{\hyperlink{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}{rtc\+\_\+unsubscribe\+\_\+int}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structTime__Irl}{Time\+\_\+\+Irl}} \mbox{\hyperlink{rtc_8c_ace588163a300dab67ff94ac2da75731f}{time\+Irl}}
+\item 
+int \mbox{\hyperlink{rtc_8c_a6c52a1d32571a429369253ce7c3a3d7a}{rtc\+\_\+hook\+\_\+id}} = 5
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rtc_8c_a184a584d741fc51b9c5a92742824f9ca}\label{rtc_8c_a184a584d741fc51b9c5a92742824f9ca}} 
+\index{rtc.c@{rtc.c}!binary\_converter@{binary\_converter}}
+\index{binary\_converter@{binary\_converter}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{binary\_converter()}{binary\_converter()}}
+{\footnotesize\ttfamily uint8\+\_\+t binary\+\_\+converter (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{num }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{rtc_8c_adc6aaf1aaa4914cefba0701c09eb7311}\label{rtc_8c_adc6aaf1aaa4914cefba0701c09eb7311}} 
+\index{rtc.c@{rtc.c}!read\_rtc@{read\_rtc}}
+\index{read\_rtc@{read\_rtc}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{read\_rtc()}{read\_rtc()}}
+{\footnotesize\ttfamily int read\+\_\+rtc (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{rtc_8c_abd8de825e876e8ef94c64ac616f68a11}\label{rtc_8c_abd8de825e876e8ef94c64ac616f68a11}} 
+\index{rtc.c@{rtc.c}!rtc\_subscribe\_int@{rtc\_subscribe\_int}}
+\index{rtc\_subscribe\_int@{rtc\_subscribe\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_subscribe\_int()}{rtc\_subscribe\_int()}}
+{\footnotesize\ttfamily int rtc\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}\label{rtc_8c_ab8f17bf5280c908c8b199a90fefcc758}} 
+\index{rtc.c@{rtc.c}!rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}}
+\index{rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_unsubscribe\_int()}{rtc\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int rtc\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{rtc_8c_a05f8a643eaa3f15f433fcf21639090a0}\label{rtc_8c_a05f8a643eaa3f15f433fcf21639090a0}} 
+\index{rtc.c@{rtc.c}!rtc\_update@{rtc\_update}}
+\index{rtc\_update@{rtc\_update}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_update()}{rtc\_update()}}
+{\footnotesize\ttfamily int rtc\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{rtc_8c_ae22bdeb51eb630e1d579dfc1cd1b2f11}\label{rtc_8c_ae22bdeb51eb630e1d579dfc1cd1b2f11}} 
+\index{rtc.c@{rtc.c}!rtc\_update\_time@{rtc\_update\_time}}
+\index{rtc\_update\_time@{rtc\_update\_time}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_update\_time()}{rtc\_update\_time()}}
+{\footnotesize\ttfamily int rtc\+\_\+update\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{rtc_8c_a6c52a1d32571a429369253ce7c3a3d7a}\label{rtc_8c_a6c52a1d32571a429369253ce7c3a3d7a}} 
+\index{rtc.c@{rtc.c}!rtc\_hook\_id@{rtc\_hook\_id}}
+\index{rtc\_hook\_id@{rtc\_hook\_id}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{rtc\_hook\_id}{rtc\_hook\_id}}
+{\footnotesize\ttfamily int rtc\+\_\+hook\+\_\+id = 5}
+
+\mbox{\Hypertarget{rtc_8c_ace588163a300dab67ff94ac2da75731f}\label{rtc_8c_ace588163a300dab67ff94ac2da75731f}} 
+\index{rtc.c@{rtc.c}!timeIrl@{timeIrl}}
+\index{timeIrl@{timeIrl}!rtc.c@{rtc.c}}
+\doxysubsubsection{\texorpdfstring{timeIrl}{timeIrl}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structTime__Irl}{Time\+\_\+\+Irl}} time\+Irl}
+

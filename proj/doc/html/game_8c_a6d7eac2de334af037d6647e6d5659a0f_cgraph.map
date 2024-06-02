@@ -1,0 +1,4 @@
+<map id="placeBombs" name="placeBombs">
+<area shape="rect" id="node1" title="Places bombs randomly on the grid." alt="" coords="5,5,108,32"/>
+<area shape="rect" id="node2" href="$game_8c.html#a4899200444d4356d270ad9617d16f688" title="Counts the number of bombs around a given cell." alt="" coords="156,5,317,32"/>
+</map>

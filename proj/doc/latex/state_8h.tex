@@ -1,0 +1,202 @@
+\hypertarget{state_8h}{}\doxysection{src/\+State/state.h File Reference}
+\label{state_8h}\index{src/State/state.h@{src/State/state.h}}
+{\ttfamily \#include $<$minix/sysutil.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Timer/i8254.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Video/graphic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Keyboard/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Mouse/mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+RTC//rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}configs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Viewer/view.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/game.\+h\char`\"{}}\newline
+Include dependency graph for state.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0}{Program\+State}} \{ \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0a1061be6c3fb88d32829cba6f6b2be304}{RUNNING}}
+, \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0adc6f24fd6915a3f2786a1b7045406924}{END}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration representing the program states. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}} \{ \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0352906d1ea1dfcd663c918f3a86755b}{PLAY}}
+, \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a679ee5320d66c8322e310daeb2ee99b8}{STOP}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration representing the game states. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2}{Menu\+State}} \{ \newline
+\mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a2cb3ae884dac0ba2d241c00a4880f592}{STARTMENU}}
+, \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a968f8ed22d17e87ed60a50a0dcc93d18}{CONTROLLERMENU}}
+, \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a42495cc178524da331d4681864c72b72}{GAMEOVER}}
+, \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a5730c3131840bbc70adc6c5e8b6a0c18}{WINMENU}}
+, \newline
+\mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a7e5f67218fe96c5a5c618ccc78c693f4}{GAMEMENU}}
+ \}
+\begin{DoxyCompactList}\small\item\em Enumeration representing the menu states. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{state_8h_ade23307b26c4fb98961332715bc11514}{timer\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles timer events and updates the game state accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8h_a85a5a00216c3c664ad37836286e09be6}{keyboard\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles keyboard input and updates the game state accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8h_aef2e501a29ca47dd1826c6b2c0ebe666}{mouse\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input and updates the game state accordingly. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8h_a9ef0fb9a645256112121584c07ac2133}{rtc\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Handles the real-\/time clock (RTC) state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8h_a14575ad012aa8dfb26d627e6c1f200f0}{cell\+\_\+state\+\_\+keyboard}} ()
+\begin{DoxyCompactList}\small\item\em Handles keyboard input for cell selection and interaction. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{state_8h_adb2d47d83be7d90be9b4bb9cb9472bb0}{cell\+\_\+state\+\_\+mouse}} ()
+\begin{DoxyCompactList}\small\item\em Handles mouse input for cell selection and interaction. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}\label{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}} 
+\index{state.h@{state.h}!GameState@{GameState}}
+\index{GameState@{GameState}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{GameState}{GameState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{Game\+State}}}
+
+
+
+Enumeration representing the game states. 
+
+This enum defines the different states the game can be in. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{PLAY@{PLAY}!state.h@{state.h}}\index{state.h@{state.h}!PLAY@{PLAY}}}\mbox{\Hypertarget{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0352906d1ea1dfcd663c918f3a86755b}\label{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0352906d1ea1dfcd663c918f3a86755b}} 
+PLAY&Game is in play mode \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STOP@{STOP}!state.h@{state.h}}\index{state.h@{state.h}!STOP@{STOP}}}\mbox{\Hypertarget{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a679ee5320d66c8322e310daeb2ee99b8}\label{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a679ee5320d66c8322e310daeb2ee99b8}} 
+STOP&Game is stopped \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{state_8h_aa3041ae4242c0dd57a126d17505443b2}\label{state_8h_aa3041ae4242c0dd57a126d17505443b2}} 
+\index{state.h@{state.h}!MenuState@{MenuState}}
+\index{MenuState@{MenuState}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{MenuState}{MenuState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2}{Menu\+State}}}
+
+
+
+Enumeration representing the menu states. 
+
+This enum defines the different states the menu can be in. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{STARTMENU@{STARTMENU}!state.h@{state.h}}\index{state.h@{state.h}!STARTMENU@{STARTMENU}}}\mbox{\Hypertarget{state_8h_aa3041ae4242c0dd57a126d17505443b2a2cb3ae884dac0ba2d241c00a4880f592}\label{state_8h_aa3041ae4242c0dd57a126d17505443b2a2cb3ae884dac0ba2d241c00a4880f592}} 
+STARTMENU&Start menu state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{CONTROLLERMENU@{CONTROLLERMENU}!state.h@{state.h}}\index{state.h@{state.h}!CONTROLLERMENU@{CONTROLLERMENU}}}\mbox{\Hypertarget{state_8h_aa3041ae4242c0dd57a126d17505443b2a968f8ed22d17e87ed60a50a0dcc93d18}\label{state_8h_aa3041ae4242c0dd57a126d17505443b2a968f8ed22d17e87ed60a50a0dcc93d18}} 
+CONTROLLERMENU&Controller menu state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAMEOVER@{GAMEOVER}!state.h@{state.h}}\index{state.h@{state.h}!GAMEOVER@{GAMEOVER}}}\mbox{\Hypertarget{state_8h_aa3041ae4242c0dd57a126d17505443b2a42495cc178524da331d4681864c72b72}\label{state_8h_aa3041ae4242c0dd57a126d17505443b2a42495cc178524da331d4681864c72b72}} 
+GAMEOVER&Game over menu state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{WINMENU@{WINMENU}!state.h@{state.h}}\index{state.h@{state.h}!WINMENU@{WINMENU}}}\mbox{\Hypertarget{state_8h_aa3041ae4242c0dd57a126d17505443b2a5730c3131840bbc70adc6c5e8b6a0c18}\label{state_8h_aa3041ae4242c0dd57a126d17505443b2a5730c3131840bbc70adc6c5e8b6a0c18}} 
+WINMENU&Win menu state \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GAMEMENU@{GAMEMENU}!state.h@{state.h}}\index{state.h@{state.h}!GAMEMENU@{GAMEMENU}}}\mbox{\Hypertarget{state_8h_aa3041ae4242c0dd57a126d17505443b2a7e5f67218fe96c5a5c618ccc78c693f4}\label{state_8h_aa3041ae4242c0dd57a126d17505443b2a7e5f67218fe96c5a5c618ccc78c693f4}} 
+GAMEMENU&In-\/game menu state \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{state_8h_ae9187e94671f803af588ed0d8f97bfa0}\label{state_8h_ae9187e94671f803af588ed0d8f97bfa0}} 
+\index{state.h@{state.h}!ProgramState@{ProgramState}}
+\index{ProgramState@{ProgramState}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{ProgramState}{ProgramState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0}{Program\+State}}}
+
+
+
+Enumeration representing the program states. 
+
+This enum defines the different states the program can be in. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{RUNNING@{RUNNING}!state.h@{state.h}}\index{state.h@{state.h}!RUNNING@{RUNNING}}}\mbox{\Hypertarget{state_8h_ae9187e94671f803af588ed0d8f97bfa0a1061be6c3fb88d32829cba6f6b2be304}\label{state_8h_ae9187e94671f803af588ed0d8f97bfa0a1061be6c3fb88d32829cba6f6b2be304}} 
+RUNNING&Program is running \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{END@{END}!state.h@{state.h}}\index{state.h@{state.h}!END@{END}}}\mbox{\Hypertarget{state_8h_ae9187e94671f803af588ed0d8f97bfa0adc6f24fd6915a3f2786a1b7045406924}\label{state_8h_ae9187e94671f803af588ed0d8f97bfa0adc6f24fd6915a3f2786a1b7045406924}} 
+END&Program has ended \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{state_8h_a14575ad012aa8dfb26d627e6c1f200f0}\label{state_8h_a14575ad012aa8dfb26d627e6c1f200f0}} 
+\index{state.h@{state.h}!cell\_state\_keyboard@{cell\_state\_keyboard}}
+\index{cell\_state\_keyboard@{cell\_state\_keyboard}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{cell\_state\_keyboard()}{cell\_state\_keyboard()}}
+{\footnotesize\ttfamily void cell\+\_\+state\+\_\+keyboard (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles keyboard input for cell selection and interaction. 
+
+Moves the selection cursor based on arrow key inputs. Allows the player to reveal cells using the spacebar and flag cells using the \textquotesingle{}F\textquotesingle{} key. Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{state_8h_adb2d47d83be7d90be9b4bb9cb9472bb0}\label{state_8h_adb2d47d83be7d90be9b4bb9cb9472bb0}} 
+\index{state.h@{state.h}!cell\_state\_mouse@{cell\_state\_mouse}}
+\index{cell\_state\_mouse@{cell\_state\_mouse}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{cell\_state\_mouse()}{cell\_state\_mouse()}}
+{\footnotesize\ttfamily void cell\+\_\+state\+\_\+mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles mouse input for cell selection and interaction. 
+
+Determines the selected cell based on mouse position and updates its state accordingly. Handles left and right button clicks for revealing cells and flagging cells, respectively. Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{state_8h_a85a5a00216c3c664ad37836286e09be6}\label{state_8h_a85a5a00216c3c664ad37836286e09be6}} 
+\index{state.h@{state.h}!keyboard\_state@{keyboard\_state}}
+\index{keyboard\_state@{keyboard\_state}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{keyboard\_state()}{keyboard\_state()}}
+{\footnotesize\ttfamily void keyboard\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles keyboard input and updates the game state accordingly. 
+
+Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{state_8h_aef2e501a29ca47dd1826c6b2c0ebe666}\label{state_8h_aef2e501a29ca47dd1826c6b2c0ebe666}} 
+\index{state.h@{state.h}!mouse\_state@{mouse\_state}}
+\index{mouse\_state@{mouse\_state}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{mouse\_state()}{mouse\_state()}}
+{\footnotesize\ttfamily void mouse\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles mouse input and updates the game state accordingly. 
+
+Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{state_8h_a9ef0fb9a645256112121584c07ac2133}\label{state_8h_a9ef0fb9a645256112121584c07ac2133}} 
+\index{state.h@{state.h}!rtc\_state@{rtc\_state}}
+\index{rtc\_state@{rtc\_state}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_state()}{rtc\_state()}}
+{\footnotesize\ttfamily void rtc\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles the real-\/time clock (RTC) state. 
+
+Updates the game timer every {\ttfamily FREQUENCY} ticks when the game is in the PLAY state. Also updates the displayed time in seconds, minutes, and hours. Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{state_8h_ade23307b26c4fb98961332715bc11514}\label{state_8h_ade23307b26c4fb98961332715bc11514}} 
+\index{state.h@{state.h}!timer\_state@{timer\_state}}
+\index{timer\_state@{timer\_state}!state.h@{state.h}}
+\doxysubsubsection{\texorpdfstring{timer\_state()}{timer\_state()}}
+{\footnotesize\ttfamily void timer\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Handles timer events and updates the game state accordingly. 
+
+Here is the call graph for this function\+:
+% FIG 7

@@ -1,0 +1,13 @@
+<map id="src/Model/sprite.h" name="src/Model/sprite.h">
+<area shape="rect" id="node1" title=" " alt="" coords="440,5,579,32"/>
+<area shape="rect" id="node2" href="$game_8h.html" title=" " alt="" coords="227,80,366,107"/>
+<area shape="rect" id="node7" href="$model_8h.html" title=" " alt="" coords="438,304,581,331"/>
+<area shape="rect" id="node11" href="$sprite_8c.html" title=" " alt="" coords="548,80,685,107"/>
+<area shape="rect" id="node3" href="$game_8c.html" title=" " alt="" coords="334,155,472,181"/>
+<area shape="rect" id="node4" href="$state_8h.html" title=" " alt="" coords="131,155,259,181"/>
+<area shape="rect" id="node6" href="$view_8h.html" title=" " alt="" coords="228,229,364,256"/>
+<area shape="rect" id="node9" href="$main_8c.html" title=" " alt="" coords="236,379,325,405"/>
+<area shape="rect" id="node5" href="$state_8c.html" title=" " alt="" coords="26,229,153,256"/>
+<area shape="rect" id="node10" href="$view_8c.html" title=" " alt="" coords="228,304,362,331"/>
+<area shape="rect" id="node8" href="$model_8c.html" title=" " alt="" coords="439,379,580,405"/>
+</map>

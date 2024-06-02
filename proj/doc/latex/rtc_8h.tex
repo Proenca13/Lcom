@@ -1,0 +1,176 @@
+\hypertarget{rtc_8h}{}\doxysection{src/\+Controller/\+RTC/rtc.h File Reference}
+\label{rtc_8h}\index{src/Controller/RTC/rtc.h@{src/Controller/RTC/rtc.h}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+Include dependency graph for rtc.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTime__Irl}{Time\+\_\+\+Irl}}
+\begin{DoxyCompactList}\small\item\em Represents the time in real life. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a910ac5f2c1b4016e433f9832358a1816}{IRQ\+\_\+\+RTC}}~8
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a48fcf4f2eeef6769d588168d4ac2ab0e}{SECONDS}}~0x00
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a84be9dcfa5a172ee83121620d15c8e29}{MINUTES}}~0x02
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a212d0f839f6f7ca43ccde311f93d5892}{HOURS}}~0x04
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a1753ed043633025e067a311f0f9f2d19}{DAY\+\_\+\+OF\+\_\+\+THE\+\_\+\+WEEK}}~0x06
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a0d586ce0ba45af75366e5311fc86fdc9}{DAY\+\_\+\+OF\+\_\+\+THE\+\_\+\+MONTH}}~0x07
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a3729d06495d9713592f79f3122c9e677}{MONTH}}~0x08
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a5871356500f559add06ea81d60331b1b}{YEAR}}~0x09
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a710b98232df2c563009e6f8a6cd18220}{RTC\+\_\+\+ADDR\+\_\+\+REG}}~0x70
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a2f258a00c59c3f347c8d2d4a75471ce0}{RTC\+\_\+\+DATA\+\_\+\+REG}}~0x71
+\item 
+\#define \mbox{\hyperlink{rtc_8h_ae07bc1582ec2a0d53dd74350b5a19c5e}{UPDATING}}~BIT(7)
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a5bca0b9b7966f6562b2e0d31f0406604}{REGISTER\+\_\+A}}~10;
+\item 
+\#define \mbox{\hyperlink{rtc_8h_a9935cde70013bbc215f658cfc078b988}{REGISTER\+\_\+B}}~11;
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{rtc_8h_adc6aaf1aaa4914cefba0701c09eb7311}{read\+\_\+rtc}} (uint8\+\_\+t command, uint8\+\_\+t $\ast$st)
+\item 
+int \mbox{\hyperlink{rtc_8h_a05f8a643eaa3f15f433fcf21639090a0}{rtc\+\_\+update}} ()
+\item 
+int \mbox{\hyperlink{rtc_8h_ae22bdeb51eb630e1d579dfc1cd1b2f11}{rtc\+\_\+update\+\_\+time}} ()
+\item 
+int \mbox{\hyperlink{rtc_8h_abd8de825e876e8ef94c64ac616f68a11}{rtc\+\_\+subscribe\+\_\+int}} ()
+\item 
+int \mbox{\hyperlink{rtc_8h_ab8f17bf5280c908c8b199a90fefcc758}{rtc\+\_\+unsubscribe\+\_\+int}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{rtc_8h_a0d586ce0ba45af75366e5311fc86fdc9}\label{rtc_8h_a0d586ce0ba45af75366e5311fc86fdc9}} 
+\index{rtc.h@{rtc.h}!DAY\_OF\_THE\_MONTH@{DAY\_OF\_THE\_MONTH}}
+\index{DAY\_OF\_THE\_MONTH@{DAY\_OF\_THE\_MONTH}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{DAY\_OF\_THE\_MONTH}{DAY\_OF\_THE\_MONTH}}
+{\footnotesize\ttfamily \#define DAY\+\_\+\+OF\+\_\+\+THE\+\_\+\+MONTH~0x07}
+
+\mbox{\Hypertarget{rtc_8h_a1753ed043633025e067a311f0f9f2d19}\label{rtc_8h_a1753ed043633025e067a311f0f9f2d19}} 
+\index{rtc.h@{rtc.h}!DAY\_OF\_THE\_WEEK@{DAY\_OF\_THE\_WEEK}}
+\index{DAY\_OF\_THE\_WEEK@{DAY\_OF\_THE\_WEEK}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{DAY\_OF\_THE\_WEEK}{DAY\_OF\_THE\_WEEK}}
+{\footnotesize\ttfamily \#define DAY\+\_\+\+OF\+\_\+\+THE\+\_\+\+WEEK~0x06}
+
+\mbox{\Hypertarget{rtc_8h_a212d0f839f6f7ca43ccde311f93d5892}\label{rtc_8h_a212d0f839f6f7ca43ccde311f93d5892}} 
+\index{rtc.h@{rtc.h}!HOURS@{HOURS}}
+\index{HOURS@{HOURS}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{HOURS}{HOURS}}
+{\footnotesize\ttfamily \#define HOURS~0x04}
+
+\mbox{\Hypertarget{rtc_8h_a910ac5f2c1b4016e433f9832358a1816}\label{rtc_8h_a910ac5f2c1b4016e433f9832358a1816}} 
+\index{rtc.h@{rtc.h}!IRQ\_RTC@{IRQ\_RTC}}
+\index{IRQ\_RTC@{IRQ\_RTC}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{IRQ\_RTC}{IRQ\_RTC}}
+{\footnotesize\ttfamily \#define IRQ\+\_\+\+RTC~8}
+
+\mbox{\Hypertarget{rtc_8h_a84be9dcfa5a172ee83121620d15c8e29}\label{rtc_8h_a84be9dcfa5a172ee83121620d15c8e29}} 
+\index{rtc.h@{rtc.h}!MINUTES@{MINUTES}}
+\index{MINUTES@{MINUTES}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{MINUTES}{MINUTES}}
+{\footnotesize\ttfamily \#define MINUTES~0x02}
+
+\mbox{\Hypertarget{rtc_8h_a3729d06495d9713592f79f3122c9e677}\label{rtc_8h_a3729d06495d9713592f79f3122c9e677}} 
+\index{rtc.h@{rtc.h}!MONTH@{MONTH}}
+\index{MONTH@{MONTH}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{MONTH}{MONTH}}
+{\footnotesize\ttfamily \#define MONTH~0x08}
+
+\mbox{\Hypertarget{rtc_8h_a5bca0b9b7966f6562b2e0d31f0406604}\label{rtc_8h_a5bca0b9b7966f6562b2e0d31f0406604}} 
+\index{rtc.h@{rtc.h}!REGISTER\_A@{REGISTER\_A}}
+\index{REGISTER\_A@{REGISTER\_A}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{REGISTER\_A}{REGISTER\_A}}
+{\footnotesize\ttfamily \#define REGISTER\+\_\+A~10;}
+
+\mbox{\Hypertarget{rtc_8h_a9935cde70013bbc215f658cfc078b988}\label{rtc_8h_a9935cde70013bbc215f658cfc078b988}} 
+\index{rtc.h@{rtc.h}!REGISTER\_B@{REGISTER\_B}}
+\index{REGISTER\_B@{REGISTER\_B}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{REGISTER\_B}{REGISTER\_B}}
+{\footnotesize\ttfamily \#define REGISTER\+\_\+B~11;}
+
+\mbox{\Hypertarget{rtc_8h_a710b98232df2c563009e6f8a6cd18220}\label{rtc_8h_a710b98232df2c563009e6f8a6cd18220}} 
+\index{rtc.h@{rtc.h}!RTC\_ADDR\_REG@{RTC\_ADDR\_REG}}
+\index{RTC\_ADDR\_REG@{RTC\_ADDR\_REG}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_ADDR\_REG}{RTC\_ADDR\_REG}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+ADDR\+\_\+\+REG~0x70}
+
+\mbox{\Hypertarget{rtc_8h_a2f258a00c59c3f347c8d2d4a75471ce0}\label{rtc_8h_a2f258a00c59c3f347c8d2d4a75471ce0}} 
+\index{rtc.h@{rtc.h}!RTC\_DATA\_REG@{RTC\_DATA\_REG}}
+\index{RTC\_DATA\_REG@{RTC\_DATA\_REG}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{RTC\_DATA\_REG}{RTC\_DATA\_REG}}
+{\footnotesize\ttfamily \#define RTC\+\_\+\+DATA\+\_\+\+REG~0x71}
+
+\mbox{\Hypertarget{rtc_8h_a48fcf4f2eeef6769d588168d4ac2ab0e}\label{rtc_8h_a48fcf4f2eeef6769d588168d4ac2ab0e}} 
+\index{rtc.h@{rtc.h}!SECONDS@{SECONDS}}
+\index{SECONDS@{SECONDS}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{SECONDS}{SECONDS}}
+{\footnotesize\ttfamily \#define SECONDS~0x00}
+
+\mbox{\Hypertarget{rtc_8h_ae07bc1582ec2a0d53dd74350b5a19c5e}\label{rtc_8h_ae07bc1582ec2a0d53dd74350b5a19c5e}} 
+\index{rtc.h@{rtc.h}!UPDATING@{UPDATING}}
+\index{UPDATING@{UPDATING}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{UPDATING}{UPDATING}}
+{\footnotesize\ttfamily \#define UPDATING~BIT(7)}
+
+\mbox{\Hypertarget{rtc_8h_a5871356500f559add06ea81d60331b1b}\label{rtc_8h_a5871356500f559add06ea81d60331b1b}} 
+\index{rtc.h@{rtc.h}!YEAR@{YEAR}}
+\index{YEAR@{YEAR}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{YEAR}{YEAR}}
+{\footnotesize\ttfamily \#define YEAR~0x09}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{rtc_8h_adc6aaf1aaa4914cefba0701c09eb7311}\label{rtc_8h_adc6aaf1aaa4914cefba0701c09eb7311}} 
+\index{rtc.h@{rtc.h}!read\_rtc@{read\_rtc}}
+\index{read\_rtc@{read\_rtc}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{read\_rtc()}{read\_rtc()}}
+{\footnotesize\ttfamily int read\+\_\+rtc (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{command,  }\item[{uint8\+\_\+t $\ast$}]{st }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{rtc_8h_abd8de825e876e8ef94c64ac616f68a11}\label{rtc_8h_abd8de825e876e8ef94c64ac616f68a11}} 
+\index{rtc.h@{rtc.h}!rtc\_subscribe\_int@{rtc\_subscribe\_int}}
+\index{rtc\_subscribe\_int@{rtc\_subscribe\_int}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_subscribe\_int()}{rtc\_subscribe\_int()}}
+{\footnotesize\ttfamily int rtc\+\_\+subscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{rtc_8h_ab8f17bf5280c908c8b199a90fefcc758}\label{rtc_8h_ab8f17bf5280c908c8b199a90fefcc758}} 
+\index{rtc.h@{rtc.h}!rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}}
+\index{rtc\_unsubscribe\_int@{rtc\_unsubscribe\_int}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_unsubscribe\_int()}{rtc\_unsubscribe\_int()}}
+{\footnotesize\ttfamily int rtc\+\_\+unsubscribe\+\_\+int (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{rtc_8h_a05f8a643eaa3f15f433fcf21639090a0}\label{rtc_8h_a05f8a643eaa3f15f433fcf21639090a0}} 
+\index{rtc.h@{rtc.h}!rtc\_update@{rtc\_update}}
+\index{rtc\_update@{rtc\_update}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_update()}{rtc\_update()}}
+{\footnotesize\ttfamily int rtc\+\_\+update (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{rtc_8h_ae22bdeb51eb630e1d579dfc1cd1b2f11}\label{rtc_8h_ae22bdeb51eb630e1d579dfc1cd1b2f11}} 
+\index{rtc.h@{rtc.h}!rtc\_update\_time@{rtc\_update\_time}}
+\index{rtc\_update\_time@{rtc\_update\_time}!rtc.h@{rtc.h}}
+\doxysubsubsection{\texorpdfstring{rtc\_update\_time()}{rtc\_update\_time()}}
+{\footnotesize\ttfamily int rtc\+\_\+update\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 4

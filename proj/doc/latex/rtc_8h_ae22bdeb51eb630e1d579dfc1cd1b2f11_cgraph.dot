@@ -1,0 +1,17 @@
+digraph "rtc_update_time"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="rtc_update_time",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="binary_converter",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$rtc_8c.html#a184a584d741fc51b9c5a92742824f9ca",tooltip=" "];
+  Node1 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="read_rtc",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$rtc_8c.html#adc6aaf1aaa4914cefba0701c09eb7311",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="util_sys_inb",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4",tooltip=" "];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="rtc_update",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$rtc_8c.html#a05f8a643eaa3f15f433fcf21639090a0",tooltip=" "];
+  Node5 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+}

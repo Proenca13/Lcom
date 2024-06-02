@@ -1,0 +1,15 @@
+var searchData=
+[
+  ['cell_5fstate_5fkeyboard_0',['cell_state_keyboard',['../state_8h.html#a14575ad012aa8dfb26d627e6c1f200f0',1,'cell_state_keyboard():&#160;state.c'],['../state_8c.html#a14575ad012aa8dfb26d627e6c1f200f0',1,'cell_state_keyboard():&#160;state.c']]],
+  ['cell_5fstate_5fmouse_1',['cell_state_mouse',['../state_8c.html#adb2d47d83be7d90be9b4bb9cb9472bb0',1,'cell_state_mouse():&#160;state.c'],['../state_8h.html#adb2d47d83be7d90be9b4bb9cb9472bb0',1,'cell_state_mouse():&#160;state.c']]],
+  ['check_5fcan_5fflag_2',['check_can_flag',['../game_8c.html#af096eb7a715a07b0a3327ee43eb155bb',1,'check_can_flag():&#160;game.c'],['../game_8h.html#af096eb7a715a07b0a3327ee43eb155bb',1,'check_can_flag():&#160;game.c']]],
+  ['check_5ffirst_5ftouch_3',['check_first_touch',['../game_8c.html#aa136bb1d302d9c690630b49b14ac549e',1,'check_first_touch():&#160;game.c'],['../game_8h.html#aa136bb1d302d9c690630b49b14ac549e',1,'check_first_touch():&#160;game.c']]],
+  ['check_5ftime_5fsprite_4',['check_time_sprite',['../view_8c.html#ae7fa611cf3ac30a98397d1cd5dbfd2d5',1,'check_time_sprite():&#160;view.c'],['../view_8h.html#ae7fa611cf3ac30a98397d1cd5dbfd2d5',1,'check_time_sprite():&#160;view.c']]],
+  ['check_5ftime_5fsprite2_5',['check_time_sprite2',['../view_8c.html#ac41b34b1dc3c89e8d393c931baa6f4be',1,'check_time_sprite2(uint8_t timer2):&#160;view.c'],['../view_8h.html#ac41b34b1dc3c89e8d393c931baa6f4be',1,'check_time_sprite2(uint8_t timer2):&#160;view.c']]],
+  ['check_5fwin_6',['check_win',['../game_8c.html#a52282f0ec91085764dba1ef97329764a',1,'check_win():&#160;game.c'],['../game_8h.html#a52282f0ec91085764dba1ef97329764a',1,'check_win():&#160;game.c']]],
+  ['count_5fbombs_5faround_7',['count_bombs_around',['../game_8c.html#a4899200444d4356d270ad9617d16f688',1,'count_bombs_around(int16_t x, int16_t y):&#160;game.c'],['../game_8h.html#a4899200444d4356d270ad9617d16f688',1,'count_bombs_around(int16_t x, int16_t y):&#160;game.c']]],
+  ['create_5fblock_8',['create_block',['../game_8c.html#a53c865bfc099cf7a4b4ecc8d56caac92',1,'create_block(Sprite *block_sprite, Sprite *selected_block_sprite, BlockType type, int16_t row, int16_t col, bool is_selected, BlockState state):&#160;game.c'],['../game_8h.html#a53c865bfc099cf7a4b4ecc8d56caac92',1,'create_block(Sprite *block_sprite, Sprite *selected_block_sprite, BlockType type, int16_t row, int16_t col, bool is_selected, BlockState state):&#160;game.c']]],
+  ['create_5fgame_9',['create_game',['../game_8c.html#acce0b3456d4c3f48a56422b9a8b792df',1,'create_game():&#160;game.c'],['../game_8h.html#acce0b3456d4c3f48a56422b9a8b792df',1,'create_game():&#160;game.c']]],
+  ['create_5fsprite_10',['create_sprite',['../sprite_8c.html#ab8b348464d3c150e1d472db1a1897ed5',1,'create_sprite(xpm_map_t pic):&#160;sprite.c'],['../sprite_8h.html#ab8b348464d3c150e1d472db1a1897ed5',1,'create_sprite(xpm_map_t pic):&#160;sprite.c']]],
+  ['create_5fsprites_11',['create_sprites',['../model_8c.html#a7e7afd13ee4e35491b01ba9591ba1576',1,'create_sprites():&#160;model.c'],['../model_8h.html#a7e7afd13ee4e35491b01ba9591ba1576',1,'create_sprites():&#160;model.c']]]
+];

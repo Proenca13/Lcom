@@ -1,0 +1,6 @@
+<map id="draw_win_menu" name="draw_win_menu">
+<area shape="rect" id="node1" title="Draws the win menu." alt="" coords="5,31,133,57"/>
+<area shape="rect" id="node2" href="$view_8c.html#ac41b34b1dc3c89e8d393c931baa6f4be" title="Determines the appropriate counter sprite based on the provided digit." alt="" coords="181,5,331,32"/>
+<area shape="rect" id="node3" href="$view_8c.html#a81f7bc4c06ccd62eb7f3c414764d1ed9" title="Draws a sprite at the specified coordinates." alt="" coords="207,56,305,83"/>
+<area shape="rect" id="node4" href="$graphic_8c.html#a6f895de9725f9f231f9a7f74b6087f60" title=" " alt="" coords="379,56,493,83"/>
+</map>

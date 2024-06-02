@@ -1,0 +1,27 @@
+digraph "draw_main_menu"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="RL";
+  Node1 [label="draw_main_menu",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip="Draws the main menu."];
+  Node1 -> Node2 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="draw_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$view_8c.html#ac39d6d91d19c72e4ee591d52c4281dc4",tooltip="Draws the current game state."];
+  Node2 -> Node3 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="cell_state_keyboard",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$state_8c.html#a14575ad012aa8dfb26d627e6c1f200f0",tooltip="Handles keyboard input for cell selection and interaction."];
+  Node3 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="keyboard_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$state_8c.html#a85a5a00216c3c664ad37836286e09be6",tooltip="Handles keyboard input and updates the game state accordingly."];
+  Node4 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="proj_main_loop",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b",tooltip=" "];
+  Node2 -> Node6 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node6 [label="cell_state_mouse",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$state_8c.html#adb2d47d83be7d90be9b4bb9cb9472bb0",tooltip="Handles mouse input for cell selection and interaction."];
+  Node6 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node7 [label="mouse_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$state_8c.html#aef2e501a29ca47dd1826c6b2c0ebe666",tooltip="Handles mouse input and updates the game state accordingly."];
+  Node7 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node4 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node7 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node2 -> Node8 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+  Node8 [label="rtc_state",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$state_8c.html#a9ef0fb9a645256112121584c07ac2133",tooltip="Handles the real-time clock (RTC) state."];
+  Node8 -> Node5 [dir="back",color="midnightblue",fontsize="10",style="solid"];
+}

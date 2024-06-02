@@ -1,0 +1,18 @@
+digraph "keyboard_restore"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  rankdir="LR";
+  Node1 [label="keyboard_restore",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled", fontcolor="black",tooltip=" "];
+  Node1 -> Node2 [color="midnightblue",fontsize="10",style="solid"];
+  Node2 [label="read_KBC_output",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Keyboard_2kbc_8c.html#ac7f264677f62648ac34476a46980af2f",tooltip=" "];
+  Node2 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+  Node3 [label="read_KBC_status",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Keyboard_2kbc_8c.html#ac024af91b156e4fc61ee3886b891de21",tooltip=" "];
+  Node3 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node4 [label="util_sys_inb",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4",tooltip=" "];
+  Node2 -> Node4 [color="midnightblue",fontsize="10",style="solid"];
+  Node1 -> Node5 [color="midnightblue",fontsize="10",style="solid"];
+  Node5 [label="write_KBC_command",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$Keyboard_2kbc_8c.html#a34b653b3939fffe883c903cdadb36d3a",tooltip=" "];
+  Node5 -> Node3 [color="midnightblue",fontsize="10",style="solid"];
+}

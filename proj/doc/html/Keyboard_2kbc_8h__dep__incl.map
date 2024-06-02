@@ -1,0 +1,13 @@
+<map id="src/Controller/Keyboard/kbc.h" name="src/Controller/Keyboard/kbc.h">
+<area shape="rect" id="node1" title=" " alt="" coords="247,5,421,47"/>
+<area shape="rect" id="node2" href="$Keyboard_2kbc_8c.html" title=" " alt="" coords="148,95,323,136"/>
+<area shape="rect" id="node3" href="$keyboard_8h.html" title=" " alt="" coords="347,95,521,136"/>
+<area shape="rect" id="node4" href="$keyboard_8c.html" title=" " alt="" coords="5,184,180,225"/>
+<area shape="rect" id="node5" href="$model_8h.html" title=" " alt="" coords="363,191,505,218"/>
+<area shape="rect" id="node7" href="$view_8h.html" title=" " alt="" coords="475,273,611,300"/>
+<area shape="rect" id="node8" href="$state_8h.html" title=" " alt="" coords="657,348,785,375"/>
+<area shape="rect" id="node10" href="$main_8c.html" title=" " alt="" coords="455,423,544,449"/>
+<area shape="rect" id="node6" href="$model_8c.html" title=" " alt="" coords="255,273,397,300"/>
+<area shape="rect" id="node11" href="$view_8c.html" title=" " alt="" coords="447,348,581,375"/>
+<area shape="rect" id="node9" href="$state_8c.html" title=" " alt="" coords="657,423,784,449"/>
+</map>

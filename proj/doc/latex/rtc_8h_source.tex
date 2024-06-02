@@ -1,0 +1,49 @@
+\hypertarget{rtc_8h_source}{}\doxysection{rtc.\+h}
+\label{rtc_8h_source}\index{src/Controller/RTC/rtc.h@{src/Controller/RTC/rtc.h}}
+\mbox{\hyperlink{rtc_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by joao on 24-\/04-\/2024.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SHARED\_RTC\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SHARED\_RTC\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <stdbool.h>}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include <stdint.h>}}
+\DoxyCodeLine{11 }
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#define IRQ\_RTC 8}}
+\DoxyCodeLine{13 }
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#define SECONDS 0x00}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#define MINUTES 0x02}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#define HOURS 0x04}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#define DAY\_OF\_THE\_WEEK 0x06}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#define DAY\_OF\_THE\_MONTH  0x07}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#define MONTH  0x08}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#define YEAR  0x09}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#define RTC\_ADDR\_REG 0x70}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#define RTC\_DATA\_REG 0x71}}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#define UPDATING BIT(7)}}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#define REGISTER\_A 10;}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#define REGISTER\_B 11;}}
+\DoxyCodeLine{32 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{33     uint8\_t \mbox{\hyperlink{structTime__Irl_a7af2065789bc84419b8d5fe109be83b5}{year}};}
+\DoxyCodeLine{34     uint8\_t \mbox{\hyperlink{structTime__Irl_a3e00faf7fbf9805e9ec4d2edd6339050}{month}};}
+\DoxyCodeLine{35     uint8\_t \mbox{\hyperlink{structTime__Irl_a72369a1087b2aeffe374bb054cb97c12}{day}};}
+\DoxyCodeLine{36     uint8\_t \mbox{\hyperlink{structTime__Irl_a7464b4f1ebde92524c990ed06d8db9dc}{day\_week}};}
+\DoxyCodeLine{37     uint8\_t \mbox{\hyperlink{structTime__Irl_a00a531a34a1d603329df5778f1203ab6}{hours}};}
+\DoxyCodeLine{38     uint8\_t \mbox{\hyperlink{structTime__Irl_a7acca8be0094a19be6e308ac05924c4f}{minutes}};}
+\DoxyCodeLine{39     uint8\_t \mbox{\hyperlink{structTime__Irl_a46729a903be1a03cdb248fb48d84d4f5}{seconds}};}
+\DoxyCodeLine{40 \} \mbox{\hyperlink{structTime__Irl}{Time\_Irl}};}
+\DoxyCodeLine{41 \textcolor{keywordtype}{int} \mbox{\hyperlink{rtc_8h_adc6aaf1aaa4914cefba0701c09eb7311}{read\_rtc}}(uint8\_t command, uint8\_t *st);}
+\DoxyCodeLine{42 \textcolor{keywordtype}{int} \mbox{\hyperlink{rtc_8h_a05f8a643eaa3f15f433fcf21639090a0}{rtc\_update}}();}
+\DoxyCodeLine{43 \textcolor{keywordtype}{int} \mbox{\hyperlink{rtc_8h_ae22bdeb51eb630e1d579dfc1cd1b2f11}{rtc\_update\_time}}();}
+\DoxyCodeLine{44 \textcolor{keywordtype}{int} \mbox{\hyperlink{rtc_8h_abd8de825e876e8ef94c64ac616f68a11}{rtc\_subscribe\_int}}();}
+\DoxyCodeLine{45 \textcolor{keywordtype}{int} \mbox{\hyperlink{rtc_8h_ab8f17bf5280c908c8b199a90fefcc758}{rtc\_unsubscribe\_int}}();}
+\DoxyCodeLine{46 }
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SHARED\_RTC\_H}}
+
+\end{DoxyCode}

@@ -1,0 +1,11 @@
+digraph "src/Controller/Mouse"
+{
+ // LATEX_PDF_SIZE
+  edge [fontname="Helvetica",fontsize="10",labelfontname="Helvetica",labelfontsize="10"];
+  node [fontname="Helvetica",fontsize="10",shape=record];
+  compound=true
+  subgraph clusterdir_b3b6f0ba51cfe0acc4894d1f872bef0a {
+    graph [ bgcolor="#edf7ef", pencolor="grey50", style="filled,dashed,", label="Controller", fontname="Helvetica", fontsize="10", URL="dir_b3b6f0ba51cfe0acc4894d1f872bef0a.html"]
+  dir_c694655f8d0b245d26e6a7d13d9ec615 [shape=box, label="Mouse", style="filled,bold,", fillcolor="#edf7ef", color="grey25", URL="dir_c694655f8d0b245d26e6a7d13d9ec615.html"];
+  }
+}

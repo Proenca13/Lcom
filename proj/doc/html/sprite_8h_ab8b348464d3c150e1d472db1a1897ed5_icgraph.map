@@ -1,0 +1,6 @@
+<map id="create_sprite" name="create_sprite">
+<area shape="rect" id="node1" title="Creates a sprite from a given pixmap." alt="" coords="473,5,580,32"/>
+<area shape="rect" id="node2" href="$model_8c.html#a7e7afd13ee4e35491b01ba9591ba1576" title="Creates all the necessary sprites for the game." alt="" coords="311,5,425,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a98396a1f6335b374d8b9bd3cd5376a6a" title=" " alt="" coords="176,5,263,32"/>
+<area shape="rect" id="node4" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>

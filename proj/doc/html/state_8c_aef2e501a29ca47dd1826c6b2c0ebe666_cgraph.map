@@ -1,0 +1,37 @@
+<map id="mouse_state" name="mouse_state">
+<area shape="rect" id="node1" title="Handles mouse input and updates the game state accordingly." alt="" coords="5,435,112,461"/>
+<area shape="rect" id="node2" href="$state_8c.html#adb2d47d83be7d90be9b4bb9cb9472bb0" title="Handles mouse input for cell selection and interaction." alt="" coords="181,207,317,233"/>
+<area shape="rect" id="node7" href="$game_8c.html#a64fb1debc9060c15fe118dc12eccb341" title="Destroys the game grid." alt="" coords="400,308,515,335"/>
+<area shape="rect" id="node8" href="$view_8c.html#ac39d6d91d19c72e4ee591d52c4281dc4" title="Draws the current game state." alt="" coords="410,384,505,411"/>
+<area shape="rect" id="node29" href="$game_8c.html#acce0b3456d4c3f48a56422b9a8b792df" title="Creates the game grid." alt="" coords="196,435,303,461"/>
+<area shape="rect" id="node31" href="$mouse_8c.html#a2e235868a79d1a554279c352e8a19f59" title=" " alt="" coords="160,485,339,512"/>
+<area shape="rect" id="node32" href="$mouse_8c.html#a210374b50462acdedab00df64d5cea3c" title=" " alt="" coords="207,536,292,563"/>
+<area shape="rect" id="node35" href="$mouse_8c.html#a1538254b8ccba2f68e02cc3d5547722c" title=" " alt="" coords="176,587,323,613"/>
+<area shape="rect" id="node3" href="$game_8c.html#af096eb7a715a07b0a3327ee43eb155bb" title="Checks if more flags can be placed." alt="" coords="814,131,935,157"/>
+<area shape="rect" id="node5" href="$game_8c.html#aa136bb1d302d9c690630b49b14ac549e" title="Checks if the first cell has been touched." alt="" coords="390,5,525,32"/>
+<area shape="rect" id="node6" href="$game_8c.html#a52282f0ec91085764dba1ef97329764a" title="Checks if the player has won the game." alt="" coords="412,56,503,83"/>
+<area shape="rect" id="node26" href="$game_8c.html#a6d7eac2de334af037d6647e6d5659a0f" title="Places bombs randomly on the grid." alt="" coords="406,107,509,133"/>
+<area shape="rect" id="node28" href="$game_8c.html#a631968d6657858d33df3626d3a82d479" title="Reveals cells near a cell with zero bombs around it." alt="" coords="387,181,528,208"/>
+<area shape="rect" id="node4" href="$game_8c.html#aabe44157a6dff1c2864483ff64aba52d" title="Counts the number of flagged cells." alt="" coords="1025,156,1127,183"/>
+<area shape="rect" id="node9" href="$view_8c.html#ab893d4d9bfe64e67ae91809826d943b3" title="Draws the controls menu." alt="" coords="796,536,953,563"/>
+<area shape="rect" id="node12" href="$view_8c.html#a7e6baca1b635c8aadd95c4d821cda8fc" title="Draws the game interface." alt="" coords="607,283,706,309"/>
+<area shape="rect" id="node15" href="$view_8c.html#a0a9f56467341cbe24bd981d4b9960fdd" title="Draws the game pause menu." alt="" coords="585,333,728,360"/>
+<area shape="rect" id="node16" href="$view_8c.html#a3ff01944c06d2fdd90b25d38513516ac" title="Draws the game over menu." alt="" coords="785,435,964,461"/>
+<area shape="rect" id="node17" href="$view_8c.html#a83361e027b6f0dd917305f1f82dedda3" title="Draws the main menu." alt="" coords="587,587,726,613"/>
+<area shape="rect" id="node24" href="$view_8c.html#a42f4903ab89aff9e3ee0206c52cf710a" title="Draws the mouse cursor." alt="" coords="604,485,709,512"/>
+<area shape="rect" id="node25" href="$view_8c.html#a947be19a1ddc3c2bdcddce8fe4c1b7de" title="Draws the win menu." alt="" coords="593,384,721,411"/>
+<area shape="rect" id="node10" href="$view_8c.html#a81f7bc4c06ccd62eb7f3c414764d1ed9" title="Draws a sprite at the specified coordinates." alt="" coords="1027,409,1125,436"/>
+<area shape="rect" id="node11" href="$graphic_8c.html#a6f895de9725f9f231f9a7f74b6087f60" title=" " alt="" coords="1198,409,1313,436"/>
+<area shape="rect" id="node13" href="$view_8c.html#ac41b34b1dc3c89e8d393c931baa6f4be" title="Determines the appropriate counter sprite based on the provided digit." alt="" coords="800,333,949,360"/>
+<area shape="rect" id="node14" href="$view_8c.html#a2dc1c1f040ca65617295a414f3d7b38a" title="Draws the flag counter sprite based on the current count of flagged cells." alt="" coords="797,181,952,208"/>
+<area shape="rect" id="node18" href="$view_8c.html#ae7fa611cf3ac30a98397d1cd5dbfd2d5" title="Determines the appropriate sky sprite based on the current time." alt="" coords="804,637,945,664"/>
+<area shape="rect" id="node19" href="$rtc_8c.html#ae22bdeb51eb630e1d579dfc1cd1b2f11" title=" " alt="" coords="1012,624,1140,651"/>
+<area shape="rect" id="node20" href="$rtc_8c.html#a184a584d741fc51b9c5a92742824f9ca" title=" " alt="" coords="1189,649,1321,676"/>
+<area shape="rect" id="node21" href="$rtc_8c.html#adc6aaf1aaa4914cefba0701c09eb7311" title=" " alt="" coords="1399,599,1474,625"/>
+<area shape="rect" id="node23" href="$rtc_8c.html#a05f8a643eaa3f15f433fcf21639090a0" title=" " alt="" coords="1210,548,1301,575"/>
+<area shape="rect" id="node22" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="1551,649,1649,676"/>
+<area shape="rect" id="node27" href="$game_8c.html#a4899200444d4356d270ad9617d16f688" title="Counts the number of bombs around a given cell." alt="" coords="576,107,737,133"/>
+<area shape="rect" id="node30" href="$game_8c.html#a53c865bfc099cf7a4b4ecc8d56caac92" title="Creates a new block." alt="" coords="405,435,510,461"/>
+<area shape="rect" id="node33" href="$Keyboard_2kbc_8c.html#ac7f264677f62648ac34476a46980af2f" title=" " alt="" coords="1188,700,1323,727"/>
+<area shape="rect" id="node34" href="$Keyboard_2kbc_8c.html#ac024af91b156e4fc61ee3886b891de21" title=" " alt="" coords="1371,649,1503,676"/>
+</map>

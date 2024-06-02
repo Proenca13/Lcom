@@ -1,0 +1,5 @@
+<map id="cell_state_mouse" name="cell_state_mouse">
+<area shape="rect" id="node1" title="Handles mouse input for cell selection and interaction." alt="" coords="331,5,467,32"/>
+<area shape="rect" id="node2" href="$state_8c.html#aef2e501a29ca47dd1826c6b2c0ebe666" title="Handles mouse input and updates the game state accordingly." alt="" coords="176,5,283,32"/>
+<area shape="rect" id="node3" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,5,128,32"/>
+</map>

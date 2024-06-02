@@ -1,0 +1,18 @@
+<map id="draw_sprite" name="draw_sprite">
+<area shape="rect" id="node1" title="Draws a sprite at the specified coordinates." alt="" coords="1119,172,1217,199"/>
+<area shape="rect" id="node2" href="$view_8c.html#ab893d4d9bfe64e67ae91809826d943b3" title="Draws the controls menu." alt="" coords="700,20,857,47"/>
+<area shape="rect" id="node10" href="$view_8c.html#a2dc1c1f040ca65617295a414f3d7b38a" title="Draws the flag counter sprite based on the current count of flagged cells." alt="" coords="916,45,1071,72"/>
+<area shape="rect" id="node11" href="$view_8c.html#a7e6baca1b635c8aadd95c4d821cda8fc" title="Draws the game interface." alt="" coords="729,96,828,123"/>
+<area shape="rect" id="node12" href="$view_8c.html#a0a9f56467341cbe24bd981d4b9960fdd" title="Draws the game pause menu." alt="" coords="707,147,850,173"/>
+<area shape="rect" id="node13" href="$view_8c.html#a3ff01944c06d2fdd90b25d38513516ac" title="Draws the game over menu." alt="" coords="689,197,868,224"/>
+<area shape="rect" id="node14" href="$view_8c.html#a83361e027b6f0dd917305f1f82dedda3" title="Draws the main menu." alt="" coords="924,248,1063,275"/>
+<area shape="rect" id="node15" href="$view_8c.html#a42f4903ab89aff9e3ee0206c52cf710a" title="Draws the mouse cursor." alt="" coords="941,299,1046,325"/>
+<area shape="rect" id="node16" href="$view_8c.html#a947be19a1ddc3c2bdcddce8fe4c1b7de" title="Draws the win menu." alt="" coords="929,349,1057,376"/>
+<area shape="rect" id="node3" href="$view_8c.html#ac39d6d91d19c72e4ee591d52c4281dc4" title="Draws the current game state." alt="" coords="547,197,641,224"/>
+<area shape="rect" id="node4" href="$state_8c.html#a14575ad012aa8dfb26d627e6c1f200f0" title="Handles keyboard input for cell selection and interaction." alt="" coords="347,71,499,97"/>
+<area shape="rect" id="node5" href="$state_8c.html#a85a5a00216c3c664ad37836286e09be6" title="Handles keyboard input and updates the game state accordingly." alt="" coords="176,121,299,148"/>
+<area shape="rect" id="node6" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,197,128,224"/>
+<area shape="rect" id="node7" href="$state_8c.html#adb2d47d83be7d90be9b4bb9cb9472bb0" title="Handles mouse input for cell selection and interaction." alt="" coords="355,223,491,249"/>
+<area shape="rect" id="node8" href="$state_8c.html#aef2e501a29ca47dd1826c6b2c0ebe666" title="Handles mouse input and updates the game state accordingly." alt="" coords="184,223,291,249"/>
+<area shape="rect" id="node9" href="$state_8c.html#a9ef0fb9a645256112121584c07ac2133" title="Handles the real&#45;time clock (RTC) state." alt="" coords="198,299,277,325"/>
+</map>

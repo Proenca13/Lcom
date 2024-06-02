@@ -1,0 +1,13 @@
+<map id="shut_down" name="shut_down">
+<area shape="rect" id="node1" title=" " alt="" coords="5,148,97,175"/>
+<area shape="rect" id="node2" href="$model_8c.html#a8fdbc6c7bfca3ef4a8800a3cdc19d932" title="Destroys and frees memory for all the sprites created." alt="" coords="171,5,294,32"/>
+<area shape="rect" id="node4" href="$keyboard_8c.html#a97f07efdc4bf5955236db1b8f111daf6" title=" " alt="" coords="149,57,316,98"/>
+<area shape="rect" id="node5" href="$mouse_8c.html#a3ecf823d80520009ae5e0d76ae40a3c3" title=" " alt="" coords="145,123,320,149"/>
+<area shape="rect" id="node6" href="$mouse_8c.html#a1703c3c5b61eef30d724b15cafd1d75e" title=" " alt="" coords="179,173,286,200"/>
+<area shape="rect" id="node10" href="$rtc_8c.html#ab8f17bf5280c908c8b199a90fefcc758" title=" " alt="" coords="159,224,307,251"/>
+<area shape="rect" id="node11" href="$timer_8c.html#afabd21de449be154dd65d5fdb2d8045d" title=" " alt="" coords="149,275,316,301"/>
+<area shape="rect" id="node3" href="$sprite_8c.html#af16c6befaac9ffb673b9e3c798d542ed" title="Destroys a sprite and frees allocated memory." alt="" coords="391,5,506,32"/>
+<area shape="rect" id="node7" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="757,173,856,200"/>
+<area shape="rect" id="node8" href="$Keyboard_2kbc_8c.html#a34b653b3939fffe883c903cdadb36d3a" title=" " alt="" coords="368,199,529,225"/>
+<area shape="rect" id="node9" href="$Keyboard_2kbc_8c.html#ac024af91b156e4fc61ee3886b891de21" title=" " alt="" coords="577,199,709,225"/>
+</map>

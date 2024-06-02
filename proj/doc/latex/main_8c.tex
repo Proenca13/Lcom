@@ -1,0 +1,74 @@
+\hypertarget{main_8c}{}\doxysection{src/main.c File Reference}
+\label{main_8c}\index{src/main.c@{src/main.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Timer/i8254.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Video/graphic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Keyboard/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Mouse/mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+RTC/rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/model.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}State/state.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Viewer/view.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}configs.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \mbox{\hyperlink{main_8c_a98396a1f6335b374d8b9bd3cd5376a6a}{init\+\_\+game}} ()
+\item 
+int \mbox{\hyperlink{main_8c_aaf4aa1a3f576a119548e3a778b3dc92e}{shut\+\_\+down}} ()
+\item 
+int() \mbox{\hyperlink{main_8c_a2a16f651eccbd248e1ad3b3b924b143b}{proj\+\_\+main\+\_\+loop}} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0}{Program\+State}} \mbox{\hyperlink{main_8c_a8c5908370c1d95d53e54112215a36d93}{program\+State}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8c_a98396a1f6335b374d8b9bd3cd5376a6a}\label{main_8c_a98396a1f6335b374d8b9bd3cd5376a6a}} 
+\index{main.c@{main.c}!init\_game@{init\_game}}
+\index{init\_game@{init\_game}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{init\_game()}{init\_game()}}
+{\footnotesize\ttfamily int init\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8c_a2a16f651eccbd248e1ad3b3b924b143b}\label{main_8c_a2a16f651eccbd248e1ad3b3b924b143b}} 
+\index{main.c@{main.c}!proj\_main\_loop@{proj\_main\_loop}}
+\index{proj\_main\_loop@{proj\_main\_loop}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{proj\_main\_loop()}{proj\_main\_loop()}}
+{\footnotesize\ttfamily int() proj\+\_\+main\+\_\+loop (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{main_8c_aaf4aa1a3f576a119548e3a778b3dc92e}\label{main_8c_aaf4aa1a3f576a119548e3a778b3dc92e}} 
+\index{main.c@{main.c}!shut\_down@{shut\_down}}
+\index{shut\_down@{shut\_down}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{shut\_down()}{shut\_down()}}
+{\footnotesize\ttfamily int shut\+\_\+down (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{main_8c_a8c5908370c1d95d53e54112215a36d93}\label{main_8c_a8c5908370c1d95d53e54112215a36d93}} 
+\index{main.c@{main.c}!programState@{programState}}
+\index{programState@{programState}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{programState}{programState}}
+{\footnotesize\ttfamily \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0}{Program\+State}} program\+State\hspace{0.3cm}{\ttfamily [extern]}}
+

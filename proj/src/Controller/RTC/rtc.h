@@ -25,6 +25,10 @@
 
 #define REGISTER_A 10;
 #define REGISTER_B 11;
+/**
+ * @brief Represents the time in real life.
+ *  
+*/
 typedef struct {
     uint8_t year;
     uint8_t month;

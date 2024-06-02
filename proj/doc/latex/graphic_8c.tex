@@ -1,0 +1,128 @@
+\hypertarget{graphic_8c}{}\doxysection{src/\+Controller/\+Video/graphic.c File Reference}
+\label{graphic_8c}\index{src/Controller/Video/graphic.c@{src/Controller/Video/graphic.c}}
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}graphic.\+h\char`\"{}}\newline
+Include dependency graph for graphic.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int() \mbox{\hyperlink{graphic_8c_aa2ac3ebc7870950bab4c0fc90f113155}{set\+\_\+graphic\+\_\+mode}} (uint16\+\_\+t mode)
+\item 
+int() \mbox{\hyperlink{graphic_8c_a55bb0148c696baca125c2c03bd585ae5}{set\+\_\+frame\+\_\+buffer}} (uint16\+\_\+t mode)
+\item 
+void \mbox{\hyperlink{graphic_8c_a0d157d997329169f936545f9985e334b}{swap\+\_\+buffers}} ()
+\item 
+int \mbox{\hyperlink{graphic_8c_a6f895de9725f9f231f9a7f74b6087f60}{vg\+\_\+draw\+\_\+pixel}} (uint16\+\_\+t x, uint16\+\_\+t y, uint32\+\_\+t color)
+\item 
+int() \mbox{\hyperlink{graphic_8c_a5e5b25bd525250f61f40b9e9f212d5e6}{vg\+\_\+draw\+\_\+hline}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t len, uint32\+\_\+t color)
+\item 
+int() \mbox{\hyperlink{graphic_8c_a99d2da2559e11200c6b40c469e9977ec}{vg\+\_\+draw\+\_\+rectangle}} (uint16\+\_\+t x, uint16\+\_\+t y, uint16\+\_\+t width, uint16\+\_\+t height, uint32\+\_\+t color)
+\item 
+int() \mbox{\hyperlink{graphic_8c_a4a7701a7c35f0ff156dba3e5f9c9f48e}{print\+\_\+xpm}} (xpm\+\_\+map\+\_\+t xpm, uint16\+\_\+t x, uint16\+\_\+t y)
+\item 
+int \mbox{\hyperlink{graphic_8c_ab232b2fb756183ed896f8d3b492031c8}{normalize\+\_\+color}} (uint32\+\_\+t color, uint32\+\_\+t $\ast$new\+\_\+color)
+\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+vbe\+\_\+mode\+\_\+info\+\_\+t \mbox{\hyperlink{graphic_8c_acbcf61ec794276372586878110524b97}{mode\+Info}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{graphic_8c_aca42f7778287b9a79affe540ce98d0f5}{frame\+\_\+buffer}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{graphic_8c_ac527f6b531638012048509ca6d8f0dfe}{second\+\_\+frame\+\_\+buffer}}
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{graphic_8c_a5d7d41c450228146c9c902c582f0c289}{drawing\+\_\+frame\+\_\+buffer}}
+\item 
+unsigned int \mbox{\hyperlink{graphic_8c_a17b12b87c65aaa04215d9bdb7e9e84dd}{vram\+\_\+size}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{graphic_8c_ab232b2fb756183ed896f8d3b492031c8}\label{graphic_8c_ab232b2fb756183ed896f8d3b492031c8}} 
+\index{graphic.c@{graphic.c}!normalize\_color@{normalize\_color}}
+\index{normalize\_color@{normalize\_color}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{normalize\_color()}{normalize\_color()}}
+{\footnotesize\ttfamily int normalize\+\_\+color (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{color,  }\item[{uint32\+\_\+t $\ast$}]{new\+\_\+color }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{graphic_8c_a4a7701a7c35f0ff156dba3e5f9c9f48e}\label{graphic_8c_a4a7701a7c35f0ff156dba3e5f9c9f48e}} 
+\index{graphic.c@{graphic.c}!print\_xpm@{print\_xpm}}
+\index{print\_xpm@{print\_xpm}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{print\_xpm()}{print\_xpm()}}
+{\footnotesize\ttfamily int() print\+\_\+xpm (\begin{DoxyParamCaption}\item[{xpm\+\_\+map\+\_\+t}]{xpm,  }\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{graphic_8c_a55bb0148c696baca125c2c03bd585ae5}\label{graphic_8c_a55bb0148c696baca125c2c03bd585ae5}} 
+\index{graphic.c@{graphic.c}!set\_frame\_buffer@{set\_frame\_buffer}}
+\index{set\_frame\_buffer@{set\_frame\_buffer}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{set\_frame\_buffer()}{set\_frame\_buffer()}}
+{\footnotesize\ttfamily int() set\+\_\+frame\+\_\+buffer (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{graphic_8c_aa2ac3ebc7870950bab4c0fc90f113155}\label{graphic_8c_aa2ac3ebc7870950bab4c0fc90f113155}} 
+\index{graphic.c@{graphic.c}!set\_graphic\_mode@{set\_graphic\_mode}}
+\index{set\_graphic\_mode@{set\_graphic\_mode}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{set\_graphic\_mode()}{set\_graphic\_mode()}}
+{\footnotesize\ttfamily int() set\+\_\+graphic\+\_\+mode (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{mode }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{graphic_8c_a0d157d997329169f936545f9985e334b}\label{graphic_8c_a0d157d997329169f936545f9985e334b}} 
+\index{graphic.c@{graphic.c}!swap\_buffers@{swap\_buffers}}
+\index{swap\_buffers@{swap\_buffers}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{swap\_buffers()}{swap\_buffers()}}
+{\footnotesize\ttfamily void swap\+\_\+buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{graphic_8c_a5e5b25bd525250f61f40b9e9f212d5e6}\label{graphic_8c_a5e5b25bd525250f61f40b9e9f212d5e6}} 
+\index{graphic.c@{graphic.c}!vg\_draw\_hline@{vg\_draw\_hline}}
+\index{vg\_draw\_hline@{vg\_draw\_hline}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_hline()}{vg\_draw\_hline()}}
+{\footnotesize\ttfamily int() vg\+\_\+draw\+\_\+hline (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{len,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{graphic_8c_a6f895de9725f9f231f9a7f74b6087f60}\label{graphic_8c_a6f895de9725f9f231f9a7f74b6087f60}} 
+\index{graphic.c@{graphic.c}!vg\_draw\_pixel@{vg\_draw\_pixel}}
+\index{vg\_draw\_pixel@{vg\_draw\_pixel}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_pixel()}{vg\_draw\_pixel()}}
+{\footnotesize\ttfamily int vg\+\_\+draw\+\_\+pixel (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{graphic_8c_a99d2da2559e11200c6b40c469e9977ec}\label{graphic_8c_a99d2da2559e11200c6b40c469e9977ec}} 
+\index{graphic.c@{graphic.c}!vg\_draw\_rectangle@{vg\_draw\_rectangle}}
+\index{vg\_draw\_rectangle@{vg\_draw\_rectangle}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{vg\_draw\_rectangle()}{vg\_draw\_rectangle()}}
+{\footnotesize\ttfamily int() vg\+\_\+draw\+\_\+rectangle (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{x,  }\item[{uint16\+\_\+t}]{y,  }\item[{uint16\+\_\+t}]{width,  }\item[{uint16\+\_\+t}]{height,  }\item[{uint32\+\_\+t}]{color }\end{DoxyParamCaption})}
+
+Here is the call graph for this function\+:
+% FIG 3
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{graphic_8c_a5d7d41c450228146c9c902c582f0c289}\label{graphic_8c_a5d7d41c450228146c9c902c582f0c289}} 
+\index{graphic.c@{graphic.c}!drawing\_frame\_buffer@{drawing\_frame\_buffer}}
+\index{drawing\_frame\_buffer@{drawing\_frame\_buffer}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{drawing\_frame\_buffer}{drawing\_frame\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ drawing\+\_\+frame\+\_\+buffer}
+
+\mbox{\Hypertarget{graphic_8c_aca42f7778287b9a79affe540ce98d0f5}\label{graphic_8c_aca42f7778287b9a79affe540ce98d0f5}} 
+\index{graphic.c@{graphic.c}!frame\_buffer@{frame\_buffer}}
+\index{frame\_buffer@{frame\_buffer}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{frame\_buffer}{frame\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ frame\+\_\+buffer}
+
+\mbox{\Hypertarget{graphic_8c_acbcf61ec794276372586878110524b97}\label{graphic_8c_acbcf61ec794276372586878110524b97}} 
+\index{graphic.c@{graphic.c}!modeInfo@{modeInfo}}
+\index{modeInfo@{modeInfo}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{modeInfo}{modeInfo}}
+{\footnotesize\ttfamily vbe\+\_\+mode\+\_\+info\+\_\+t mode\+Info}
+
+\mbox{\Hypertarget{graphic_8c_ac527f6b531638012048509ca6d8f0dfe}\label{graphic_8c_ac527f6b531638012048509ca6d8f0dfe}} 
+\index{graphic.c@{graphic.c}!second\_frame\_buffer@{second\_frame\_buffer}}
+\index{second\_frame\_buffer@{second\_frame\_buffer}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{second\_frame\_buffer}{second\_frame\_buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ second\+\_\+frame\+\_\+buffer}
+
+\mbox{\Hypertarget{graphic_8c_a17b12b87c65aaa04215d9bdb7e9e84dd}\label{graphic_8c_a17b12b87c65aaa04215d9bdb7e9e84dd}} 
+\index{graphic.c@{graphic.c}!vram\_size@{vram\_size}}
+\index{vram\_size@{vram\_size}!graphic.c@{graphic.c}}
+\doxysubsubsection{\texorpdfstring{vram\_size}{vram\_size}}
+{\footnotesize\ttfamily unsigned int vram\+\_\+size}
+

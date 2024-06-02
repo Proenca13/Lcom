@@ -1,0 +1,314 @@
+\hypertarget{game_8h}{}\doxysection{src/\+Model/game.h File Reference}
+\label{game_8h}\index{src/Model/game.h@{src/Model/game.h}}
+{\ttfamily \#include $<$minix/sysutil.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}sprite.\+h\char`\"{}}\newline
+Include dependency graph for game.\+h\+:
+% FIG 0
+This graph shows which files directly or indirectly include this file\+:
+% FIG 1
+\doxysubsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structGrid__entry}{Grid\+\_\+entry}}
+\begin{DoxyCompactList}\small\item\em Represents a grid entry. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structBlock}{Block}}
+\begin{DoxyCompactList}\small\item\em Represents a block in a Minesweeper game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}{Block\+State}} \{ \mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88a2f41497eba7ed6145e488d003c9e0872}{Flagged}}
+, \mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88ad57a8706350e0733b129ebcac8ebb9dc}{Revealed}}
+, \mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88a0aa3adb983ed95c026c4c375576c1c7d}{Not\+\_\+\+Revealed}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the state of a block in a Minesweeper game. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3}{Block\+Type}} \{ \newline
+\mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a7a725f13af144bdef532d0389ba75e0d}{ONE}}
+, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a0e793500a63ffa575b9b712ca3bc9851}{TWO}}
+, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a1251fbf93888ad32fe0ae54d49bcef17}{THREE}}
+, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a23d7ef5341c6930d19b2ecbb997977cf}{FOUR}}
+, \newline
+\mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a3a40d11d30db182ab8f9846aa9458bec}{FIVE}}
+, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3aadffddd32c3e7497e32cd7e430c9c106}{SIX}}
+, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a9a193f3e84352f3fbbe44f8d275a820c}{SEVEN}}
+, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a2fd39b67b424f4ea3b4c11ce3195ab8b}{EIGHT}}
+, \newline
+\mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a095285ba8fb2e1f9cfb29c80546f06e4}{BOMB}}
+, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3a2f0d18fc0d0fa4a6cd92dc328501874d}{EMPTY}}
+ \}
+\begin{DoxyCompactList}\small\item\em Represents the type of content in a block in a Minesweeper game. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{game_8h_a6d7eac2de334af037d6647e6d5659a0f}{place\+Bombs}} ()
+\begin{DoxyCompactList}\small\item\em Places bombs randomly on the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_a4899200444d4356d270ad9617d16f688}{count\+\_\+bombs\+\_\+around}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Counts the number of bombs around a given cell. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structBlock}{Block}} $\ast$ \mbox{\hyperlink{game_8h_a53c865bfc099cf7a4b4ecc8d56caac92}{create\+\_\+block}} (\mbox{\hyperlink{structSprite}{Sprite}} $\ast$block\+\_\+sprite, \mbox{\hyperlink{structSprite}{Sprite}} $\ast$selected\+\_\+block\+\_\+sprite, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3}{Block\+Type}} type, int16\+\_\+t row, int16\+\_\+t col, bool is\+\_\+selected, \mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}{Block\+State}} state)
+\begin{DoxyCompactList}\small\item\em Creates a new block. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_acce0b3456d4c3f48a56422b9a8b792df}{create\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em Creates the game grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_a64fb1debc9060c15fe118dc12eccb341}{destroy\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the game grid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_a52282f0ec91085764dba1ef97329764a}{check\+\_\+win}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the player has won the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_aabe44157a6dff1c2864483ff64aba52d}{flag\+\_\+counter}} (uint8\+\_\+t $\ast$flag\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Counts the number of flagged cells. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_af096eb7a715a07b0a3327ee43eb155bb}{check\+\_\+can\+\_\+flag}} ()
+\begin{DoxyCompactList}\small\item\em Checks if more flags can be placed. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8h_aa136bb1d302d9c690630b49b14ac549e}{check\+\_\+first\+\_\+touch}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the first cell has been touched. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8h_a631968d6657858d33df3626d3a82d479}{reveal\+\_\+near\+\_\+zeros}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Reveals cells near a cell with zero bombs around it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}\label{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}} 
+\index{game.h@{game.h}!BlockState@{BlockState}}
+\index{BlockState@{BlockState}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{BlockState}{BlockState}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}{Block\+State}}}
+
+
+
+Represents the state of a block in a Minesweeper game. 
+
+This enumeration defines the possible states of a block in a Minesweeper game. Blocks can be flagged, revealed, or not revealed. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Flagged@{Flagged}!game.h@{game.h}}\index{game.h@{game.h}!Flagged@{Flagged}}}\mbox{\Hypertarget{game_8h_ad6cf116f1b761cc66851b7c34eb68d88a2f41497eba7ed6145e488d003c9e0872}\label{game_8h_ad6cf116f1b761cc66851b7c34eb68d88a2f41497eba7ed6145e488d003c9e0872}} 
+Flagged&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Revealed@{Revealed}!game.h@{game.h}}\index{game.h@{game.h}!Revealed@{Revealed}}}\mbox{\Hypertarget{game_8h_ad6cf116f1b761cc66851b7c34eb68d88ad57a8706350e0733b129ebcac8ebb9dc}\label{game_8h_ad6cf116f1b761cc66851b7c34eb68d88ad57a8706350e0733b129ebcac8ebb9dc}} 
+Revealed&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{Not\_Revealed@{Not\_Revealed}!game.h@{game.h}}\index{game.h@{game.h}!Not\_Revealed@{Not\_Revealed}}}\mbox{\Hypertarget{game_8h_ad6cf116f1b761cc66851b7c34eb68d88a0aa3adb983ed95c026c4c375576c1c7d}\label{game_8h_ad6cf116f1b761cc66851b7c34eb68d88a0aa3adb983ed95c026c4c375576c1c7d}} 
+Not\+\_\+\+Revealed&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3}} 
+\index{game.h@{game.h}!BlockType@{BlockType}}
+\index{BlockType@{BlockType}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{BlockType}{BlockType}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3}{Block\+Type}}}
+
+
+
+Represents the type of content in a block in a Minesweeper game. 
+
+This enumeration defines the possible types of content in a block in a Minesweeper game. Blocks can contain numbers indicating adjacent bombs, a bomb itself, or be empty. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{ONE@{ONE}!game.h@{game.h}}\index{game.h@{game.h}!ONE@{ONE}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a7a725f13af144bdef532d0389ba75e0d}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a7a725f13af144bdef532d0389ba75e0d}} 
+ONE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{TWO@{TWO}!game.h@{game.h}}\index{game.h@{game.h}!TWO@{TWO}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a0e793500a63ffa575b9b712ca3bc9851}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a0e793500a63ffa575b9b712ca3bc9851}} 
+TWO&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{THREE@{THREE}!game.h@{game.h}}\index{game.h@{game.h}!THREE@{THREE}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a1251fbf93888ad32fe0ae54d49bcef17}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a1251fbf93888ad32fe0ae54d49bcef17}} 
+THREE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FOUR@{FOUR}!game.h@{game.h}}\index{game.h@{game.h}!FOUR@{FOUR}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a23d7ef5341c6930d19b2ecbb997977cf}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a23d7ef5341c6930d19b2ecbb997977cf}} 
+FOUR&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{FIVE@{FIVE}!game.h@{game.h}}\index{game.h@{game.h}!FIVE@{FIVE}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a3a40d11d30db182ab8f9846aa9458bec}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a3a40d11d30db182ab8f9846aa9458bec}} 
+FIVE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SIX@{SIX}!game.h@{game.h}}\index{game.h@{game.h}!SIX@{SIX}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3aadffddd32c3e7497e32cd7e430c9c106}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3aadffddd32c3e7497e32cd7e430c9c106}} 
+SIX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SEVEN@{SEVEN}!game.h@{game.h}}\index{game.h@{game.h}!SEVEN@{SEVEN}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a9a193f3e84352f3fbbe44f8d275a820c}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a9a193f3e84352f3fbbe44f8d275a820c}} 
+SEVEN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EIGHT@{EIGHT}!game.h@{game.h}}\index{game.h@{game.h}!EIGHT@{EIGHT}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a2fd39b67b424f4ea3b4c11ce3195ab8b}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a2fd39b67b424f4ea3b4c11ce3195ab8b}} 
+EIGHT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BOMB@{BOMB}!game.h@{game.h}}\index{game.h@{game.h}!BOMB@{BOMB}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a095285ba8fb2e1f9cfb29c80546f06e4}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a095285ba8fb2e1f9cfb29c80546f06e4}} 
+BOMB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{EMPTY@{EMPTY}!game.h@{game.h}}\index{game.h@{game.h}!EMPTY@{EMPTY}}}\mbox{\Hypertarget{game_8h_a54420623f26ab6bb61042b41cccf37a3a2f0d18fc0d0fa4a6cd92dc328501874d}\label{game_8h_a54420623f26ab6bb61042b41cccf37a3a2f0d18fc0d0fa4a6cd92dc328501874d}} 
+EMPTY&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_8h_af096eb7a715a07b0a3327ee43eb155bb}\label{game_8h_af096eb7a715a07b0a3327ee43eb155bb}} 
+\index{game.h@{game.h}!check\_can\_flag@{check\_can\_flag}}
+\index{check\_can\_flag@{check\_can\_flag}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{check\_can\_flag()}{check\_can\_flag()}}
+{\footnotesize\ttfamily int check\+\_\+can\+\_\+flag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if more flags can be placed. 
+
+This function counts the current number of flagged cells and checks if it is less than the allowed maximum (10 flags). If the number of flags is less than 10, more flags can be placed.
+
+\begin{DoxyReturn}{Returns}
+int 1 if more flags can be placed, 0 otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{game_8h_aa136bb1d302d9c690630b49b14ac549e}\label{game_8h_aa136bb1d302d9c690630b49b14ac549e}} 
+\index{game.h@{game.h}!check\_first\_touch@{check\_first\_touch}}
+\index{check\_first\_touch@{check\_first\_touch}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{check\_first\_touch()}{check\_first\_touch()}}
+{\footnotesize\ttfamily int check\+\_\+first\+\_\+touch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the first cell has been touched. 
+
+This function iterates through the grid to check if any cell has been revealed. If no cell is revealed, it indicates the first touch has not been made.
+
+\begin{DoxyReturn}{Returns}
+int 1 if no cell has been revealed, 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a52282f0ec91085764dba1ef97329764a}\label{game_8h_a52282f0ec91085764dba1ef97329764a}} 
+\index{game.h@{game.h}!check\_win@{check\_win}}
+\index{check\_win@{check\_win}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{check\_win()}{check\_win()}}
+{\footnotesize\ttfamily int check\+\_\+win (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the player has won the game. 
+
+Returns 1 if the player has revealed all non-\/bomb cells, otherwise 0.
+
+\begin{DoxyReturn}{Returns}
+int 1 if the player has won, 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_a4899200444d4356d270ad9617d16f688}\label{game_8h_a4899200444d4356d270ad9617d16f688}} 
+\index{game.h@{game.h}!count\_bombs\_around@{count\_bombs\_around}}
+\index{count\_bombs\_around@{count\_bombs\_around}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{count\_bombs\_around()}{count\_bombs\_around()}}
+{\footnotesize\ttfamily void count\+\_\+bombs\+\_\+around (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Counts the number of bombs around a given cell. 
+
+Updates the block type and sprite of the cell based on the number of surrounding bombs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The row position of the cell. \\
+\hline
+{\em y} & The column position of the cell. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_a53c865bfc099cf7a4b4ecc8d56caac92}\label{game_8h_a53c865bfc099cf7a4b4ecc8d56caac92}} 
+\index{game.h@{game.h}!create\_block@{create\_block}}
+\index{create\_block@{create\_block}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{create\_block()}{create\_block()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBlock}{Block}} $\ast$ create\+\_\+block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSprite}{Sprite}} $\ast$}]{block\+\_\+sprite,  }\item[{\mbox{\hyperlink{structSprite}{Sprite}} $\ast$}]{selected\+\_\+block\+\_\+sprite,  }\item[{\mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3}{Block\+Type}}}]{type,  }\item[{int16\+\_\+t}]{row,  }\item[{int16\+\_\+t}]{col,  }\item[{bool}]{is\+\_\+selected,  }\item[{\mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}{Block\+State}}}]{state }\end{DoxyParamCaption})}
+
+
+
+Creates a new block. 
+
+Allocates memory for a new block and initializes its properties.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+\_\+sprite} & Pointer to the sprite representing the block. \\
+\hline
+{\em selected\+\_\+block\+\_\+sprite} & Pointer to the sprite representing the selected block. \\
+\hline
+{\em type} & The type of the block. \\
+\hline
+{\em row} & The row position of the block in the grid. \\
+\hline
+{\em col} & The column position of the block in the grid. \\
+\hline
+{\em is\+\_\+selected} & Indicates if the block is selected. \\
+\hline
+{\em state} & The state of the block (revealed, not revealed, flagged). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the created block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8h_acce0b3456d4c3f48a56422b9a8b792df}\label{game_8h_acce0b3456d4c3f48a56422b9a8b792df}} 
+\index{game.h@{game.h}!create\_game@{create\_game}}
+\index{create\_game@{create\_game}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{create\_game()}{create\_game()}}
+{\footnotesize\ttfamily void create\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the game grid. 
+
+Allocates memory for the grid and initializes each cell with default values. Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{game_8h_a64fb1debc9060c15fe118dc12eccb341}\label{game_8h_a64fb1debc9060c15fe118dc12eccb341}} 
+\index{game.h@{game.h}!destroy\_game@{destroy\_game}}
+\index{destroy\_game@{destroy\_game}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{destroy\_game()}{destroy\_game()}}
+{\footnotesize\ttfamily void destroy\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the game grid. 
+
+Frees the allocated memory for the grid and its cells. \mbox{\Hypertarget{game_8h_aabe44157a6dff1c2864483ff64aba52d}\label{game_8h_aabe44157a6dff1c2864483ff64aba52d}} 
+\index{game.h@{game.h}!flag\_counter@{flag\_counter}}
+\index{flag\_counter@{flag\_counter}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{flag\_counter()}{flag\_counter()}}
+{\footnotesize\ttfamily void flag\+\_\+counter (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{flag\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Counts the number of flagged cells. 
+
+Updates the flag count based on the number of flagged cells in the grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag\+\_\+count} & Pointer to the flag count variable to update. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8h_a6d7eac2de334af037d6647e6d5659a0f}\label{game_8h_a6d7eac2de334af037d6647e6d5659a0f}} 
+\index{game.h@{game.h}!placeBombs@{placeBombs}}
+\index{placeBombs@{placeBombs}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{placeBombs()}{placeBombs()}}
+{\footnotesize\ttfamily void place\+Bombs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Places bombs randomly on the grid. 
+
+Places a specified number of bombs on the grid at random positions ensuring that bombs are not placed at the initial entry point. Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{game_8h_a631968d6657858d33df3626d3a82d479}\label{game_8h_a631968d6657858d33df3626d3a82d479}} 
+\index{game.h@{game.h}!reveal\_near\_zeros@{reveal\_near\_zeros}}
+\index{reveal\_near\_zeros@{reveal\_near\_zeros}!game.h@{game.h}}
+\doxysubsubsection{\texorpdfstring{reveal\_near\_zeros()}{reveal\_near\_zeros()}}
+{\footnotesize\ttfamily void reveal\+\_\+near\+\_\+zeros (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Reveals cells near a cell with zero bombs around it. 
+
+This function reveals all cells in the vicinity of a given cell that has zero bombs around it. If any of the neighboring cells are also zero, it recursively reveals their neighbors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The row position of the cell. \\
+\hline
+{\em y} & The column position of the cell. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 5

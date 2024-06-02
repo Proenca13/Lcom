@@ -1,0 +1,13 @@
+<map id="flag_counter" name="flag_counter">
+<area shape="rect" id="node1" title="Counts the number of flagged cells." alt="" coords="1065,81,1168,108"/>
+<area shape="rect" id="node2" href="$game_8c.html#af096eb7a715a07b0a3327ee43eb155bb" title="Checks if more flags can be placed." alt="" coords="547,56,668,83"/>
+<area shape="rect" id="node8" href="$view_8c.html#a2dc1c1f040ca65617295a414f3d7b38a" title="Draws the flag counter sprite based on the current count of flagged cells." alt="" coords="863,107,1017,133"/>
+<area shape="rect" id="node3" href="$state_8c.html#a14575ad012aa8dfb26d627e6c1f200f0" title="Handles keyboard input for cell selection and interaction." alt="" coords="347,5,499,32"/>
+<area shape="rect" id="node6" href="$state_8c.html#adb2d47d83be7d90be9b4bb9cb9472bb0" title="Handles mouse input for cell selection and interaction." alt="" coords="355,56,491,83"/>
+<area shape="rect" id="node4" href="$state_8c.html#a85a5a00216c3c664ad37836286e09be6" title="Handles keyboard input and updates the game state accordingly." alt="" coords="176,107,299,133"/>
+<area shape="rect" id="node5" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,183,128,209"/>
+<area shape="rect" id="node7" href="$state_8c.html#aef2e501a29ca47dd1826c6b2c0ebe666" title="Handles mouse input and updates the game state accordingly." alt="" coords="184,157,291,184"/>
+<area shape="rect" id="node9" href="$view_8c.html#a7e6baca1b635c8aadd95c4d821cda8fc" title="Draws the game interface." alt="" coords="716,107,815,133"/>
+<area shape="rect" id="node10" href="$view_8c.html#ac39d6d91d19c72e4ee591d52c4281dc4" title="Draws the current game state." alt="" coords="560,107,655,133"/>
+<area shape="rect" id="node11" href="$state_8c.html#a9ef0fb9a645256112121584c07ac2133" title="Handles the real&#45;time clock (RTC) state." alt="" coords="198,259,277,285"/>
+</map>

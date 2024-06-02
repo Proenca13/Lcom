@@ -1,0 +1,114 @@
+\hypertarget{view_8h_source}{}\doxysection{view.\+h}
+\label{view_8h_source}\index{src/Viewer/view.h@{src/Viewer/view.h}}
+\mbox{\hyperlink{view_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by joao on 24-\/04-\/2024.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SHARED\_VIEW\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SHARED\_VIEW\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <minix/sysutil.h>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{timer_8h}{Controller/Timer/timer.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{i8254_8h}{Controller/Timer/i8254.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{graphic_8h}{Controller/Video/graphic.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{keyboard_8h}{Controller/Keyboard/keyboard.h}}"{}}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mouse_8h}{Controller/Mouse/mouse.h}}"{}}}
+\DoxyCodeLine{14 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{rtc_8h}{Controller/RTC//rtc.h}}"{}}}
+\DoxyCodeLine{15 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{model_8h}{Model/model.h}}"{}}}
+\DoxyCodeLine{16 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{game_8h}{Model/game.h}}"{}}}
+\DoxyCodeLine{17 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{configs_8h}{configs.h}}"{}}}
+\DoxyCodeLine{18 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{state_8h}{State/state.h}}"{}}}
+\DoxyCodeLine{19 \textcolor{preprocessor}{\#include "{}Model/xpm/Start.xpm"{}}}
+\DoxyCodeLine{20 \textcolor{preprocessor}{\#include "{}Model/xpm/Start2.xpm"{}}}
+\DoxyCodeLine{21 \textcolor{preprocessor}{\#include "{}Model/xpm/mouse.xpm"{}}}
+\DoxyCodeLine{22 \textcolor{preprocessor}{\#include "{}Model/xpm/Controls.xpm"{}}}
+\DoxyCodeLine{23 \textcolor{preprocessor}{\#include "{}Model/xpm/Controls2.xpm"{}}}
+\DoxyCodeLine{24 \textcolor{preprocessor}{\#include "{}Model/xpm/Exit.xpm"{}}}
+\DoxyCodeLine{25 \textcolor{preprocessor}{\#include "{}Model/xpm/Exit2.xpm"{}}}
+\DoxyCodeLine{26 \textcolor{preprocessor}{\#include "{}Model/xpm/Title.xpm"{}}}
+\DoxyCodeLine{27 \textcolor{preprocessor}{\#include "{}Model/xpm/dirt.xpm"{}}}
+\DoxyCodeLine{28 \textcolor{preprocessor}{\#include "{}Model/xpm/arrows.xpm"{}}}
+\DoxyCodeLine{29 \textcolor{preprocessor}{\#include "{}Model/xpm/DaySky.xpm"{}}}
+\DoxyCodeLine{30 \textcolor{preprocessor}{\#include "{}Model/xpm/NightSky.xpm"{}}}
+\DoxyCodeLine{31 \textcolor{preprocessor}{\#include "{}Model/xpm/AfternoonSky.xpm"{}}}
+\DoxyCodeLine{32 \textcolor{preprocessor}{\#include "{}Model/xpm/dyog.xpm"{}}}
+\DoxyCodeLine{33 \textcolor{preprocessor}{\#include "{}Model/xpm/dyog2.xpm"{}}}
+\DoxyCodeLine{34 \textcolor{preprocessor}{\#include "{}Model/xpm/Continue.xpm"{}}}
+\DoxyCodeLine{35 \textcolor{preprocessor}{\#include "{}Model/xpm/Continue2.xpm"{}}}
+\DoxyCodeLine{36 \textcolor{preprocessor}{\#include "{}Model/xpm/paused.xpm"{}}}
+\DoxyCodeLine{37 \textcolor{preprocessor}{\#include "{}Model/xpm/controls\_title.xpm"{}}}
+\DoxyCodeLine{38 \textcolor{preprocessor}{\#include "{}Model/xpm/F.xpm"{}}}
+\DoxyCodeLine{39 \textcolor{preprocessor}{\#include "{}Model/xpm/ESC.xpm"{}}}
+\DoxyCodeLine{40 \textcolor{preprocessor}{\#include "{}Model/xpm/RightClick.xpm"{}}}
+\DoxyCodeLine{41 \textcolor{preprocessor}{\#include "{}Model/xpm/LeftClick.xpm"{}}}
+\DoxyCodeLine{42 \textcolor{preprocessor}{\#include "{}Model/xpm/space.xpm"{}}}
+\DoxyCodeLine{43 \textcolor{preprocessor}{\#include "{}Model/xpm/grass.xpm"{}}}
+\DoxyCodeLine{44 \textcolor{preprocessor}{\#include "{}Model/xpm/selectedgrass.xpm"{}}}
+\DoxyCodeLine{45 \textcolor{preprocessor}{\#include "{}Model/xpm/cobblestone.xpm"{}}}
+\DoxyCodeLine{46 \textcolor{preprocessor}{\#include "{}Model/xpm/cobblestone2.xpm"{}}}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#include "{}Model/xpm/tnt.xpm"{}}}
+\DoxyCodeLine{48 \textcolor{preprocessor}{\#include "{}Model/xpm/tile1.xpm"{}}}
+\DoxyCodeLine{49 \textcolor{preprocessor}{\#include "{}Model/xpm/tile1selected.xpm"{}}}
+\DoxyCodeLine{50 \textcolor{preprocessor}{\#include "{}Model/xpm/tile2.xpm"{}}}
+\DoxyCodeLine{51 \textcolor{preprocessor}{\#include "{}Model/xpm/tile2selected.xpm"{}}}
+\DoxyCodeLine{52 \textcolor{preprocessor}{\#include "{}Model/xpm/tile3.xpm"{}}}
+\DoxyCodeLine{53 \textcolor{preprocessor}{\#include "{}Model/xpm/tile3selected.xpm"{}}}
+\DoxyCodeLine{54 \textcolor{preprocessor}{\#include "{}Model/xpm/tile4.xpm"{}}}
+\DoxyCodeLine{55 \textcolor{preprocessor}{\#include "{}Model/xpm/tile4selected.xpm"{}}}
+\DoxyCodeLine{56 \textcolor{preprocessor}{\#include "{}Model/xpm/tile5.xpm"{}}}
+\DoxyCodeLine{57 \textcolor{preprocessor}{\#include "{}Model/xpm/tile5selected.xpm"{}}}
+\DoxyCodeLine{58 \textcolor{preprocessor}{\#include "{}Model/xpm/tile6.xpm"{}}}
+\DoxyCodeLine{59 \textcolor{preprocessor}{\#include "{}Model/xpm/tile6selected.xpm"{}}}
+\DoxyCodeLine{60 \textcolor{preprocessor}{\#include "{}Model/xpm/tile7.xpm"{}}}
+\DoxyCodeLine{61 \textcolor{preprocessor}{\#include "{}Model/xpm/tile7selected.xpm"{}}}
+\DoxyCodeLine{62 \textcolor{preprocessor}{\#include "{}Model/xpm/tile8.xpm"{}}}
+\DoxyCodeLine{63 \textcolor{preprocessor}{\#include "{}Model/xpm/tile8selected.xpm"{}}}
+\DoxyCodeLine{64 \textcolor{preprocessor}{\#include "{}Model/xpm/flag.xpm"{}}}
+\DoxyCodeLine{65 \textcolor{preprocessor}{\#include "{}Model/xpm/flagselected.xpm"{}}}
+\DoxyCodeLine{66 \textcolor{preprocessor}{\#include "{}Model/xpm/GameOver.xpm"{}}}
+\DoxyCodeLine{67 \textcolor{preprocessor}{\#include "{}Model/xpm/PlayAgain.xpm"{}}}
+\DoxyCodeLine{68 \textcolor{preprocessor}{\#include "{}Model/xpm/PlayAgain2.xpm"{}}}
+\DoxyCodeLine{69 \textcolor{preprocessor}{\#include "{}Model/xpm/Restart.xpm"{}}}
+\DoxyCodeLine{70 \textcolor{preprocessor}{\#include "{}Model/xpm/Restart2.xpm"{}}}
+\DoxyCodeLine{71 \textcolor{preprocessor}{\#include "{}Model/xpm/YouWon.xpm"{}}}
+\DoxyCodeLine{72 \textcolor{preprocessor}{\#include "{}Model/xpm/kingcharles.xpm"{}}}
+\DoxyCodeLine{73 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter0.xpm"{}}}
+\DoxyCodeLine{74 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter1.xpm"{}}}
+\DoxyCodeLine{75 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter2.xpm"{}}}
+\DoxyCodeLine{76 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter3.xpm"{}}}
+\DoxyCodeLine{77 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter4.xpm"{}}}
+\DoxyCodeLine{78 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter5.xpm"{}}}
+\DoxyCodeLine{79 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter6.xpm"{}}}
+\DoxyCodeLine{80 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter7.xpm"{}}}
+\DoxyCodeLine{81 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter8.xpm"{}}}
+\DoxyCodeLine{82 \textcolor{preprocessor}{\#include "{}Model/xpm/Counter9.xpm"{}}}
+\DoxyCodeLine{83 \textcolor{preprocessor}{\#include "{}Model/xpm/FlagCounter.xpm"{}}}
+\DoxyCodeLine{84 }
+\DoxyCodeLine{91 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_ac39d6d91d19c72e4ee591d52c4281dc4}{draw\_state}}();}
+\DoxyCodeLine{92 }
+\DoxyCodeLine{99 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_a83361e027b6f0dd917305f1f82dedda3}{draw\_main\_menu}}();}
+\DoxyCodeLine{100 }
+\DoxyCodeLine{108 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_a0a9f56467341cbe24bd981d4b9960fdd}{draw\_game\_menu}}();}
+\DoxyCodeLine{109 }
+\DoxyCodeLine{116 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_a42f4903ab89aff9e3ee0206c52cf710a}{draw\_mouse}}();}
+\DoxyCodeLine{117 }
+\DoxyCodeLine{124 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_a7e6baca1b635c8aadd95c4d821cda8fc}{draw\_game}}();}
+\DoxyCodeLine{125 }
+\DoxyCodeLine{132 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_ab893d4d9bfe64e67ae91809826d943b3}{draw\_controls\_menu}}();}
+\DoxyCodeLine{133 }
+\DoxyCodeLine{140 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_a3ff01944c06d2fdd90b25d38513516ac}{draw\_game\_over\_menu}}();}
+\DoxyCodeLine{141 }
+\DoxyCodeLine{148 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_a947be19a1ddc3c2bdcddce8fe4c1b7de}{draw\_win\_menu}}();}
+\DoxyCodeLine{149 }
+\DoxyCodeLine{156 \mbox{\hyperlink{structSprite}{Sprite}} *\mbox{\hyperlink{view_8h_ae7fa611cf3ac30a98397d1cd5dbfd2d5}{check\_time\_sprite}}();}
+\DoxyCodeLine{157 }
+\DoxyCodeLine{165 \mbox{\hyperlink{structSprite}{Sprite}} *\mbox{\hyperlink{view_8h_ac41b34b1dc3c89e8d393c931baa6f4be}{check\_time\_sprite2}}(uint8\_t timer2);}
+\DoxyCodeLine{166 }
+\DoxyCodeLine{173 \textcolor{keywordtype}{void} \mbox{\hyperlink{view_8h_a2dc1c1f040ca65617295a414f3d7b38a}{draw\_counter\_sprite}}();}
+\DoxyCodeLine{174 }
+\DoxyCodeLine{184 \textcolor{keywordtype}{int} \mbox{\hyperlink{view_8h_a81f7bc4c06ccd62eb7f3c414764d1ed9}{draw\_sprite}}(\mbox{\hyperlink{structSprite}{Sprite}} *sprite, \textcolor{keywordtype}{int} x, \textcolor{keywordtype}{int} y);}
+\DoxyCodeLine{185 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SHARED\_VIEW\_H}}
+
+\end{DoxyCode}

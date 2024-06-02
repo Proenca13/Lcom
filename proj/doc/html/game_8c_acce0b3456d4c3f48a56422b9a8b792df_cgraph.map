@@ -1,0 +1,4 @@
+<map id="create_game" name="create_game">
+<area shape="rect" id="node1" title="Creates the game grid." alt="" coords="5,5,112,32"/>
+<area shape="rect" id="node2" href="$game_8c.html#a53c865bfc099cf7a4b4ecc8d56caac92" title="Creates a new block." alt="" coords="160,5,265,32"/>
+</map>

@@ -1,0 +1,51 @@
+\hypertarget{state_8h_source}{}\doxysection{state.\+h}
+\label{state_8h_source}\index{src/State/state.h@{src/State/state.h}}
+\mbox{\hyperlink{state_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <minix/sysutil.h>}}
+\DoxyCodeLine{2 \textcolor{preprocessor}{\#include <lcom/lcf.h>}}
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{timer_8h}{Controller/Timer/timer.h}}"{}}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{i8254_8h}{Controller/Timer/i8254.h}}"{}}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{graphic_8h}{Controller/Video/graphic.h}}"{}}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{keyboard_8h}{Controller/Keyboard/keyboard.h}}"{}}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{mouse_8h}{Controller/Mouse/mouse.h}}"{}}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{rtc_8h}{Controller/RTC//rtc.h}}"{}}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{configs_8h}{configs.h}}"{}}}
+\DoxyCodeLine{10 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{view_8h}{Viewer/view.h}}"{}}}
+\DoxyCodeLine{11 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{game_8h}{Model/game.h}}"{}}}
+\DoxyCodeLine{12 \textcolor{preprocessor}{\#ifndef SHARED\_STATE\_H}}
+\DoxyCodeLine{13 \textcolor{preprocessor}{\#define SHARED\_STATE\_H}}
+\DoxyCodeLine{14 }
+\DoxyCodeLine{21 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{22     \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0a1061be6c3fb88d32829cba6f6b2be304}{RUNNING}},  }
+\DoxyCodeLine{23     \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0adc6f24fd6915a3f2786a1b7045406924}{END}}       }
+\DoxyCodeLine{24 \} \mbox{\hyperlink{state_8h_ae9187e94671f803af588ed0d8f97bfa0}{ProgramState}};}
+\DoxyCodeLine{25 }
+\DoxyCodeLine{32 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{33     \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a0352906d1ea1dfcd663c918f3a86755b}{PLAY}},  }
+\DoxyCodeLine{34     \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285a679ee5320d66c8322e310daeb2ee99b8}{STOP}}   }
+\DoxyCodeLine{35 \} \mbox{\hyperlink{state_8h_a7899b65f1ea0f655e4bbf8d2a5714285}{GameState}};}
+\DoxyCodeLine{36 }
+\DoxyCodeLine{43 \textcolor{keyword}{typedef} \textcolor{keyword}{enum} \{}
+\DoxyCodeLine{44     \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a2cb3ae884dac0ba2d241c00a4880f592}{STARTMENU}},       }
+\DoxyCodeLine{45     \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a968f8ed22d17e87ed60a50a0dcc93d18}{CONTROLLERMENU}},  }
+\DoxyCodeLine{46     \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a42495cc178524da331d4681864c72b72}{GAMEOVER}},        }
+\DoxyCodeLine{47     \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a5730c3131840bbc70adc6c5e8b6a0c18}{WINMENU}},         }
+\DoxyCodeLine{48     \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2a7e5f67218fe96c5a5c618ccc78c693f4}{GAMEMENU}}         }
+\DoxyCodeLine{49 \} \mbox{\hyperlink{state_8h_aa3041ae4242c0dd57a126d17505443b2}{MenuState}};}
+\DoxyCodeLine{50 }
+\DoxyCodeLine{55 \textcolor{keywordtype}{void} \mbox{\hyperlink{state_8h_ade23307b26c4fb98961332715bc11514}{timer\_state}}();}
+\DoxyCodeLine{56 }
+\DoxyCodeLine{61 \textcolor{keywordtype}{void} \mbox{\hyperlink{state_8h_a85a5a00216c3c664ad37836286e09be6}{keyboard\_state}}();}
+\DoxyCodeLine{62 }
+\DoxyCodeLine{67 \textcolor{keywordtype}{void} \mbox{\hyperlink{state_8h_aef2e501a29ca47dd1826c6b2c0ebe666}{mouse\_state}}();}
+\DoxyCodeLine{68 }
+\DoxyCodeLine{76 \textcolor{keywordtype}{void} \mbox{\hyperlink{state_8h_a9ef0fb9a645256112121584c07ac2133}{rtc\_state}}();}
+\DoxyCodeLine{77 }
+\DoxyCodeLine{85 \textcolor{keywordtype}{void} \mbox{\hyperlink{state_8h_a14575ad012aa8dfb26d627e6c1f200f0}{cell\_state\_keyboard}}();}
+\DoxyCodeLine{86 }
+\DoxyCodeLine{94 \textcolor{keywordtype}{void} \mbox{\hyperlink{state_8h_adb2d47d83be7d90be9b4bb9cb9472bb0}{cell\_state\_mouse}}();}
+\DoxyCodeLine{95 }
+\DoxyCodeLine{96 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SHARED\_STATE\_H}}
+
+\end{DoxyCode}

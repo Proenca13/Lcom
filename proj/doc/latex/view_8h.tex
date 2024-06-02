@@ -1,0 +1,276 @@
+\hypertarget{view_8h}{}\doxysection{src/\+Viewer/view.h File Reference}
+\label{view_8h}\index{src/Viewer/view.h@{src/Viewer/view.h}}
+{\ttfamily \#include $<$minix/sysutil.\+h$>$}\newline
+{\ttfamily \#include $<$lcom/lcf.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Timer/timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Timer/i8254.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Video/graphic.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Keyboard/keyboard.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+Mouse/mouse.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Controller/\+RTC//rtc.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/model.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/game.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}configs.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}State/state.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Start.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Start2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/mouse.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Controls.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Controls2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Exit.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Exit2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Title.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/dirt.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/arrows.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Day\+Sky.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Night\+Sky.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Afternoon\+Sky.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/dyog.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/dyog2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Continue.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Continue2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/paused.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/controls\+\_\+title.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+F.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+ESC.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Right\+Click.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Left\+Click.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/space.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/grass.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/selectedgrass.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/cobblestone.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/cobblestone2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tnt.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile1.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile1selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile2selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile3.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile3selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile4.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile4selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile5.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile5selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile6.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile6selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile7.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile7selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile8.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/tile8selected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/flag.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/flagselected.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Game\+Over.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Play\+Again.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Play\+Again2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Restart.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Restart2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+You\+Won.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/kingcharles.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter0.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter1.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter2.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter3.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter4.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter5.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter6.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter7.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter8.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Counter9.\+xpm\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Model/xpm/\+Flag\+Counter.\+xpm\char`\"{}}\newline
+This graph shows which files directly or indirectly include this file\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{view_8h_ac39d6d91d19c72e4ee591d52c4281dc4}{draw\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Draws the current game state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_a83361e027b6f0dd917305f1f82dedda3}{draw\+\_\+main\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the main menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_a0a9f56467341cbe24bd981d4b9960fdd}{draw\+\_\+game\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the game pause menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_a42f4903ab89aff9e3ee0206c52cf710a}{draw\+\_\+mouse}} ()
+\begin{DoxyCompactList}\small\item\em Draws the mouse cursor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_a7e6baca1b635c8aadd95c4d821cda8fc}{draw\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em Draws the game interface. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_ab893d4d9bfe64e67ae91809826d943b3}{draw\+\_\+controls\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the controls menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_a3ff01944c06d2fdd90b25d38513516ac}{draw\+\_\+game\+\_\+over\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the game over menu. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_a947be19a1ddc3c2bdcddce8fe4c1b7de}{draw\+\_\+win\+\_\+menu}} ()
+\begin{DoxyCompactList}\small\item\em Draws the win menu. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{view_8h_ae7fa611cf3ac30a98397d1cd5dbfd2d5}{check\+\_\+time\+\_\+sprite}} ()
+\begin{DoxyCompactList}\small\item\em Determines the appropriate sky sprite based on the current time. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{view_8h_ac41b34b1dc3c89e8d393c931baa6f4be}{check\+\_\+time\+\_\+sprite2}} (uint8\+\_\+t timer2)
+\begin{DoxyCompactList}\small\item\em Determines the appropriate counter sprite based on the provided digit. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{view_8h_a2dc1c1f040ca65617295a414f3d7b38a}{draw\+\_\+counter\+\_\+sprite}} ()
+\begin{DoxyCompactList}\small\item\em Draws the flag counter sprite based on the current count of flagged cells. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{view_8h_a81f7bc4c06ccd62eb7f3c414764d1ed9}{draw\+\_\+sprite}} (\mbox{\hyperlink{structSprite}{Sprite}} $\ast$sprite, int x, int y)
+\begin{DoxyCompactList}\small\item\em Draws a sprite at the specified coordinates. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{view_8h_ae7fa611cf3ac30a98397d1cd5dbfd2d5}\label{view_8h_ae7fa611cf3ac30a98397d1cd5dbfd2d5}} 
+\index{view.h@{view.h}!check\_time\_sprite@{check\_time\_sprite}}
+\index{check\_time\_sprite@{check\_time\_sprite}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{check\_time\_sprite()}{check\_time\_sprite()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}} $\ast$ check\+\_\+time\+\_\+sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Determines the appropriate sky sprite based on the current time. 
+
+\begin{DoxyReturn}{Returns}
+Returns a pointer to the appropriate sky sprite based on the time of day. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{view_8h_ac41b34b1dc3c89e8d393c931baa6f4be}\label{view_8h_ac41b34b1dc3c89e8d393c931baa6f4be}} 
+\index{view.h@{view.h}!check\_time\_sprite2@{check\_time\_sprite2}}
+\index{check\_time\_sprite2@{check\_time\_sprite2}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{check\_time\_sprite2()}{check\_time\_sprite2()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}} $\ast$ check\+\_\+time\+\_\+sprite2 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{timer2 }\end{DoxyParamCaption})}
+
+
+
+Determines the appropriate counter sprite based on the provided digit. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em timer2} & The digit for which to determine the appropriate counter sprite. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a pointer to the appropriate counter sprite. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{view_8h_ab893d4d9bfe64e67ae91809826d943b3}\label{view_8h_ab893d4d9bfe64e67ae91809826d943b3}} 
+\index{view.h@{view.h}!draw\_controls\_menu@{draw\_controls\_menu}}
+\index{draw\_controls\_menu@{draw\_controls\_menu}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_controls\_menu()}{draw\_controls\_menu()}}
+{\footnotesize\ttfamily void draw\+\_\+controls\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the controls menu. 
+
+Draws the controls menu interface, providing information about game controls and an option to exit. Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{view_8h_a2dc1c1f040ca65617295a414f3d7b38a}\label{view_8h_a2dc1c1f040ca65617295a414f3d7b38a}} 
+\index{view.h@{view.h}!draw\_counter\_sprite@{draw\_counter\_sprite}}
+\index{draw\_counter\_sprite@{draw\_counter\_sprite}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_counter\_sprite()}{draw\_counter\_sprite()}}
+{\footnotesize\ttfamily void draw\+\_\+counter\+\_\+sprite (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the flag counter sprite based on the current count of flagged cells. 
+
+Draws the appropriate counter sprite to represent the number of flagged cells. Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{view_8h_a7e6baca1b635c8aadd95c4d821cda8fc}\label{view_8h_a7e6baca1b635c8aadd95c4d821cda8fc}} 
+\index{view.h@{view.h}!draw\_game@{draw\_game}}
+\index{draw\_game@{draw\_game}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_game()}{draw\_game()}}
+{\footnotesize\ttfamily void draw\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the game interface. 
+
+Draws the game interface including the game timer, game grid, and flag counter. Here is the call graph for this function\+:
+% FIG 4
+\mbox{\Hypertarget{view_8h_a0a9f56467341cbe24bd981d4b9960fdd}\label{view_8h_a0a9f56467341cbe24bd981d4b9960fdd}} 
+\index{view.h@{view.h}!draw\_game\_menu@{draw\_game\_menu}}
+\index{draw\_game\_menu@{draw\_game\_menu}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_menu()}{draw\_game\_menu()}}
+{\footnotesize\ttfamily void draw\+\_\+game\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the game pause menu. 
+
+Draws the game menu interface which appears during gameplay pause. Provides options to continue playing, restart the game, or exit to the main menu. Here is the call graph for this function\+:
+% FIG 5
+\mbox{\Hypertarget{view_8h_a3ff01944c06d2fdd90b25d38513516ac}\label{view_8h_a3ff01944c06d2fdd90b25d38513516ac}} 
+\index{view.h@{view.h}!draw\_game\_over\_menu@{draw\_game\_over\_menu}}
+\index{draw\_game\_over\_menu@{draw\_game\_over\_menu}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_game\_over\_menu()}{draw\_game\_over\_menu()}}
+{\footnotesize\ttfamily void draw\+\_\+game\+\_\+over\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the game over menu. 
+
+Draws the game over menu interface, displaying the game over message and options to play again or exit. Here is the call graph for this function\+:
+% FIG 6
+\mbox{\Hypertarget{view_8h_a83361e027b6f0dd917305f1f82dedda3}\label{view_8h_a83361e027b6f0dd917305f1f82dedda3}} 
+\index{view.h@{view.h}!draw\_main\_menu@{draw\_main\_menu}}
+\index{draw\_main\_menu@{draw\_main\_menu}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_main\_menu()}{draw\_main\_menu()}}
+{\footnotesize\ttfamily void draw\+\_\+main\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the main menu. 
+
+Draws the main menu interface with buttons for starting the game, viewing controls, and exiting. Here is the call graph for this function\+:
+% FIG 7
+\mbox{\Hypertarget{view_8h_a42f4903ab89aff9e3ee0206c52cf710a}\label{view_8h_a42f4903ab89aff9e3ee0206c52cf710a}} 
+\index{view.h@{view.h}!draw\_mouse@{draw\_mouse}}
+\index{draw\_mouse@{draw\_mouse}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_mouse()}{draw\_mouse()}}
+{\footnotesize\ttfamily void draw\+\_\+mouse (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the mouse cursor. 
+
+Draws the mouse cursor sprite at the current mouse coordinates. Here is the call graph for this function\+:
+% FIG 8
+\mbox{\Hypertarget{view_8h_a81f7bc4c06ccd62eb7f3c414764d1ed9}\label{view_8h_a81f7bc4c06ccd62eb7f3c414764d1ed9}} 
+\index{view.h@{view.h}!draw\_sprite@{draw\_sprite}}
+\index{draw\_sprite@{draw\_sprite}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_sprite()}{draw\_sprite()}}
+{\footnotesize\ttfamily int draw\+\_\+sprite (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSprite}{Sprite}} $\ast$}]{sprite,  }\item[{int}]{x,  }\item[{int}]{y }\end{DoxyParamCaption})}
+
+
+
+Draws a sprite at the specified coordinates. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sprite} & Pointer to the sprite to be drawn. \\
+\hline
+{\em x} & The x-\/coordinate of the top-\/left corner of the sprite. \\
+\hline
+{\em y} & The y-\/coordinate of the top-\/left corner of the sprite. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns 0 on success, non-\/zero otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 9
+\mbox{\Hypertarget{view_8h_ac39d6d91d19c72e4ee591d52c4281dc4}\label{view_8h_ac39d6d91d19c72e4ee591d52c4281dc4}} 
+\index{view.h@{view.h}!draw\_state@{draw\_state}}
+\index{draw\_state@{draw\_state}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_state()}{draw\_state()}}
+{\footnotesize\ttfamily void draw\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the current game state. 
+
+Calls specific drawing functions based on the current game and menu state. Here is the call graph for this function\+:
+% FIG 10
+\mbox{\Hypertarget{view_8h_a947be19a1ddc3c2bdcddce8fe4c1b7de}\label{view_8h_a947be19a1ddc3c2bdcddce8fe4c1b7de}} 
+\index{view.h@{view.h}!draw\_win\_menu@{draw\_win\_menu}}
+\index{draw\_win\_menu@{draw\_win\_menu}!view.h@{view.h}}
+\doxysubsubsection{\texorpdfstring{draw\_win\_menu()}{draw\_win\_menu()}}
+{\footnotesize\ttfamily void draw\+\_\+win\+\_\+menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Draws the win menu. 
+
+Draws the win menu interface, displaying the victory message, game time, and options to play again or exit. Here is the call graph for this function\+:
+% FIG 11

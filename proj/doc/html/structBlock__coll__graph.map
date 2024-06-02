@@ -1,0 +1,4 @@
+<map id="Block" name="Block">
+<area shape="rect" id="node1" title="Represents a block in a Minesweeper game." alt="" coords="6,109,65,136"/>
+<area shape="rect" id="node2" href="$structSprite.html" title="Struct representing a graphical sprite." alt="" coords="5,5,65,32"/>
+</map>

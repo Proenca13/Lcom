@@ -1,0 +1,10 @@
+<map id="draw_game" name="draw_game">
+<area shape="rect" id="node1" title="Draws the game interface." alt="" coords="689,132,788,159"/>
+<area shape="rect" id="node2" href="$view_8c.html#ac39d6d91d19c72e4ee591d52c4281dc4" title="Draws the current game state." alt="" coords="547,132,641,159"/>
+<area shape="rect" id="node3" href="$state_8c.html#a14575ad012aa8dfb26d627e6c1f200f0" title="Handles keyboard input for cell selection and interaction." alt="" coords="347,5,499,32"/>
+<area shape="rect" id="node4" href="$state_8c.html#a85a5a00216c3c664ad37836286e09be6" title="Handles keyboard input and updates the game state accordingly." alt="" coords="176,56,299,83"/>
+<area shape="rect" id="node5" href="$main_8c.html#a2a16f651eccbd248e1ad3b3b924b143b" title=" " alt="" coords="5,132,128,159"/>
+<area shape="rect" id="node6" href="$state_8c.html#adb2d47d83be7d90be9b4bb9cb9472bb0" title="Handles mouse input for cell selection and interaction." alt="" coords="355,157,491,184"/>
+<area shape="rect" id="node7" href="$state_8c.html#aef2e501a29ca47dd1826c6b2c0ebe666" title="Handles mouse input and updates the game state accordingly." alt="" coords="184,157,291,184"/>
+<area shape="rect" id="node8" href="$state_8c.html#a9ef0fb9a645256112121584c07ac2133" title="Handles the real&#45;time clock (RTC) state." alt="" coords="198,233,277,260"/>
+</map>

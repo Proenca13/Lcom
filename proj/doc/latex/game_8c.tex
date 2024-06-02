@@ -1,0 +1,423 @@
+\hypertarget{game_8c}{}\doxysection{src/\+Model/game.c File Reference}
+\label{game_8c}\index{src/Model/game.c@{src/Model/game.c}}
+{\ttfamily \#include \char`\"{}game.\+h\char`\"{}}\newline
+Include dependency graph for game.\+c\+:
+% FIG 0
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structBlock}{Block}} $\ast$ \mbox{\hyperlink{game_8c_a53c865bfc099cf7a4b4ecc8d56caac92}{create\+\_\+block}} (\mbox{\hyperlink{structSprite}{Sprite}} $\ast$block\+\_\+sprite, \mbox{\hyperlink{structSprite}{Sprite}} $\ast$selected\+\_\+block\+\_\+sprite, \mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3}{Block\+Type}} type, int16\+\_\+t row, int16\+\_\+t col, bool is\+\_\+selected, \mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}{Block\+State}} state)
+\begin{DoxyCompactList}\small\item\em Creates a new block. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_a6d7eac2de334af037d6647e6d5659a0f}{place\+Bombs}} ()
+\begin{DoxyCompactList}\small\item\em Places bombs randomly on the grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_a4899200444d4356d270ad9617d16f688}{count\+\_\+bombs\+\_\+around}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Counts the number of bombs around a given cell. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_acce0b3456d4c3f48a56422b9a8b792df}{create\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em Creates the game grid. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_a64fb1debc9060c15fe118dc12eccb341}{destroy\+\_\+game}} ()
+\begin{DoxyCompactList}\small\item\em Destroys the game grid. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_a52282f0ec91085764dba1ef97329764a}{check\+\_\+win}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the player has won the game. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_aabe44157a6dff1c2864483ff64aba52d}{flag\+\_\+counter}} (uint8\+\_\+t $\ast$flag\+\_\+count)
+\begin{DoxyCompactList}\small\item\em Counts the number of flagged cells. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_aa136bb1d302d9c690630b49b14ac549e}{check\+\_\+first\+\_\+touch}} ()
+\begin{DoxyCompactList}\small\item\em Checks if the first cell has been touched. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{game_8c_af096eb7a715a07b0a3327ee43eb155bb}{check\+\_\+can\+\_\+flag}} ()
+\begin{DoxyCompactList}\small\item\em Checks if more flags can be placed. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{game_8c_a631968d6657858d33df3626d3a82d479}{reveal\+\_\+near\+\_\+zeros}} (int16\+\_\+t x, int16\+\_\+t y)
+\begin{DoxyCompactList}\small\item\em Reveals cells near a cell with zero bombs around it. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_ac1fd4f64955e127c8b15c4ab9ce4cff8}{grass\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a2aebf8500de3ca59ebf5350081a12e66}{tnt\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a4602efdca7d515e345b40c00248f2350}{selected\+\_\+grass\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_ae644a804d02a4062e4db62c6ddb754e2}{cobblestone\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a9e5d51f62a560a45bc7d99b54ac09308}{selected\+\_\+cobblestone\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a5c1bbbc3b99be9b45df20efa4873c524}{tile1\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a2e9310d875d99b3f712c1e6e6946229f}{selected\+\_\+tile1\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a7252e61c114d1d53a92823b818f821aa}{tile2\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a85e0c5953c73d33686909b90d092bfdb}{selected\+\_\+tile2\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a89a2edc242c32e58bc01f73b2eae06dd}{tile3\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a65c24ab102f8f2d17f3c242bc72a76f0}{selected\+\_\+tile3\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_aef9baeb23513d2a27d76a0ea7221e4c8}{tile4\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a0291b59524e4142c07be190640aba5cd}{selected\+\_\+tile4\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a38c33e59b35b9a90b804e32ae760fa8e}{tile5\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a449cad2f7031508e972ca1cfbfcc5339}{selected\+\_\+tile5\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_ade3113fe5bdb0602f31d141fb50fd8d1}{tile6\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a18609de42dc942dd6ef07fcf3d94912b}{selected\+\_\+tile6\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a8b6dc7049ef90664756b5da47d2d22dc}{tile7\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a1ac4e5b9ae7ffc97f72a64bd802ca514}{selected\+\_\+tile7\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_afd606be973846d15ab23f4866d374d57}{tile8\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a4c24176954bd72a87c1d147f52bf2b19}{selected\+\_\+tile8\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a6450fdc4d4681b6d84b3c282318bf78b}{flag\+\_\+sprite}}
+\item 
+\mbox{\hyperlink{structSprite}{Sprite}} $\ast$ \mbox{\hyperlink{game_8c_a444e9aba37867a857bdabdf77068a3ad}{selected\+\_\+flag\+\_\+sprite}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_adaa1a9f8ec83339cdb661714f5bd2c97}{rows}} = 8
+\item 
+uint8\+\_\+t \mbox{\hyperlink{game_8c_ad20729054c5a93d34b65004b77d83262}{cols}} = 8
+\item 
+\mbox{\hyperlink{structGrid__entry}{Grid\+\_\+entry}} \mbox{\hyperlink{game_8c_a5915c9fe94f562373b32c32ef8a24233}{grid\+\_\+entry}} = \{0, 0\}
+\item 
+\mbox{\hyperlink{structBlock}{Block}} $\ast$$\ast$$\ast$ \mbox{\hyperlink{game_8c_a4f0982c8660e6b5f0f91d13c20616476}{grid}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{game_8c_af096eb7a715a07b0a3327ee43eb155bb}\label{game_8c_af096eb7a715a07b0a3327ee43eb155bb}} 
+\index{game.c@{game.c}!check\_can\_flag@{check\_can\_flag}}
+\index{check\_can\_flag@{check\_can\_flag}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{check\_can\_flag()}{check\_can\_flag()}}
+{\footnotesize\ttfamily int check\+\_\+can\+\_\+flag (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if more flags can be placed. 
+
+This function counts the current number of flagged cells and checks if it is less than the allowed maximum (10 flags). If the number of flags is less than 10, more flags can be placed.
+
+\begin{DoxyReturn}{Returns}
+int 1 if more flags can be placed, 0 otherwise. 
+\end{DoxyReturn}
+Here is the call graph for this function\+:
+% FIG 1
+\mbox{\Hypertarget{game_8c_aa136bb1d302d9c690630b49b14ac549e}\label{game_8c_aa136bb1d302d9c690630b49b14ac549e}} 
+\index{game.c@{game.c}!check\_first\_touch@{check\_first\_touch}}
+\index{check\_first\_touch@{check\_first\_touch}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{check\_first\_touch()}{check\_first\_touch()}}
+{\footnotesize\ttfamily int check\+\_\+first\+\_\+touch (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the first cell has been touched. 
+
+This function iterates through the grid to check if any cell has been revealed. If no cell is revealed, it indicates the first touch has not been made.
+
+\begin{DoxyReturn}{Returns}
+int 1 if no cell has been revealed, 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_a52282f0ec91085764dba1ef97329764a}\label{game_8c_a52282f0ec91085764dba1ef97329764a}} 
+\index{game.c@{game.c}!check\_win@{check\_win}}
+\index{check\_win@{check\_win}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{check\_win()}{check\_win()}}
+{\footnotesize\ttfamily int check\+\_\+win (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks if the player has won the game. 
+
+Returns 1 if the player has revealed all non-\/bomb cells, otherwise 0.
+
+\begin{DoxyReturn}{Returns}
+int 1 if the player has won, 0 otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_a4899200444d4356d270ad9617d16f688}\label{game_8c_a4899200444d4356d270ad9617d16f688}} 
+\index{game.c@{game.c}!count\_bombs\_around@{count\_bombs\_around}}
+\index{count\_bombs\_around@{count\_bombs\_around}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{count\_bombs\_around()}{count\_bombs\_around()}}
+{\footnotesize\ttfamily void count\+\_\+bombs\+\_\+around (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Counts the number of bombs around a given cell. 
+
+Updates the block type and sprite of the cell based on the number of surrounding bombs.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The row position of the cell. \\
+\hline
+{\em y} & The column position of the cell. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8c_a53c865bfc099cf7a4b4ecc8d56caac92}\label{game_8c_a53c865bfc099cf7a4b4ecc8d56caac92}} 
+\index{game.c@{game.c}!create\_block@{create\_block}}
+\index{create\_block@{create\_block}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{create\_block()}{create\_block()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBlock}{Block}} $\ast$ create\+\_\+block (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSprite}{Sprite}} $\ast$}]{block\+\_\+sprite,  }\item[{\mbox{\hyperlink{structSprite}{Sprite}} $\ast$}]{selected\+\_\+block\+\_\+sprite,  }\item[{\mbox{\hyperlink{game_8h_a54420623f26ab6bb61042b41cccf37a3}{Block\+Type}}}]{type,  }\item[{int16\+\_\+t}]{row,  }\item[{int16\+\_\+t}]{col,  }\item[{bool}]{is\+\_\+selected,  }\item[{\mbox{\hyperlink{game_8h_ad6cf116f1b761cc66851b7c34eb68d88}{Block\+State}}}]{state }\end{DoxyParamCaption})}
+
+
+
+Creates a new block. 
+
+Allocates memory for a new block and initializes its properties.
+
+
+\begin{DoxyParams}{Parameters}
+{\em block\+\_\+sprite} & Pointer to the sprite representing the block. \\
+\hline
+{\em selected\+\_\+block\+\_\+sprite} & Pointer to the sprite representing the selected block. \\
+\hline
+{\em type} & The type of the block. \\
+\hline
+{\em row} & The row position of the block in the grid. \\
+\hline
+{\em col} & The column position of the block in the grid. \\
+\hline
+{\em is\+\_\+selected} & Indicates if the block is selected. \\
+\hline
+{\em state} & The state of the block (revealed, not revealed, flagged). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Pointer to the created block. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{game_8c_acce0b3456d4c3f48a56422b9a8b792df}\label{game_8c_acce0b3456d4c3f48a56422b9a8b792df}} 
+\index{game.c@{game.c}!create\_game@{create\_game}}
+\index{create\_game@{create\_game}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{create\_game()}{create\_game()}}
+{\footnotesize\ttfamily void create\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creates the game grid. 
+
+Allocates memory for the grid and initializes each cell with default values. Here is the call graph for this function\+:
+% FIG 2
+\mbox{\Hypertarget{game_8c_a64fb1debc9060c15fe118dc12eccb341}\label{game_8c_a64fb1debc9060c15fe118dc12eccb341}} 
+\index{game.c@{game.c}!destroy\_game@{destroy\_game}}
+\index{destroy\_game@{destroy\_game}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{destroy\_game()}{destroy\_game()}}
+{\footnotesize\ttfamily void destroy\+\_\+game (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroys the game grid. 
+
+Frees the allocated memory for the grid and its cells. \mbox{\Hypertarget{game_8c_aabe44157a6dff1c2864483ff64aba52d}\label{game_8c_aabe44157a6dff1c2864483ff64aba52d}} 
+\index{game.c@{game.c}!flag\_counter@{flag\_counter}}
+\index{flag\_counter@{flag\_counter}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{flag\_counter()}{flag\_counter()}}
+{\footnotesize\ttfamily void flag\+\_\+counter (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{flag\+\_\+count }\end{DoxyParamCaption})}
+
+
+
+Counts the number of flagged cells. 
+
+Updates the flag count based on the number of flagged cells in the grid.
+
+
+\begin{DoxyParams}{Parameters}
+{\em flag\+\_\+count} & Pointer to the flag count variable to update. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{game_8c_a6d7eac2de334af037d6647e6d5659a0f}\label{game_8c_a6d7eac2de334af037d6647e6d5659a0f}} 
+\index{game.c@{game.c}!placeBombs@{placeBombs}}
+\index{placeBombs@{placeBombs}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{placeBombs()}{placeBombs()}}
+{\footnotesize\ttfamily void place\+Bombs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Places bombs randomly on the grid. 
+
+Places a specified number of bombs on the grid at random positions ensuring that bombs are not placed at the initial entry point. Here is the call graph for this function\+:
+% FIG 3
+\mbox{\Hypertarget{game_8c_a631968d6657858d33df3626d3a82d479}\label{game_8c_a631968d6657858d33df3626d3a82d479}} 
+\index{game.c@{game.c}!reveal\_near\_zeros@{reveal\_near\_zeros}}
+\index{reveal\_near\_zeros@{reveal\_near\_zeros}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{reveal\_near\_zeros()}{reveal\_near\_zeros()}}
+{\footnotesize\ttfamily void reveal\+\_\+near\+\_\+zeros (\begin{DoxyParamCaption}\item[{int16\+\_\+t}]{x,  }\item[{int16\+\_\+t}]{y }\end{DoxyParamCaption})}
+
+
+
+Reveals cells near a cell with zero bombs around it. 
+
+This function reveals all cells in the vicinity of a given cell that has zero bombs around it. If any of the neighboring cells are also zero, it recursively reveals their neighbors.
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The row position of the cell. \\
+\hline
+{\em y} & The column position of the cell. \\
+\hline
+\end{DoxyParams}
+Here is the call graph for this function\+:
+% FIG 4
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{game_8c_ae644a804d02a4062e4db62c6ddb754e2}\label{game_8c_ae644a804d02a4062e4db62c6ddb754e2}} 
+\index{game.c@{game.c}!cobblestone\_sprite@{cobblestone\_sprite}}
+\index{cobblestone\_sprite@{cobblestone\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{cobblestone\_sprite}{cobblestone\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ cobblestone\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_ad20729054c5a93d34b65004b77d83262}\label{game_8c_ad20729054c5a93d34b65004b77d83262}} 
+\index{game.c@{game.c}!cols@{cols}}
+\index{cols@{cols}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{cols}{cols}}
+{\footnotesize\ttfamily uint8\+\_\+t cols = 8}
+
+\mbox{\Hypertarget{game_8c_a6450fdc4d4681b6d84b3c282318bf78b}\label{game_8c_a6450fdc4d4681b6d84b3c282318bf78b}} 
+\index{game.c@{game.c}!flag\_sprite@{flag\_sprite}}
+\index{flag\_sprite@{flag\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{flag\_sprite}{flag\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ flag\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_ac1fd4f64955e127c8b15c4ab9ce4cff8}\label{game_8c_ac1fd4f64955e127c8b15c4ab9ce4cff8}} 
+\index{game.c@{game.c}!grass\_sprite@{grass\_sprite}}
+\index{grass\_sprite@{grass\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{grass\_sprite}{grass\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ grass\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a4f0982c8660e6b5f0f91d13c20616476}\label{game_8c_a4f0982c8660e6b5f0f91d13c20616476}} 
+\index{game.c@{game.c}!grid@{grid}}
+\index{grid@{grid}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{grid}{grid}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structBlock}{Block}}$\ast$ $\ast$$\ast$ grid}
+
+\mbox{\Hypertarget{game_8c_a5915c9fe94f562373b32c32ef8a24233}\label{game_8c_a5915c9fe94f562373b32c32ef8a24233}} 
+\index{game.c@{game.c}!grid\_entry@{grid\_entry}}
+\index{grid\_entry@{grid\_entry}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{grid\_entry}{grid\_entry}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structGrid__entry}{Grid\+\_\+entry}} grid\+\_\+entry = \{0, 0\}}
+
+\mbox{\Hypertarget{game_8c_adaa1a9f8ec83339cdb661714f5bd2c97}\label{game_8c_adaa1a9f8ec83339cdb661714f5bd2c97}} 
+\index{game.c@{game.c}!rows@{rows}}
+\index{rows@{rows}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{rows}{rows}}
+{\footnotesize\ttfamily uint8\+\_\+t rows = 8}
+
+\mbox{\Hypertarget{game_8c_a9e5d51f62a560a45bc7d99b54ac09308}\label{game_8c_a9e5d51f62a560a45bc7d99b54ac09308}} 
+\index{game.c@{game.c}!selected\_cobblestone\_sprite@{selected\_cobblestone\_sprite}}
+\index{selected\_cobblestone\_sprite@{selected\_cobblestone\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_cobblestone\_sprite}{selected\_cobblestone\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+cobblestone\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a444e9aba37867a857bdabdf77068a3ad}\label{game_8c_a444e9aba37867a857bdabdf77068a3ad}} 
+\index{game.c@{game.c}!selected\_flag\_sprite@{selected\_flag\_sprite}}
+\index{selected\_flag\_sprite@{selected\_flag\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_flag\_sprite}{selected\_flag\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+flag\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a4602efdca7d515e345b40c00248f2350}\label{game_8c_a4602efdca7d515e345b40c00248f2350}} 
+\index{game.c@{game.c}!selected\_grass\_sprite@{selected\_grass\_sprite}}
+\index{selected\_grass\_sprite@{selected\_grass\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_grass\_sprite}{selected\_grass\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+grass\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a2e9310d875d99b3f712c1e6e6946229f}\label{game_8c_a2e9310d875d99b3f712c1e6e6946229f}} 
+\index{game.c@{game.c}!selected\_tile1\_sprite@{selected\_tile1\_sprite}}
+\index{selected\_tile1\_sprite@{selected\_tile1\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile1\_sprite}{selected\_tile1\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile1\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a85e0c5953c73d33686909b90d092bfdb}\label{game_8c_a85e0c5953c73d33686909b90d092bfdb}} 
+\index{game.c@{game.c}!selected\_tile2\_sprite@{selected\_tile2\_sprite}}
+\index{selected\_tile2\_sprite@{selected\_tile2\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile2\_sprite}{selected\_tile2\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile2\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a65c24ab102f8f2d17f3c242bc72a76f0}\label{game_8c_a65c24ab102f8f2d17f3c242bc72a76f0}} 
+\index{game.c@{game.c}!selected\_tile3\_sprite@{selected\_tile3\_sprite}}
+\index{selected\_tile3\_sprite@{selected\_tile3\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile3\_sprite}{selected\_tile3\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile3\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a0291b59524e4142c07be190640aba5cd}\label{game_8c_a0291b59524e4142c07be190640aba5cd}} 
+\index{game.c@{game.c}!selected\_tile4\_sprite@{selected\_tile4\_sprite}}
+\index{selected\_tile4\_sprite@{selected\_tile4\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile4\_sprite}{selected\_tile4\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile4\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a449cad2f7031508e972ca1cfbfcc5339}\label{game_8c_a449cad2f7031508e972ca1cfbfcc5339}} 
+\index{game.c@{game.c}!selected\_tile5\_sprite@{selected\_tile5\_sprite}}
+\index{selected\_tile5\_sprite@{selected\_tile5\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile5\_sprite}{selected\_tile5\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile5\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a18609de42dc942dd6ef07fcf3d94912b}\label{game_8c_a18609de42dc942dd6ef07fcf3d94912b}} 
+\index{game.c@{game.c}!selected\_tile6\_sprite@{selected\_tile6\_sprite}}
+\index{selected\_tile6\_sprite@{selected\_tile6\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile6\_sprite}{selected\_tile6\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile6\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a1ac4e5b9ae7ffc97f72a64bd802ca514}\label{game_8c_a1ac4e5b9ae7ffc97f72a64bd802ca514}} 
+\index{game.c@{game.c}!selected\_tile7\_sprite@{selected\_tile7\_sprite}}
+\index{selected\_tile7\_sprite@{selected\_tile7\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile7\_sprite}{selected\_tile7\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile7\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a4c24176954bd72a87c1d147f52bf2b19}\label{game_8c_a4c24176954bd72a87c1d147f52bf2b19}} 
+\index{game.c@{game.c}!selected\_tile8\_sprite@{selected\_tile8\_sprite}}
+\index{selected\_tile8\_sprite@{selected\_tile8\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{selected\_tile8\_sprite}{selected\_tile8\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ selected\+\_\+tile8\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a5c1bbbc3b99be9b45df20efa4873c524}\label{game_8c_a5c1bbbc3b99be9b45df20efa4873c524}} 
+\index{game.c@{game.c}!tile1\_sprite@{tile1\_sprite}}
+\index{tile1\_sprite@{tile1\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile1\_sprite}{tile1\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile1\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a7252e61c114d1d53a92823b818f821aa}\label{game_8c_a7252e61c114d1d53a92823b818f821aa}} 
+\index{game.c@{game.c}!tile2\_sprite@{tile2\_sprite}}
+\index{tile2\_sprite@{tile2\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile2\_sprite}{tile2\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile2\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a89a2edc242c32e58bc01f73b2eae06dd}\label{game_8c_a89a2edc242c32e58bc01f73b2eae06dd}} 
+\index{game.c@{game.c}!tile3\_sprite@{tile3\_sprite}}
+\index{tile3\_sprite@{tile3\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile3\_sprite}{tile3\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile3\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_aef9baeb23513d2a27d76a0ea7221e4c8}\label{game_8c_aef9baeb23513d2a27d76a0ea7221e4c8}} 
+\index{game.c@{game.c}!tile4\_sprite@{tile4\_sprite}}
+\index{tile4\_sprite@{tile4\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile4\_sprite}{tile4\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile4\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a38c33e59b35b9a90b804e32ae760fa8e}\label{game_8c_a38c33e59b35b9a90b804e32ae760fa8e}} 
+\index{game.c@{game.c}!tile5\_sprite@{tile5\_sprite}}
+\index{tile5\_sprite@{tile5\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile5\_sprite}{tile5\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile5\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_ade3113fe5bdb0602f31d141fb50fd8d1}\label{game_8c_ade3113fe5bdb0602f31d141fb50fd8d1}} 
+\index{game.c@{game.c}!tile6\_sprite@{tile6\_sprite}}
+\index{tile6\_sprite@{tile6\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile6\_sprite}{tile6\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile6\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a8b6dc7049ef90664756b5da47d2d22dc}\label{game_8c_a8b6dc7049ef90664756b5da47d2d22dc}} 
+\index{game.c@{game.c}!tile7\_sprite@{tile7\_sprite}}
+\index{tile7\_sprite@{tile7\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile7\_sprite}{tile7\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile7\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_afd606be973846d15ab23f4866d374d57}\label{game_8c_afd606be973846d15ab23f4866d374d57}} 
+\index{game.c@{game.c}!tile8\_sprite@{tile8\_sprite}}
+\index{tile8\_sprite@{tile8\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tile8\_sprite}{tile8\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tile8\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+
+\mbox{\Hypertarget{game_8c_a2aebf8500de3ca59ebf5350081a12e66}\label{game_8c_a2aebf8500de3ca59ebf5350081a12e66}} 
+\index{game.c@{game.c}!tnt\_sprite@{tnt\_sprite}}
+\index{tnt\_sprite@{tnt\_sprite}!game.c@{game.c}}
+\doxysubsubsection{\texorpdfstring{tnt\_sprite}{tnt\_sprite}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structSprite}{Sprite}}$\ast$ tnt\+\_\+sprite\hspace{0.3cm}{\ttfamily [extern]}}
+

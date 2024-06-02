@@ -1,0 +1,11 @@
+<map id="draw_main_menu" name="draw_main_menu">
+<area shape="rect" id="node1" title="Draws the main menu." alt="" coords="5,81,144,108"/>
+<area shape="rect" id="node2" href="$view_8c.html#ae7fa611cf3ac30a98397d1cd5dbfd2d5" title="Determines the appropriate sky sprite based on the current time." alt="" coords="192,56,333,83"/>
+<area shape="rect" id="node8" href="$view_8c.html#a81f7bc4c06ccd62eb7f3c414764d1ed9" title="Draws a sprite at the specified coordinates." alt="" coords="213,107,312,133"/>
+<area shape="rect" id="node3" href="$rtc_8c.html#ae22bdeb51eb630e1d579dfc1cd1b2f11" title=" " alt="" coords="381,56,509,83"/>
+<area shape="rect" id="node4" href="$rtc_8c.html#a184a584d741fc51b9c5a92742824f9ca" title=" " alt="" coords="557,5,689,32"/>
+<area shape="rect" id="node5" href="$rtc_8c.html#adc6aaf1aaa4914cefba0701c09eb7311" title=" " alt="" coords="737,81,812,108"/>
+<area shape="rect" id="node7" href="$rtc_8c.html#a05f8a643eaa3f15f433fcf21639090a0" title=" " alt="" coords="578,107,669,133"/>
+<area shape="rect" id="node6" href="$utils_8c.html#a79a031a8611f5b2d6afa4158e92b0fb4" title=" " alt="" coords="860,81,959,108"/>
+<area shape="rect" id="node9" href="$graphic_8c.html#a6f895de9725f9f231f9a7f74b6087f60" title=" " alt="" coords="388,107,503,133"/>
+</map>

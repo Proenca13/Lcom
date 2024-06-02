@@ -1,0 +1,25 @@
+\hypertarget{sprite_8h_source}{}\doxysection{sprite.\+h}
+\label{sprite_8h_source}\index{src/Model/sprite.h@{src/Model/sprite.h}}
+\mbox{\hyperlink{sprite_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{comment}{//}}
+\DoxyCodeLine{2 \textcolor{comment}{// Created by joao on 26-\/04-\/2024.}}
+\DoxyCodeLine{3 \textcolor{comment}{//}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#ifndef SHARED\_SPRITE\_H}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#define SHARED\_SPRITE\_H}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include "{}\mbox{\hyperlink{graphic_8h}{Controller/Video/graphic.h}}"{}}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{17 \textcolor{keyword}{typedef} \textcolor{keyword}{struct }\{}
+\DoxyCodeLine{18     \textcolor{keywordtype}{int} \mbox{\hyperlink{structSprite_a6150e0515f7202e2fb518f7206ed97dc}{x}}, y; \textcolor{comment}{// current position}}
+\DoxyCodeLine{19     \textcolor{keywordtype}{int} width, \mbox{\hyperlink{structSprite_ad12fc34ce789bce6c8a05d8a17138534}{height}}; \textcolor{comment}{// dimensions}}
+\DoxyCodeLine{20     \textcolor{keywordtype}{int} \mbox{\hyperlink{structSprite_a90b9d56e145baae469f7b6bb757d9b27}{xspeed}}, yspeed; \textcolor{comment}{// current speed}}
+\DoxyCodeLine{21     uint32\_t *\mbox{\hyperlink{structSprite_ac2d5feb1541a90913eb5ec06f31932b3}{map}}; \textcolor{comment}{// the pixmap}}
+\DoxyCodeLine{22 \} \mbox{\hyperlink{structSprite}{Sprite}};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{34 \mbox{\hyperlink{structSprite}{Sprite}} *\mbox{\hyperlink{sprite_8h_ab8b348464d3c150e1d472db1a1897ed5}{create\_sprite}}(xpm\_map\_t pic);}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{46 \textcolor{keywordtype}{void} \mbox{\hyperlink{sprite_8h_af16c6befaac9ffb673b9e3c798d542ed}{destroy\_sprite}}(\mbox{\hyperlink{structSprite}{Sprite}} *sp);}
+\DoxyCodeLine{47 \textcolor{preprocessor}{\#endif }\textcolor{comment}{//SHARED\_SPRITE\_H}}
+
+\end{DoxyCode}
